@@ -1,6 +1,8 @@
 package sg.edu.np.mad.dontslack;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     private String username;
     private String password;

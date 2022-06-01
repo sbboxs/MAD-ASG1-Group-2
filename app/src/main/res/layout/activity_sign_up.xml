@@ -7,11 +7,24 @@
     tools:context=".SignUp">
 
     <Button
+        android:id="@+id/createButton"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#6F5642"
+        android:text="create account"
+        android:textSize="20sp"
+        app:cornerRadius="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
+
+    <Button
         android:id="@+id/backButton"
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#6F5642"
         android:text="back to login"
         android:textSize="20sp"
@@ -19,31 +32,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createButton" />
 
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="320dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="#6F5642"
-        android:text="create account"
-        android:textSize="20sp"
-        app:cornerRadius="70dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCreatePassword" />
-
     <EditText
         android:id="@+id/editTextCreatePassword"
         android:layout_width="321dp"
         android:layout_height="53dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPersonName"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCreateUsername" />
+
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="321dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreatePassword" />
 
     <EditText
         android:id="@+id/editTextCreateUsername"
