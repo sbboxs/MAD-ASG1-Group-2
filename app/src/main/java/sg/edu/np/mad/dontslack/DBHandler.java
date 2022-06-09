@@ -1,5 +1,7 @@
 package sg.edu.np.mad.dontslack;
 
+import static java.sql.Types.INTEGER;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHandler extends SQLiteOpenHelper {
     public static String DATABASE_NAME = "Don'tSlack.db";
     public static String TABLE_ACCOUNT = "Account";
+    public static String COLUMN_USERID = "UserID";
     public static String COLUMN_USERNAME = "Username";
     public static String COLUMN_PASSWORD = "Password";
     public static String TABLE_TASK = "Tasks";
@@ -24,7 +27,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_ACCOUNT + " ( " + COLUMN_USERNAME + " TEXT, "
+        String CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_ACCOUNT + " ( " + COLUMN_USERID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_USERNAME + " TEXT, "
                 + COLUMN_PASSWORD + " TEXT " + " ) ";
         String CREATE_TASKLIST_TABLE = "CREATE TABLE " + TABLE_TASK + " ( " + COLUMN_TASKNAME + " TEXT, "
                 + COLUMN_PASSWORD + " TEXT, " +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDETAILS + " TEXT, "
@@ -63,8 +67,8 @@ public class DBHandler extends SQLiteOpenHelper {
         //Creating new user using data return from cursor
         User queryData = new User();
         if (cursor.moveToFirst()){
-            queryData.setUsername(cursor.getString(0));
-            queryData.setPassword((cursor.getString(1)));
+            queryData.setUsername(cursor.getString(1));
+            queryData.setPassword((cursor.getString(2)));
         }
         else{
             queryData = null;
