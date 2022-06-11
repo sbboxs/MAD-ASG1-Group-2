@@ -31,8 +31,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_USERNAME + " TEXT, "
                 + COLUMN_PASSWORD + " TEXT " + " ) ";
         String CREATE_TASKLIST_TABLE = "CREATE TABLE " + TABLE_TASK + " ( " + COLUMN_TASKNAME + " TEXT, "
-                + COLUMN_PASSWORD + " TEXT, " +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDETAILS + " TEXT, "
-                + COLUMN_TASKDODATE + " TEXT, " + COLUMN_TASKDEADLINE + "TEXT" + " ) " ;
+                +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDETAILS + " TEXT, "
+                + COLUMN_TASKDODATE + " TEXT, " + COLUMN_TASKDEADLINE + " TEXT" + " ) " ;
         db.execSQL(CREATE_ACCOUNT_TABLE);
         db.execSQL(CREATE_TASKLIST_TABLE);
     }

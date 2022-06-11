@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         /* Hiding the top bar */
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.hide();
 
         /* Login Button */
