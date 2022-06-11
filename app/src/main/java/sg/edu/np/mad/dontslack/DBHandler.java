@@ -79,5 +79,52 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //TABLE_TASK_SECTION
+    //Add a task
+    public void addTask(TaskObject task){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //Put user details into ContentValues
+        values.put(COLUMN_TASKNAME, task.getTaskName());
+        values.put(String.valueOf(COLUMN_TASKSTATUS),task.isTaskStatus());
+        values.put(COLUMN_TASKDETAILS, task.getTaskDetails());
+        values.put(COLUMN_TASKDODATE, task.getTaskDoDate());
+        values.put(COLUMN_TASKDEADLINE, task.getTaskDeadLine());
+        //Insert ContentValues into DataBase
+        db.insert(TABLE_TASK, null, values);
+        db.close();
+    }
 
+    //Retrieve a task from the DataBase
+    public TaskObject findTASK(String taskName){
+        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + COLUMN_TASKNAME + "=\"" + taskName + "\"";
+        SQLiteDatabase db = this.getReadableDatabase();
+        //Set cursor to search for specific account details
+        Cursor cursor = db.rawQuery(query, null);
+        //Creating new user using data return from cursor
+        TaskObject queryData = new TaskObject();
+        if (cursor.moveToFirst()){
+            queryData.setTaskName(cursor.getString(0));
+            queryData.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
+            queryData.setTaskDetails(cursor.getString(2));
+            queryData.setTaskDoDate(cursor.getString(3));
+            queryData.setTaskDeadLine(cursor.getString(4));
+        }
+        else{
+            queryData = null;
+        }
+        cursor.close();
+        db.close();
+        return queryData;
+    }
+
+    Cursor readAllTaskData(){
+        String query = "SELECT * FROM " + TABLE_TASK;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return  cursor;
+    }
 }

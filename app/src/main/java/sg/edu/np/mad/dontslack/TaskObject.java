@@ -2,12 +2,15 @@ package sg.edu.np.mad.dontslack;
 
 import java.io.Serializable;
 
-public class TaskList implements Serializable {
+public class TaskObject implements Serializable {
     private String taskName;
     private boolean taskStatus;
     private String taskDetails;
     private String taskDoDate;
     private String taskDeadLine;
+    public TaskObject(){
+
+    }
 
     public String getTaskName() {
         return taskName;
