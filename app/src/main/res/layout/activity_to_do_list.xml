@@ -19,20 +19,22 @@
 
     <Button
         android:id="@+id/workFragmentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="205dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="88dp"
+        android:background="#E1E3E5"
         android:text="Work"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/personalFragmentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="205dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="88dp"
+        android:background="#E1E3E5"
         android:text="Personal"
         app:layout_constraintStart_toEndOf="@+id/workFragmentButton"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,11 +43,13 @@
         android:id="@+id/toDoListFrameLayout"
         android:layout_width="413dp"
         android:layout_height="509dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
+        android:background="#e1e3e5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton">
+        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton"
+        android:stateListAnimator="@null">
 
     </FrameLayout>
 
@@ -53,9 +57,10 @@
         android:id="@+id/addTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="187dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="4dp"
         android:clickable="true"
+        app:backgroundTint="#8E8B8B"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toDoListFrameLayout"
         app:srcCompat="@drawable/ic_addbutton" />

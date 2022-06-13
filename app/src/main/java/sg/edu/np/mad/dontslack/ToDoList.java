@@ -2,6 +2,7 @@ package sg.edu.np.mad.dontslack;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.view.View;
@@ -40,20 +42,26 @@ public class ToDoList extends AppCompatActivity{
 
 
         Button workTaskButton = findViewById(R.id.workFragmentButton);
+        Button personalTaskButton = findViewById(R.id.personalFragmentButton);
+
         workTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 taskCategory = "work";
+                workTaskButton.setBackgroundColor(Color.LTGRAY);
+                personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
                 storeTaskDataToArray();
                 replaceFragment(new toDoListWork(),workTaskList);
             }
         });
 
-        Button personalTaskButton = findViewById(R.id.personalFragmentButton);
+
         personalTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 taskCategory = "personal";
+                workTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+                personalTaskButton.setBackgroundColor(Color.LTGRAY);
                 storeTaskDataToArray();
                 replaceFragment(new toDoListPersonal(),personalTaskList);
             }
