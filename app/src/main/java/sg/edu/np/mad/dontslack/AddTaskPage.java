@@ -1,5 +1,6 @@
 package sg.edu.np.mad.dontslack;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -31,6 +32,11 @@ public class AddTaskPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task_page);
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
         Bundle categoryBundle = getIntent().getExtras();
         String taskCategory = categoryBundle.getString("category");
 
@@ -93,7 +99,7 @@ public class AddTaskPage extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
-                        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
+                        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy h.mm aaa");
                         date_time.setText(simpleDateFormat.format(calendar.getTime()));
                         dateTime = date_time.getText().toString();
                         Log.v(TAG,"Timing:" + dateTime);
