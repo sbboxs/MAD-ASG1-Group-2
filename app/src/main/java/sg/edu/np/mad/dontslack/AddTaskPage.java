@@ -16,7 +16,8 @@ public class AddTaskPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task_page);
-
+        Bundle categoryBundle = getIntent().getExtras();
+        String taskCategory = categoryBundle.getString("category");
         Button createTaskButton = findViewById(R.id.createTaskButton);
         createTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,21 +25,20 @@ public class AddTaskPage extends AppCompatActivity {
                 EditText taskTitle = findViewById(R.id.taskTitle);
                 EditText taskDetails = findViewById(R.id.taskDetails);
                 EditText taskStartTime = findViewById(R.id.taskStartTime);
-                EditText taskDoDate = findViewById(R.id.taskDoBy);
                 EditText taskDeadLine = findViewById(R.id.taskDeadline);
 
                 String TaskTitle = taskTitle.getText().toString();
                 String TaskDetails = taskDetails.getText().toString();
                 String TaskStartTime = taskStartTime.getText().toString();
-                String TaskDoDate = taskDoDate.getText().toString();
                 String TaskDeadLine = taskDeadLine.getText().toString();
 
                 TaskObject newTaskObject = new TaskObject();
                 newTaskObject.setTaskName(TaskTitle);
-                newTaskObject.setTaskStatus(false);
+                newTaskObject.setTaskCategory(taskCategory);
                 newTaskObject.setTaskDetails(TaskDetails);
-                newTaskObject.setTaskDoDate(TaskDoDate);
+                newTaskObject.setTaskStartTime(TaskStartTime);
                 newTaskObject.setTaskDeadLine(TaskDeadLine);
+                newTaskObject.setTaskStatus(false);
                 dbHandler.addTask(newTaskObject);
                 Toast.makeText(AddTaskPage.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(AddTaskPage.this,ToDoList.class);

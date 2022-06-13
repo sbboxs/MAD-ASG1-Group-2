@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 public class TaskObject implements Serializable {
     private String taskName;
-    private boolean taskStatus;
+    private String taskCategory;
     private String taskDetails;
-    private String taskDoDate;
+    private String taskStartTime;
     private String taskDeadLine;
+    private boolean taskStatus;
+
     public TaskObject(){
 
     }
@@ -36,12 +38,12 @@ public class TaskObject implements Serializable {
         this.taskDetails = taskDetails;
     }
 
-    public String getTaskDoDate() {
-        return taskDoDate;
+    public String getTaskStartTime() {
+        return taskStartTime;
     }
 
-    public void setTaskDoDate(String taskDoDate) {
-        this.taskDoDate = taskDoDate;
+    public void setTaskStartTime(String taskDoDate) {
+        this.taskStartTime = taskStartTime;
     }
 
     public String getTaskDeadLine() {
@@ -51,4 +53,8 @@ public class TaskObject implements Serializable {
     public void setTaskDeadLine(String taskDeadLine) {
         this.taskDeadLine = taskDeadLine;
     }
+
+    public String getTaskCategory(){return taskCategory;}
+
+    public void setTaskCategory(String taskCategory){ this.taskCategory = taskCategory;}
 }

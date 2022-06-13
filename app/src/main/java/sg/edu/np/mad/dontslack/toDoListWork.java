@@ -16,16 +16,18 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class toDoListWork extends Fragment implements SelectListener{
-    DBHandler dbHandler = new DBHandler(this.getContext(),null,null,1);
-    ArrayList<TaskObject> taskList = new ArrayList<TaskObject>();
     View view;
+    ArrayList<TaskObject> taskList = new ArrayList<TaskObject>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Bundle taskListBundle = this.getArguments();
+        assert taskListBundle != null;
+        taskList = (ArrayList<TaskObject>) taskListBundle.getSerializable("taskList");
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_to_do_list_work, container, false);
-        storeTaskDataToArray();
 
         RecyclerView recyclerView = view.findViewById(R.id.toDoListRecyclerView);
         ToDoListAdapter myAdapter = new ToDoListAdapter(taskList, this);
@@ -34,23 +36,6 @@ public class toDoListWork extends Fragment implements SelectListener{
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(myAdapter);
         return view;
-    }
-
-    private void storeTaskDataToArray() {
-        Cursor cursor = dbHandler.readAllTaskData();
-        if (cursor.getCount() == 0) {
-
-        } else {
-            while (cursor.moveToNext()) {
-                TaskObject task = new TaskObject();
-                task.setTaskName(cursor.getString(0));
-                task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                task.setTaskDetails(cursor.getString(2));
-                task.setTaskDoDate(cursor.getString(3));
-                task.setTaskDeadLine(cursor.getString(4));
-                taskList.add(task);
-            }
-        }
     }
 
     @Override

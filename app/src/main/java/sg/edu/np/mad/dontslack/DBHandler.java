@@ -16,9 +16,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String COLUMN_PASSWORD = "Password";
     public static String TABLE_TASK = "Tasks";
     public static String COLUMN_TASKNAME = "TaskName";
+    public static String COLUMN_TASKCATEGORY = "Category";
     public static String COLUMN_TASKSTATUS = "TaskStatus";
     public static String COLUMN_TASKDETAILS = "TaskDetails";
-    public static String COLUMN_TASKDODATE = "TaskDoDate";
+    public static String COLUMN_TASKSTARTTIME = "TaskStartTime";
     public static String COLUMN_TASKDEADLINE = "TaskDeadLine";
     public static int DATABASE_VERSION = 1;
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
@@ -31,8 +32,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_USERNAME + " TEXT, "
                 + COLUMN_PASSWORD + " TEXT " + " ) ";
         String CREATE_TASKLIST_TABLE = "CREATE TABLE " + TABLE_TASK + " ( " + COLUMN_TASKNAME + " TEXT, "
+                + COLUMN_TASKCATEGORY + " TEXT,"
                 +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDETAILS + " TEXT, "
-                + COLUMN_TASKDODATE + " TEXT, " + COLUMN_TASKDEADLINE + " TEXT" + " ) " ;
+                + COLUMN_TASKSTARTTIME + " TEXT, " + COLUMN_TASKDEADLINE + " TEXT" + " ) " ;
         db.execSQL(CREATE_ACCOUNT_TABLE);
         db.execSQL(CREATE_TASKLIST_TABLE);
     }
@@ -85,9 +87,10 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         //Put user details into ContentValues
         values.put(COLUMN_TASKNAME, task.getTaskName());
+        values.put(COLUMN_TASKCATEGORY, task.getTaskCategory());
         values.put(String.valueOf(COLUMN_TASKSTATUS),task.isTaskStatus());
         values.put(COLUMN_TASKDETAILS, task.getTaskDetails());
-        values.put(COLUMN_TASKDODATE, task.getTaskDoDate());
+        values.put(COLUMN_TASKSTARTTIME, task.getTaskStartTime());
         values.put(COLUMN_TASKDEADLINE, task.getTaskDeadLine());
         //Insert ContentValues into DataBase
         db.insert(TABLE_TASK, null, values);
@@ -106,7 +109,7 @@ public class DBHandler extends SQLiteOpenHelper {
             queryData.setTaskName(cursor.getString(0));
             queryData.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
             queryData.setTaskDetails(cursor.getString(2));
-            queryData.setTaskDoDate(cursor.getString(3));
+            queryData.setTaskStartTime(cursor.getString(3));
             queryData.setTaskDeadLine(cursor.getString(4));
         }
         else{
@@ -117,8 +120,8 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryData;
     }
 
-    Cursor readAllTaskData(){
-        String query = "SELECT * FROM " + TABLE_TASK;
+    Cursor readAllTaskData(String taskCategory){
+        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + COLUMN_TASKCATEGORY + "=\"" + taskCategory + "\"";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

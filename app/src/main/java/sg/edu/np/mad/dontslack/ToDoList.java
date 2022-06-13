@@ -17,10 +17,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ToDoList extends AppCompatActivity{
     private String TAG = "ToDoList";
+    DBHandler dbHandler = new DBHandler(this, null,null,1);
+    ArrayList<TaskObject> taskList = new ArrayList<TaskObject>();
+    String taskCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,9 @@ public class ToDoList extends AppCompatActivity{
         workTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(new toDoListPersonal());
+                taskCategory = "work";
+                storeTaskDataToArray();
+                replaceFragment(new toDoListWork());
             }
         });
 
@@ -44,25 +50,49 @@ public class ToDoList extends AppCompatActivity{
         personalTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(new toDoListWork());
+                taskCategory = "personal";
+                storeTaskDataToArray();
+                replaceFragment(new toDoListPersonal());
             }
         });
 
-//        Button addTaskButton = findViewById(R.id.addTaskButton);
-//        addTaskButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent myIntent = new Intent(ToDoList.this,AddTaskPage.class);
-//                startActivity(myIntent);
-//            }
-//        });
+        Button addTaskButton = findViewById(R.id.addTaskButton);
+        addTaskButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ToDoList.this,AddTaskPage.class);
+                myIntent.putExtra("category",taskCategory);
+                startActivity(myIntent);
+            }
+        });
     }
 
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Bundle taskListBundle = new Bundle();
+        taskListBundle.putSerializable("taskList", (Serializable) taskList);
+        fragment.setArguments(taskListBundle);
         fragmentTransaction.replace(R.id.toDoListFrameLayout,fragment);
         fragmentTransaction.commit();
+    }
+
+    private void storeTaskDataToArray() {
+        Cursor cursor = dbHandler.readAllTaskData(taskCategory);
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this,"No Data Found", Toast.LENGTH_SHORT).show();
+
+        } else {
+            while (cursor.moveToNext()) {
+                TaskObject task = new TaskObject();
+                task.setTaskName(cursor.getString(0));
+                task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
+                task.setTaskDetails(cursor.getString(2));
+                task.setTaskStartTime(cursor.getString(3));
+                task.setTaskDeadLine(cursor.getString(4));
+                taskList.add(task);
+            }
+        }
     }
 }
