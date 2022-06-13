@@ -15,7 +15,7 @@
             android:layout_width="310dp"
             android:layout_height="81dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/btn_circle"
             android:backgroundTint="#D2A24D"
@@ -24,10 +24,10 @@
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="45dp"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             android:buttonTint="@color/white" />
@@ -36,8 +36,8 @@
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="225dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="45dp"
             app:srcCompat="@android:drawable/ic_media_play" />
 
     </RelativeLayout>
