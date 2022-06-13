@@ -36,6 +36,7 @@
         android:hint="Start Time"
         android:inputType="datetime"
         android:padding="10dp"
+        android:drawableEnd="@drawable/ic_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskDetails" />
@@ -53,6 +54,7 @@
         android:hint="Deadline"
         android:inputType="datetime"
         android:padding="10dp"
+        android:drawableEnd="@drawable/ic_deadline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskStartTime" />
@@ -62,7 +64,7 @@
         android:layout_width="320dp"
         android:layout_height="53dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="44dp"
         android:background="@drawable/custom_input"
         android:ems="10"

@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DontSlack">
         <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".FAQ"
+            android:exported="false" />
+        <activity
+            android:name=".Contact"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".HomePageMore"
             android:exported="false" />
         <activity
