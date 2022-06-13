@@ -26,7 +26,7 @@ public class AddTaskPage extends AppCompatActivity {
     DBHandler dbHandler = new DBHandler(this,null,null,1);
     String startingTime;
     String deadLine;
-    String dateTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,18 +42,20 @@ public class AddTaskPage extends AppCompatActivity {
         EditText taskDeadLine = findViewById(R.id.taskDeadline);
 
         taskStartTime.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                taskStartTime.setText("startingTime");
                 showDateTimeDialog(taskStartTime);
-                Log.v(TAG,"11startingTIme:" + startingTime);
             }
         });
 
         taskDeadLine.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                taskDeadLine.setText("deadLine");
                 showDateTimeDialog(taskDeadLine);
-                Log.v(TAG,"11Deadline:" + deadLine);
             }
         });
 
@@ -65,11 +67,16 @@ public class AddTaskPage extends AppCompatActivity {
                 newTaskObject.setTaskCategory(taskCategory);
                 newTaskObject.setTaskName(taskTitle.getText().toString());
                 newTaskObject.setTaskDetails(taskDetails.getText().toString());
-                Log.v(TAG,"startingTIme:" + startingTime);
-                Log.v(TAG,"Deadline:" + deadLine);
+
+
                 newTaskObject.setTaskStartTime(startingTime);
                 newTaskObject.setTaskDeadLine(deadLine);
+                newTaskObject.setTaskStartTime(startingTime);
+
+
                 newTaskObject.setTaskStatus(false);
+                Log.v(TAG,"object-starting:"+newTaskObject.getTaskStartTime());
+                Log.v(TAG,"object-deadling:"+newTaskObject.getTaskDeadLine());
                 dbHandler.addTask(newTaskObject);
                 Toast.makeText(AddTaskPage.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(AddTaskPage.this,ToDoList.class);
@@ -94,9 +101,15 @@ public class AddTaskPage extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
                         @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
-                        date_time.setText(simpleDateFormat.format(calendar.getTime()));
-                        dateTime = date_time.getText().toString();
-                        Log.v(TAG,"Timing:" + dateTime);
+                        if(date_time.getText().toString().equals("startingTime")){
+                            date_time.setText(simpleDateFormat.format(calendar.getTime()));
+                            startingTime = date_time.getText().toString();
+                            Log.v(TAG,"StartingTiming:" + startingTime);
+                        }else{
+                            date_time.setText(simpleDateFormat.format(calendar.getTime()));
+                            deadLine = date_time.getText().toString();
+                            Log.v(TAG,"DeadlineTiming:" + deadLine);
+                        }
                     }
                 };
                 new TimePickerDialog(AddTaskPage.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
