@@ -13,6 +13,6 @@ public class ToDoListViewHolder extends RecyclerView.ViewHolder {
     public ToDoListViewHolder(View itemView){
         super(itemView);
         taskSection = itemView.findViewById(R.id.taskSection);
-        taskName = itemView.findViewById(R.id.taskName);
+        taskName = itemView.findViewById(R.id.taskDetailButton);
     }
 }
