@@ -16,6 +16,7 @@
         android:hint="Username"
         android:inputType="textPersonName"
         android:textColor="#000000"
+        android:drawableStart="@drawable/ic_person"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -43,6 +44,7 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPersonName"
+        android:drawableStart="@drawable/ic_lock"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
