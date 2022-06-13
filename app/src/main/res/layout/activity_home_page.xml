@@ -31,7 +31,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ECE6C2">
+                android:background="#F4F1E2">
 
                 <Button
                     android:id="@+id/friendListButton"
@@ -53,10 +53,10 @@
                     android:layout_height="75dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="21dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="20dp"
                     app:srcCompat="@drawable/ic_friendlist" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -90,7 +90,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FBFBF9">
+                android:background="#F4F1E2">
 
 
                 <ImageView
@@ -130,7 +130,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFFFFF">
+                android:background="#F4F1E2">
 
                 <ImageView
                     android:id="@+id/imageView11"
@@ -177,6 +177,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="20dp"
             app:cardElevation="5dp">
 
@@ -185,7 +186,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ECE6C2">
+                android:background="#F4F1E2">
 
 
                 <ImageView
@@ -224,7 +225,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ECE6C2">
+                android:background="#F4F1E2">
 
 
                 <Button
@@ -409,6 +410,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="182dp"
         android:text="More"
         android:textStyle="bold"
