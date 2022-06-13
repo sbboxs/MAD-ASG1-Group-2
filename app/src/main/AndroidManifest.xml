@@ -24,6 +24,9 @@
         <activity
             android:name=".SignUp"
             android:exported="false" />
+        <activity
+            android:name=".Calendar"
+            android:exported="false" />
         <!--
 <activity
             android:name=".Login"
