@@ -36,7 +36,6 @@ public class toDoListWork extends Fragment implements SelectListener{
         return view;
     }
 
-
     private void storeTaskDataToArray() {
         Cursor cursor = dbHandler.readAllTaskData();
         if (cursor.getCount() == 0) {
