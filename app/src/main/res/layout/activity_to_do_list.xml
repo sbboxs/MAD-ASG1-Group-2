@@ -39,25 +39,25 @@
 
     <FrameLayout
         android:id="@+id/toDoListFrameLayout"
-        android:layout_width="409dp"
-        android:layout_height="586dp"
+        android:layout_width="413dp"
+        android:layout_height="509dp"
         android:layout_marginTop="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton">
 
     </FrameLayout>
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="33dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/workFragmentButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        android:layout_marginStart="187dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toDoListFrameLayout"
+        app:srcCompat="@drawable/ic_addbutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

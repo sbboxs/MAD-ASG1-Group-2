@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class ToDoList extends AppCompatActivity{
             }
         });
 
-        Button addTaskButton = findViewById(R.id.addTaskButton);
+        FloatingActionButton addTaskButton = findViewById(R.id.addTaskButton);
         addTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
