@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/activity_home_page.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/activity_login.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/activity_sign_up.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_sign_up.xml" value="0.1265625" />
@@ -34,7 +37,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="18" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
