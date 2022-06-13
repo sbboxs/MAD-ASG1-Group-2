@@ -6,49 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".ToDoList">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="410dp"
-        android:layout_height="100dp"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="16dp"
+        android:text="To Do List"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:text="ToDoList" />
-    </RelativeLayout>
+    <Button
+        android:id="@+id/workFragmentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="84dp"
+        android:text="Work"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/toDoListRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="468dp"
-        android:layout_marginBottom="50dp"
+    <Button
+        android:id="@+id/personalFragmentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="84dp"
+        android:text="Personal"
+        app:layout_constraintStart_toEndOf="@+id/workFragmentButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/toDoListFrameLayout"
+        android:layout_width="409dp"
+        android:layout_height="586dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton">
 
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <RelativeLayout
-        android:layout_width="412dp"
-        android:layout_height="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toDoListRecyclerView"
-        app:layout_constraintVertical_bias="0.0">
-
-        <Button
-            android:id="@+id/addTaskButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add"
-            tools:ignore="TouchTargetSizeCheck" />
-    </RelativeLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

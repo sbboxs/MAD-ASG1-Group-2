@@ -1,6 +1,9 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,55 +18,45 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ToDoList extends AppCompatActivity implements SelectListener{
-    DBHandler dbHandler = new DBHandler(this,null,null,1);
+public class ToDoList extends AppCompatActivity{
     private String TAG = "ToDoList";
-    ArrayList<TaskObject> taskList = new ArrayList<TaskObject>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
 
-        storeTaskDataToArray();
-
-        RecyclerView recyclerView = findViewById(R.id.toDoListRecyclerView);
-        ToDoListAdapter myAdapter = new ToDoListAdapter(taskList, this);
-        LinearLayoutManager toDOListLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(toDOListLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(myAdapter);
-
-        Button addTaskButton = findViewById(R.id.addTaskButton);
-        addTaskButton.setOnClickListener(new View.OnClickListener() {
+        Button workTaskButton = findViewById(R.id.workFragmentButton);
+        workTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(ToDoList.this,AddTaskPage.class);
-                startActivity(myIntent);
+                replaceFragment(new toDoListPersonal());
             }
         });
-    }
 
-    @Override
-    public void onItemClicked(TaskObject taskObject) {
-
-    }
-
-
-    private void storeTaskDataToArray() {
-        Cursor cursor = dbHandler.readAllTaskData();
-        if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-                TaskObject task = new TaskObject();
-                task.setTaskName(cursor.getString(0));
-                task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                task.setTaskDetails(cursor.getString(2));
-                task.setTaskDoDate(cursor.getString(3));
-                task.setTaskDeadLine(cursor.getString(4));
-                taskList.add(task);
+        Button personalTaskButton = findViewById(R.id.personalFragmentButton);
+        personalTaskButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new toDoListWork());
             }
-        }
+        });
+
+//        Button addTaskButton = findViewById(R.id.addTaskButton);
+//        addTaskButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(ToDoList.this,AddTaskPage.class);
+//                startActivity(myIntent);
+//            }
+//        });
+    }
+
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.toDoListFrameLayout,fragment);
+        fragmentTransaction.commit();
     }
 }
