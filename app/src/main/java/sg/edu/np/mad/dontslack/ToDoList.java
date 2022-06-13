@@ -70,7 +70,6 @@ public class ToDoList extends AppCompatActivity{
         });
     }
 
-
     private void replaceFragment(Fragment fragment, ArrayList<TaskObject>taskList) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
