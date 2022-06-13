@@ -23,7 +23,8 @@ import java.util.ArrayList;
 public class ToDoList extends AppCompatActivity{
     private String TAG = "ToDoList";
     DBHandler dbHandler = new DBHandler(this, null,null,1);
-    ArrayList<TaskObject> taskList = new ArrayList<TaskObject>();
+    ArrayList<TaskObject> workTaskList = new ArrayList<TaskObject>();
+    ArrayList<TaskObject> personalTaskList = new ArrayList<TaskObject>();
     String taskCategory;
 
     @Override
@@ -42,7 +43,7 @@ public class ToDoList extends AppCompatActivity{
             public void onClick(View v) {
                 taskCategory = "work";
                 storeTaskDataToArray();
-                replaceFragment(new toDoListWork());
+                replaceFragment(new toDoListWork(),workTaskList);
             }
         });
 
@@ -52,7 +53,7 @@ public class ToDoList extends AppCompatActivity{
             public void onClick(View v) {
                 taskCategory = "personal";
                 storeTaskDataToArray();
-                replaceFragment(new toDoListPersonal());
+                replaceFragment(new toDoListPersonal(),personalTaskList);
             }
         });
 
@@ -68,7 +69,7 @@ public class ToDoList extends AppCompatActivity{
     }
 
 
-    private void replaceFragment(Fragment fragment) {
+    private void replaceFragment(Fragment fragment, ArrayList<TaskObject>taskList) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Bundle taskListBundle = new Bundle();
@@ -84,15 +85,30 @@ public class ToDoList extends AppCompatActivity{
             Toast.makeText(this,"No Data Found", Toast.LENGTH_SHORT).show();
 
         } else {
-            while (cursor.moveToNext()) {
-                TaskObject task = new TaskObject();
-                task.setTaskName(cursor.getString(0));
-                task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                task.setTaskDetails(cursor.getString(2));
-                task.setTaskStartTime(cursor.getString(3));
-                task.setTaskDeadLine(cursor.getString(4));
-                taskList.add(task);
+            if (taskCategory.equals("work")){
+                workTaskList.clear();
+                while (cursor.moveToNext()) {
+                    TaskObject task = new TaskObject();
+                    task.setTaskName(cursor.getString(0));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
+                    task.setTaskDetails(cursor.getString(2));
+                    task.setTaskStartTime(cursor.getString(3));
+                    task.setTaskDeadLine(cursor.getString(4));
+                    workTaskList.add(task);
+                }
+            }else{
+                personalTaskList.clear();
+                while (cursor.moveToNext()) {
+                    TaskObject task = new TaskObject();
+                    task.setTaskName(cursor.getString(0));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
+                    task.setTaskDetails(cursor.getString(2));
+                    task.setTaskStartTime(cursor.getString(3));
+                    task.setTaskDeadLine(cursor.getString(4));
+                    personalTaskList.add(task);
+                }
             }
+
         }
     }
 }
