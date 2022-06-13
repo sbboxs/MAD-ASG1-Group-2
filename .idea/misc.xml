@@ -3,12 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+=======
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_home_page.xml" value="0.184375" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_login.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_sign_up.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_to_do_list.xml" value="0.184375" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.22" />
+>>>>>>> origin/main
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_sign_up.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_home_page.xml" value="0.275" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+<<<<<<< HEAD
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_calendar.xml" value="0.131" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_friendlist.xml" value="0.1" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_notes.xml" value="0.131" />
@@ -27,6 +37,8 @@
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/fragment_to_do_list_work.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.15942028985507245" />
+=======
+>>>>>>> origin/main
       </map>
     </option>
   </component>
