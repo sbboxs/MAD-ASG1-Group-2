@@ -31,34 +31,32 @@ public class Login extends AppCompatActivity {
         myLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(Login.this,HomePage.class);
-                startActivity(myIntent);
-//                EditText etMyUserName = findViewById(R.id.editTextUsername);
-//                etUsername = etMyUserName.getText().toString();
-//                EditText etMyPassword = findViewById(R.id.editTextPassword);
-//                etPassword = etMyPassword.getText().toString();
-//                if(!etUsername.equals("") && !etPassword.equals("")){
-//                    //Check is valid login credentials
-//                    if(isValidCredentials(etUsername,etPassword)){
-//                        //Save user data and pass it to intent
-//                        User user = new User();
-//                        user.setUsername(etUsername);
-//                        user.setPassword(etPassword);
-//                        Bundle myBundle = new Bundle();
-//                        Intent myIntent = new Intent(Login.this,HomePage.class);
-//                        myIntent.putExtra("Bundle",myBundle);
-//                        startActivity(myIntent);
-//                    }
-//                    //If invalid login credentials
-//                    else{
-//                        Toast.makeText(Login.this, "Invalid Login Credentials!", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                else{
-//                    Toast.makeText(Login.this, "Please ensure all fields is filled!", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                Log.v(TAG, "Login:" + etUsername + " " + etPassword);
+                EditText etMyUserName = findViewById(R.id.editTextUsername);
+                etUsername = etMyUserName.getText().toString();
+                EditText etMyPassword = findViewById(R.id.editTextPassword);
+                etPassword = etMyPassword.getText().toString();
+                if(!etUsername.equals("") && !etPassword.equals("")){
+                    //Check is valid login credentials
+                    if(isValidCredentials(etUsername,etPassword)){
+                        //Save user data and pass it to intent
+                        User user = new User();
+                        user.setUsername(etUsername);
+                        user.setPassword(etPassword);
+                        Bundle myBundle = new Bundle();
+                        Intent myIntent = new Intent(Login.this,HomePage.class);
+                        myIntent.putExtra("Bundle",myBundle);
+                        startActivity(myIntent);
+                    }
+                    //If invalid login credentials
+                    else{
+                        Toast.makeText(Login.this, "Invalid Login Credentials!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(Login.this, "Please ensure all fields is filled!", Toast.LENGTH_SHORT).show();
+                }
+
+                Log.v(TAG, "Login:" + etUsername + " " + etPassword);
             }
         });
 
@@ -77,7 +75,7 @@ public class Login extends AppCompatActivity {
         //If Username is found
         if (dbData != null){
             //Check if user password is correct
-            if(dbData.getUsername().equals(userName) && dbData.getUsername().equals(password)){
+            if(dbData.getUsername().equals(userName) && dbData.getPassword().equals(password)){
                 Toast.makeText(Login.this,"Login Success", Toast.LENGTH_SHORT).show();
                 return true;
             }
