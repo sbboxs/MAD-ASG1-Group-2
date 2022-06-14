@@ -129,6 +129,7 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_TASKDISCRIPTION, taskObject.getTaskDescription());
         cv.put(COLUMN_TASKSTARTTIME, taskObject.getTaskStartTime());
         cv.put(COLUMN_TASKDEADLINE, taskObject.getTaskDeadLine());
+        cv.put(String.valueOf(COLUMN_TASKSTATUS),taskObject.isTaskStatus());
         db.update(TABLE_TASK, cv, "TaskName=?", new String[]{originalTaskname});
     }
 

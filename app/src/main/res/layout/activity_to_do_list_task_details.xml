@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/taskDiscription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="172dp"
+        android:layout_height="59dp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="34dp"
@@ -70,8 +70,8 @@
 
     <TextView
         android:id="@+id/taskStartTIme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="104dp"
+        android:layout_height="71dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="112dp"
@@ -83,8 +83,8 @@
 
     <TextView
         android:id="@+id/tasktDeadLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="70dp"
         android:layout_marginStart="53dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="112dp"
@@ -103,4 +103,36 @@
         android:text="edit"
         app:layout_constraintStart_toEndOf="@+id/taskTitle"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/startStopTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="311dp"
+        android:text="start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <Button
+        android:id="@+id/completeTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="208dp"
+        android:text="Complete"
+        app:layout_constraintStart_toEndOf="@+id/startStopTaskButton"
+        app:layout_constraintTop_toBottomOf="@+id/tasktDeadLine" />
+
+    <TextView
+        android:id="@+id/taskTimer"
+        android:layout_width="139dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="148dp"
+        android:text="00:00:00"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tasktDeadLine" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

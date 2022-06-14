@@ -93,7 +93,6 @@ public class AddTaskPage extends AppCompatActivity {
                         startActivity(myIntent);
                     }
                 }
-
                 else{
                     Toast.makeText(AddTaskPage.this,"Task already exist!",Toast.LENGTH_SHORT).show();
                 }
