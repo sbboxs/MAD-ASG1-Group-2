@@ -28,7 +28,8 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder> {
     public void onBindViewHolder(ToDoListViewHolder holder, @SuppressLint("RecyclerView") int position){
         String taskName = data.get(position).getTaskName();
         holder.taskName.setText(taskName);
-        holder.taskSection.setOnClickListener(new View.OnClickListener() {
+
+        holder.taskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectListener.onItemClicked(data.get(position));
