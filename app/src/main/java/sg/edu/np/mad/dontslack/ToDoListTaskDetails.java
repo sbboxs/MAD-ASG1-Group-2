@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -42,5 +43,15 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        ImageView goBackButton = findViewById(R.id.goBack);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ToDoListTaskDetails.this, ToDoList.class);
+                startActivity(myIntent);
+            }
+        });
+
     }
 }
