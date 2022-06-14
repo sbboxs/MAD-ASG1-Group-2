@@ -42,6 +42,9 @@
         <activity
             android:name=".Notes"
             android:exported="false" />
+        <activity
+            android:name=".Calendar"
+            android:exported="false" />
         <!--
 <activity
             android:name=".Login"
