@@ -42,6 +42,7 @@
                     android:layout_marginTop="31dp"
                     android:layout_toEndOf="@+id/imageView5"
                     android:background="@drawable/btn_bg"
+                    android:fontFamily="@font/roboto"
                     android:text="Friend List "
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -109,7 +110,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/btn_bg"
-                    android:fontFamily="@font/alata"
+                    android:fontFamily="@font/roboto"
                     android:text="To-Do List"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -148,7 +149,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/btn_bg"
-                    android:fontFamily="@font/alata"
+                    android:fontFamily="@font/roboto"
                     android:text="timer"
                     android:textColor="@color/white"
                     android:textSize="20sp"
@@ -205,7 +206,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/btn_bg"
-                    android:fontFamily="@font/alata"
+                    android:fontFamily="@font/roboto"
                     android:text="notes"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -236,7 +237,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/btn_bg"
-                    android:fontFamily="@font/alata"
+                    android:fontFamily="@font/roboto"
                     android:text="calendar"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -299,6 +300,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="0dp"
                     android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/roboto"
                     android:text="Profile"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -331,6 +333,7 @@
                     android:layout_below="@id/contactButton"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto"
                     android:text="Contact"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -364,6 +367,7 @@
                     android:layout_below="@id/faqButton"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto"
                     android:text="FAQ"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -397,6 +401,7 @@
                     android:layout_below="@id/settingsButton"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/roboto"
                     android:text="Settings"
                     android:textStyle="bold" />
 

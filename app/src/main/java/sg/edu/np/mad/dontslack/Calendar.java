@@ -1,6 +1,7 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +31,11 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
         initWidgets();
         selectedDate = LocalDate.now();
         setMonthView();
