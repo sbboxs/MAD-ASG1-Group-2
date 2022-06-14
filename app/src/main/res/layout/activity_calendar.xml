@@ -14,37 +14,40 @@
         android:orientation="horizontal"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp">
+
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-"
-            android:textColor="#0000FF"
             android:background="@null"
-            android:textStyle="bold"
             android:onClick="previousMonthAction"
-            android:textSize="20sp"/>
+            android:text="<"
+            android:textColor="#6f5642"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/monthYearTV"
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/oswald"
             android:text="Feb 2021"
-            android:textSize="20sp"
             android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:textColor="#6f5642"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="->"
-            android:textColor="#0000FF"
             android:background="@null"
-            android:textStyle="bold"
             android:onClick="nextMonthAction"
-            android:textSize="20sp"/>
+            android:text=">"
+            android:textColor="#6f5642"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -57,64 +60,71 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="SUN"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="MON"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="TUE"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="WED"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="THUR"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="FRI"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="SAT"
-            android:textColor="#888"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="#888"
+            android:textSize="16sp" />
 
 
     </LinearLayout>

@@ -6,4 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".Contact">
 
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/btn_circle"
+        android:backgroundTint="#CC6B49"
+        android:fontFamily="@font/roboto"
+        android:text="Submit"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:cornerRadius="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMessageInput" />
+
+    <EditText
+        android:id="@+id/editMessageInput"
+        android:layout_width="320dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Message"
+        android:inputType="textPersonName"
+        android:paddingLeft="8dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMessageUsername" />
+
+    <EditText
+        android:id="@+id/editMessageUsername"
+        android:layout_width="320dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingLeft="8dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/oswald"
+        android:text="Send us a message!"
+        android:textColor="#6f5542"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

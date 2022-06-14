@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 
+import java.util.Set;
+
 public class HomePage extends AppCompatActivity {
 
     @Override
@@ -52,6 +54,34 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomePage.this, Calendar.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageView contactImage = findViewById(R.id.contactButton);
+        contactImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(HomePage.this, Contact.class);
+                startActivity(myIntent);
+            }
+        });
+
+
+        ImageView faqImage = findViewById(R.id.faqButton);
+        faqImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(HomePage.this, FAQ.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageView settingImage = findViewById(R.id.settingsButton);
+        settingImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(HomePage.this, Settings.class);
                 startActivity(myIntent);
             }
         });
