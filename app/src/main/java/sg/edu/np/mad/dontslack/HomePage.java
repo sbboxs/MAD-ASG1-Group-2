@@ -47,6 +47,14 @@ public class HomePage extends AppCompatActivity {
                 startActivity(myIntent2);
             }
         });
+        Button CalendarButton = findViewById(R.id.calendarButton);
+        CalendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(HomePage.this, Calendar.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
 }
