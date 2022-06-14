@@ -16,10 +16,11 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        /* Hiding the top bar */
+
+        /* Hiding the top bar
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
-        actionBar.hide();
+        actionBar.hide();*/
 
         Button toDOListButton = findViewById(R.id.toDoListButton);
         toDOListButton.setOnClickListener(new View.OnClickListener() {

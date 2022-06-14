@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,16 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         initWidgets();
         selectedDate = LocalDate.now();
         setMonthView();
+
+        ImageView goBackButton = findViewById(R.id.goBackHome);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent2 = new Intent(Calendar.this, HomePage.class);
+                startActivity(myIntent2);
+            }
+        });
+
     }
 
     private void initWidgets()

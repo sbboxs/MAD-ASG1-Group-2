@@ -129,15 +129,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
                 new TimePickerDialog(ToDOListEditTaskDetails.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
             }
         };
-        new DatePickerDialog(ToDOListEditTaskDetails.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
-        ImageView goBackButton = findViewById(R.id.goBack);
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(ToDOListEditTaskDetails.this, ToDoListTaskDetails.class);
-                startActivity(myIntent);
-            }
-        });
 
+        new DatePickerDialog(ToDOListEditTaskDetails.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 }
