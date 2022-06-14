@@ -39,6 +39,15 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        ImageView backHomePage = findViewById(R.id.backHome);
+        backHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ToDOListEditTaskDetails.this, ToDoListTaskDetails.class);
+                startActivity(myIntent);
+            }
+        });
+
         Bundle taskBundle = getIntent().getBundleExtra("Bundle");
         TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
 

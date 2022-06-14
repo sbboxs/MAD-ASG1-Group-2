@@ -3,7 +3,10 @@ package sg.edu.np.mad.dontslack;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 public class Contact extends AppCompatActivity {
 
@@ -15,6 +18,15 @@ public class Contact extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
+
+        ImageView backHomePage = findViewById(R.id.backHome);
+        backHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Contact.this, HomePage.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
 }

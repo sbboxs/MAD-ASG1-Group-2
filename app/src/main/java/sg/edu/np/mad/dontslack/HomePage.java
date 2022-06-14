@@ -19,10 +19,10 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        /* Hiding the top bar
+        // Hiding the top bar
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
-        actionBar.hide();*/
+        actionBar.hide();
 
         Button toDOListButton = findViewById(R.id.toDoListButton);
         toDOListButton.setOnClickListener(new View.OnClickListener() {
@@ -46,10 +46,11 @@ public class HomePage extends AppCompatActivity {
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent2 = new Intent(HomePage.this, Profile.class);
-                startActivity(myIntent2);
+                Intent myIntent = new Intent(HomePage.this, Profile.class);
+                startActivity(myIntent);
             }
         });
+
         Button CalendarButton = findViewById(R.id.calendarButton);
         CalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override

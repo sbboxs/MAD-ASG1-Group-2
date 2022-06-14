@@ -41,4 +41,12 @@
         tools:layout_editor_absoluteX="41dp"
         tools:layout_editor_absoluteY="206dp" />
 
+    <ImageView
+        android:id="@+id/backHome"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
