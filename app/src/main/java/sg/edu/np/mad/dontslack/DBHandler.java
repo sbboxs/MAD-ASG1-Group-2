@@ -98,7 +98,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Retrieve a task from the DataBase
-    public TaskObject findTASK(String taskName){
+    public TaskObject findTask(String taskName){
         String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + COLUMN_TASKNAME + "=\"" + taskName + "\"";
         SQLiteDatabase db = this.getReadableDatabase();
         //Set cursor to search for specific account details
@@ -107,10 +107,11 @@ public class DBHandler extends SQLiteOpenHelper {
         TaskObject queryData = new TaskObject();
         if (cursor.moveToFirst()){
             queryData.setTaskName(cursor.getString(0));
-            queryData.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-            queryData.setTaskDescription(cursor.getString(2));
-            queryData.setTaskStartTime(cursor.getString(3));
-            queryData.setTaskDeadLine(cursor.getString(4));
+            queryData.setTaskCategory(cursor.getString(1));
+            queryData.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+            queryData.setTaskDescription(cursor.getString(3));
+            queryData.setTaskStartTime(cursor.getString(4));
+            queryData.setTaskDeadLine(cursor.getString(5));
         }
         else{
             queryData = null;
@@ -118,6 +119,17 @@ public class DBHandler extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return queryData;
+    }
+
+    public void updateTaskData(TaskObject taskObject){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TASKNAME, taskObject.getTaskName());
+        cv.put(COLUMN_TASKCATEGORY, taskObject.getTaskCategory());
+        cv.put(COLUMN_TASKDISCRIPTION, taskObject.getTaskDescription());
+        cv.put(COLUMN_TASKSTARTTIME, taskObject.getTaskStartTime());
+        cv.put(COLUMN_TASKDEADLINE, taskObject.getTaskDeadLine());
+        db.update(TABLE_TASK,cv,"TaskName=?", new String[]{taskObject.getTaskName()});
     }
 
     Cursor readAllTaskData(String taskCategory){

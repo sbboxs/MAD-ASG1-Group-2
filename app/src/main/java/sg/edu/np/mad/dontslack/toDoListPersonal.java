@@ -43,10 +43,9 @@ public class toDoListPersonal extends Fragment implements SelectListener{
 
     @Override
     public void onItemClicked(TaskObject taskObject) {
-        Toast.makeText(view.getContext(),"tiakk",Toast.LENGTH_SHORT).show();
         Intent myIntent = new Intent(view.getContext(),ToDoListTaskDetails.class);
         Bundle args = new Bundle();
-        args.putSerializable("taskObject", (Serializable) taskObject);
+        args.putSerializable("TaskObject", (Serializable) taskObject);
         myIntent.putExtra("Bundle",args);
         startActivity(myIntent);
     }
