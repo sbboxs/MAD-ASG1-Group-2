@@ -1,5 +1,6 @@
 package sg.edu.np.mad.dontslack;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class toDoListWork extends Fragment implements SelectListener{
@@ -40,6 +42,10 @@ public class toDoListWork extends Fragment implements SelectListener{
 
     @Override
     public void onItemClicked(TaskObject taskObject) {
-
+        Intent myIntent = new Intent(view.getContext(),ToDoListTaskDetails.class);
+        Bundle args = new Bundle();
+        args.putSerializable("TaskObject", (Serializable) taskObject);
+        myIntent.putExtra("Bundle",args);
+        startActivity(myIntent);
     }
 }

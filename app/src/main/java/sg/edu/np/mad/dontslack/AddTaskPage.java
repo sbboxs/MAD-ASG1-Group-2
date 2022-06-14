@@ -8,14 +8,11 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -25,9 +22,10 @@ import java.util.Calendar;
 public class AddTaskPage extends AppCompatActivity {
     private final String TAG = "Add Task";
     DBHandler dbHandler = new DBHandler(this,null,null,1);
-    String startingTime;
-    String deadLine;
-    String dateTime;
+    private static String etTaskTitle;
+    private static String etTaskDescription;
+    private static String etTaskStartTIme;
+    private static String etTaskDeadLine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,18 +38,14 @@ public class AddTaskPage extends AppCompatActivity {
         Bundle categoryBundle = getIntent().getExtras();
         String taskCategory = categoryBundle.getString("category");
 
-        EditText taskTitle = findViewById(R.id.taskTitle);
-
-        EditText taskDetails = findViewById(R.id.taskDetails);
-
-        EditText taskStartTime = findViewById(R.id.taskStartTime);
-        EditText taskDeadLine = findViewById(R.id.taskDeadline);
+        EditText taskStartTime = findViewById(R.id.editCurrentTaskStartTime);
+        EditText taskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
 
         taskStartTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDateTimeDialog(taskStartTime);
-                Log.v(TAG,"11startingTIme:" + startingTime);
+
             }
         });
 
@@ -59,34 +53,55 @@ public class AddTaskPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDateTimeDialog(taskDeadLine);
-                Log.v(TAG,"11Deadline:" + deadLine);
+
             }
         });
 
-        Button createTaskButton = findViewById(R.id.createTaskButton);
+        Button createTaskButton = findViewById(R.id.saveEditTaskButton);
         createTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TaskObject newTaskObject = new TaskObject();
-                newTaskObject.setTaskCategory(taskCategory);
-                newTaskObject.setTaskName(taskTitle.getText().toString());
-                newTaskObject.setTaskDetails(taskDetails.getText().toString());
-                Log.v(TAG,"startingTIme:" + startingTime);
-                Log.v(TAG,"Deadline:" + deadLine);
-                newTaskObject.setTaskStartTime(startingTime);
-                newTaskObject.setTaskDeadLine(deadLine);
-                newTaskObject.setTaskStatus(false);
-                dbHandler.addTask(newTaskObject);
-                Toast.makeText(AddTaskPage.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(AddTaskPage.this,ToDoList.class);
-                startActivity(myIntent);
+                EditText newTaskTitle = findViewById(R.id.editCurrentTaskTitle);
+                etTaskTitle = newTaskTitle.getText().toString();
+                EditText newTaskDescription = findViewById(R.id.editCurrentTaskDescription);
+                etTaskDescription = newTaskDescription.getText().toString();
+                EditText newTaskStartTime = findViewById(R.id.editCurrentTaskStartTime);
+                etTaskStartTIme = newTaskStartTime.getText().toString();
+                EditText newTaskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
+                etTaskDeadLine = newTaskDeadLine.getText().toString();
+                TaskObject ifTaskExist = dbHandler.findTask(etTaskTitle);
+                Log.v(TAG,"newTask1:" + ifTaskExist);
+                if(ifTaskExist == null){
+                    Log.v(TAG,"newTask:" + etTaskTitle);
+                    Log.v(TAG,"newTask:" + etTaskDescription);
+                    Log.v(TAG,"newTask:" + etTaskStartTIme);
+                    Log.v(TAG,"newTask:" + etTaskDeadLine);
+                    if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
+                        Toast.makeText(AddTaskPage.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        TaskObject newTaskObject = new TaskObject();
+                        newTaskObject.setTaskCategory(taskCategory);
+                        newTaskObject.setTaskName(etTaskTitle);
+                        newTaskObject.setTaskDescription(etTaskDescription);
+                        newTaskObject.setTaskStartTime(etTaskStartTIme);
+                        newTaskObject.setTaskDeadLine(etTaskDeadLine);
+                        newTaskObject.setTaskStatus(false);
+                        dbHandler.addTask(newTaskObject);
+                        Toast.makeText(AddTaskPage.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(AddTaskPage.this,ToDoList.class);
+                        startActivity(myIntent);
+                    }
+                }
+                else{
+                    Toast.makeText(AddTaskPage.this,"Task already exist!",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     public void showDateTimeDialog(EditText date_time){
         Calendar calendar = Calendar.getInstance();
-        Log.v(TAG,"text" + date_time.getText().toString());
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -99,10 +114,8 @@ public class AddTaskPage extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(Calendar.MINUTE,minute);
-                        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy h.mm aaa");
+                        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy h:mm aaa");
                         date_time.setText(simpleDateFormat.format(calendar.getTime()));
-                        dateTime = date_time.getText().toString();
-                        Log.v(TAG,"Timing:" + dateTime);
                     }
                 };
                 new TimePickerDialog(AddTaskPage.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();

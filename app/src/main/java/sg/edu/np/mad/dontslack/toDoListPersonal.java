@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class toDoListPersonal extends Fragment implements SelectListener{
@@ -40,9 +41,12 @@ public class toDoListPersonal extends Fragment implements SelectListener{
         return view;
     }
 
-
     @Override
     public void onItemClicked(TaskObject taskObject) {
-
+        Intent myIntent = new Intent(view.getContext(),ToDoListTaskDetails.class);
+        Bundle args = new Bundle();
+        args.putSerializable("TaskObject", (Serializable) taskObject);
+        myIntent.putExtra("Bundle",args);
+        startActivity(myIntent);
     }
 }

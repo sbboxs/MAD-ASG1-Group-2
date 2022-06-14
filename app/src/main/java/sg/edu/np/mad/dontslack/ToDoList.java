@@ -17,6 +17,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,18 +41,36 @@ public class ToDoList extends AppCompatActivity{
         assert actionBar != null;
         actionBar.hide();
 
+        //backbutton
+        ImageView goBackButton = findViewById(R.id.goBackHome);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent2 = new Intent(ToDoList.this, HomePage.class);
+                startActivity(myIntent2);
+            }
+        });
 
         Button workTaskButton = findViewById(R.id.workFragmentButton);
         Button personalTaskButton = findViewById(R.id.personalFragmentButton);
 
+        setDefaultCategory();
+        workTaskButton.setBackgroundColor(Color.LTGRAY);
+        personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+
         workTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                taskCategory = "work";
-                workTaskButton.setBackgroundColor(Color.LTGRAY);
-                personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
-                storeTaskDataToArray();
-                replaceFragment(new toDoListWork(),workTaskList);
+                if (taskCategory.equals("work")){
+                    Toast.makeText(ToDoList.this,"On work list",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    taskCategory = "work";
+                    workTaskButton.setBackgroundColor(Color.LTGRAY);
+                    personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+                    storeTaskDataToArray();
+                    replaceFragment(new toDoListWork(),workTaskList);
+                }
             }
         });
 
@@ -59,11 +78,16 @@ public class ToDoList extends AppCompatActivity{
         personalTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                taskCategory = "personal";
-                workTaskButton.setBackgroundColor(Color.rgb(225,227,229));
-                personalTaskButton.setBackgroundColor(Color.LTGRAY);
-                storeTaskDataToArray();
-                replaceFragment(new toDoListPersonal(),personalTaskList);
+                if(taskCategory.equals("personal")){
+                    Toast.makeText(ToDoList.this,"On personal list",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    taskCategory = "personal";
+                    workTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+                    personalTaskButton.setBackgroundColor(Color.LTGRAY);
+                    storeTaskDataToArray();
+                    replaceFragment(new toDoListPersonal(),personalTaskList);
+                }
             }
         });
 
@@ -76,6 +100,12 @@ public class ToDoList extends AppCompatActivity{
                 startActivity(myIntent);
             }
         });
+    }
+
+    private void setDefaultCategory(){
+        taskCategory = "work";
+        storeTaskDataToArray();
+        replaceFragment(new toDoListWork(),workTaskList);
     }
 
     private void replaceFragment(Fragment fragment, ArrayList<TaskObject>taskList) {
@@ -99,10 +129,11 @@ public class ToDoList extends AppCompatActivity{
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                    task.setTaskDetails(cursor.getString(2));
-                    task.setTaskStartTime(cursor.getString(3));
-                    task.setTaskDeadLine(cursor.getString(4));
+                    task.setTaskCategory(cursor.getString(1));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    task.setTaskDescription(cursor.getString(3));
+                    task.setTaskStartTime(cursor.getString(4));
+                    task.setTaskDeadLine(cursor.getString(5));
                     workTaskList.add(task);
                 }
             }else{
@@ -110,14 +141,16 @@ public class ToDoList extends AppCompatActivity{
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                    task.setTaskDetails(cursor.getString(2));
-                    task.setTaskStartTime(cursor.getString(3));
-                    task.setTaskDeadLine(cursor.getString(4));
+                    task.setTaskCategory(cursor.getString(1));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    task.setTaskDescription(cursor.getString(3));
+                    task.setTaskStartTime(cursor.getString(4));
+                    task.setTaskDeadLine(cursor.getString(5));
                     personalTaskList.add(task);
                 }
             }
-
         }
     }
+
+
 }

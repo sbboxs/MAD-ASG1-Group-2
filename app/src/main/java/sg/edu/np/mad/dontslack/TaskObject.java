@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class TaskObject implements Serializable {
     private String taskName;
     private String taskCategory;
-    private String taskDetails;
+    private String taskDescription;
     private String taskStartTime;
     private String taskDeadLine;
     private boolean taskStatus;
@@ -30,12 +30,12 @@ public class TaskObject implements Serializable {
         this.taskStatus = taskStatus;
     }
 
-    public String getTaskDetails() {
-        return taskDetails;
+    public String getTaskDescription() {
+        return taskDescription;
     }
 
-    public void setTaskDetails(String taskDetails) {
-        this.taskDetails = taskDetails;
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
     }
 
     public String getTaskStartTime() {

@@ -18,7 +18,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String COLUMN_TASKNAME = "TaskName";
     public static String COLUMN_TASKCATEGORY = "Category";
     public static String COLUMN_TASKSTATUS = "TaskStatus";
-    public static String COLUMN_TASKDETAILS = "TaskDetails";
+    public static String COLUMN_TASKDISCRIPTION = "TaskDiscription";
     public static String COLUMN_TASKSTARTTIME = "TaskStartTime";
     public static String COLUMN_TASKDEADLINE = "TaskDeadLine";
     public static int DATABASE_VERSION = 1;
@@ -33,7 +33,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_PASSWORD + " TEXT " + " ) ";
         String CREATE_TASKLIST_TABLE = "CREATE TABLE " + TABLE_TASK + " ( " + COLUMN_TASKNAME + " TEXT, "
                 + COLUMN_TASKCATEGORY + " TEXT,"
-                +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDETAILS + " TEXT, "
+                +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDISCRIPTION + " TEXT, "
                 + COLUMN_TASKSTARTTIME + " TEXT, " + COLUMN_TASKDEADLINE + " TEXT" + " ) " ;
         db.execSQL(CREATE_ACCOUNT_TABLE);
         db.execSQL(CREATE_TASKLIST_TABLE);
@@ -89,7 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_TASKNAME, task.getTaskName());
         values.put(COLUMN_TASKCATEGORY, task.getTaskCategory());
         values.put(String.valueOf(COLUMN_TASKSTATUS),task.isTaskStatus());
-        values.put(COLUMN_TASKDETAILS, task.getTaskDetails());
+        values.put(COLUMN_TASKDISCRIPTION, task.getTaskDescription());
         values.put(COLUMN_TASKSTARTTIME, task.getTaskStartTime());
         values.put(COLUMN_TASKDEADLINE, task.getTaskDeadLine());
         //Insert ContentValues into DataBase
@@ -98,7 +98,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Retrieve a task from the DataBase
-    public TaskObject findTASK(String taskName){
+    public TaskObject findTask(String taskName){
         String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + COLUMN_TASKNAME + "=\"" + taskName + "\"";
         SQLiteDatabase db = this.getReadableDatabase();
         //Set cursor to search for specific account details
@@ -107,10 +107,11 @@ public class DBHandler extends SQLiteOpenHelper {
         TaskObject queryData = new TaskObject();
         if (cursor.moveToFirst()){
             queryData.setTaskName(cursor.getString(0));
-            queryData.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-            queryData.setTaskDetails(cursor.getString(2));
-            queryData.setTaskStartTime(cursor.getString(3));
-            queryData.setTaskDeadLine(cursor.getString(4));
+            queryData.setTaskCategory(cursor.getString(1));
+            queryData.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+            queryData.setTaskDescription(cursor.getString(3));
+            queryData.setTaskStartTime(cursor.getString(4));
+            queryData.setTaskDeadLine(cursor.getString(5));
         }
         else{
             queryData = null;
@@ -118,6 +119,18 @@ public class DBHandler extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return queryData;
+    }
+
+    public void updateTaskData(TaskObject taskObject, String originalTaskname){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TASKNAME, taskObject.getTaskName());
+        cv.put(COLUMN_TASKCATEGORY, taskObject.getTaskCategory());
+        cv.put(COLUMN_TASKDISCRIPTION, taskObject.getTaskDescription());
+        cv.put(COLUMN_TASKSTARTTIME, taskObject.getTaskStartTime());
+        cv.put(COLUMN_TASKDEADLINE, taskObject.getTaskDeadLine());
+        cv.put(String.valueOf(COLUMN_TASKSTATUS),taskObject.isTaskStatus());
+        db.update(TABLE_TASK, cv, "TaskName=?", new String[]{originalTaskname});
     }
 
     Cursor readAllTaskData(String taskCategory){
