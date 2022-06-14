@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DontSlack">
         <activity
+            android:name=".NoteEditorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Notes"
+            android:exported="false" />
+        <activity
             android:name=".HomePageMore"
             android:exported="false" />
         <activity
