@@ -29,23 +29,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        Switch switchTo = findViewById(R.id.switch1);
-        switchTo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent2 = new Intent(HomePage.this, HomePageMore.class);
-                startActivity(myIntent2);
-            }
-        });
 
-        Button CalendarButton = findViewById(R.id.calendarButton);
-        CalendarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(HomePage.this, Calendar.class);
-                startActivity(myIntent);
-            }
-        });
 
         Button NotesButton = findViewById(R.id.notesButton);
         NotesButton.setOnClickListener(new View.OnClickListener() {
