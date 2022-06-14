@@ -117,10 +117,11 @@ public class ToDoList extends AppCompatActivity{
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                    task.setTaskDescription(cursor.getString(2));
-                    task.setTaskStartTime(cursor.getString(3));
-                    task.setTaskDeadLine(cursor.getString(4));
+                    task.setTaskCategory(cursor.getString(1));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    task.setTaskDescription(cursor.getString(3));
+                    task.setTaskStartTime(cursor.getString(4));
+                    task.setTaskDeadLine(cursor.getString(5));
                     workTaskList.add(task);
                 }
             }else{
@@ -128,10 +129,11 @@ public class ToDoList extends AppCompatActivity{
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                    task.setTaskDescription(cursor.getString(2));
-                    task.setTaskStartTime(cursor.getString(3));
-                    task.setTaskDeadLine(cursor.getString(4));
+                    task.setTaskCategory(cursor.getString(1));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    task.setTaskDescription(cursor.getString(3));
+                    task.setTaskStartTime(cursor.getString(4));
+                    task.setTaskDeadLine(cursor.getString(5));
                     personalTaskList.add(task);
                 }
             }

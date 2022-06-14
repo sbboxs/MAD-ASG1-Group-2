@@ -16,44 +16,56 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class AddTaskPage extends AppCompatActivity {
-    private final String TAG = "Add Task";
-    DBHandler dbHandler = new DBHandler(this,null,null,1);
+public class ToDOListEditTaskDetails extends AppCompatActivity {
+    private final String TAG = "Edit Task";
     private static String etTaskTitle;
     private static String etTaskDescription;
     private static String etTaskStartTIme;
     private static String etTaskDeadLine;
+    private static String originalTaskName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_task_page);
+        setContentView(R.layout.activity_to_dolist_edit_task_details);
+        DBHandler dbHandler = new DBHandler(this,null,null,1);
+
         /* Hiding the top bar */
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
 
-        Bundle categoryBundle = getIntent().getExtras();
-        String taskCategory = categoryBundle.getString("category");
+        Bundle taskBundle = getIntent().getBundleExtra("Bundle");
+        TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
 
-        EditText taskStartTime = findViewById(R.id.editCurrentTaskStartTime);
-        EditText taskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
+        originalTaskName = currentTask.getTaskName();
 
-        taskStartTime.setOnClickListener(new View.OnClickListener() {
+        EditText editCurrentTaskTitle = findViewById(R.id.editCurrentTaskTitle);
+        editCurrentTaskTitle.setText(currentTask.getTaskName());
+
+        EditText editCurrentTaskDescription = findViewById(R.id.editCurrentTaskDescription);
+        editCurrentTaskDescription.setText(currentTask.getTaskDescription());
+
+        EditText editCurrentTaskStartTime = findViewById(R.id.editCurrentTaskStartTime);
+        editCurrentTaskStartTime.setText(currentTask.getTaskStartTime());
+
+        EditText editCurrentTaskDeadLine= findViewById(R.id.editCurrentTaskDeadline);
+        editCurrentTaskDeadLine.setText(currentTask.getTaskDeadLine());
+
+        editCurrentTaskStartTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateTimeDialog(taskStartTime);
-
+                showDateTimeDialog(editCurrentTaskStartTime);
             }
         });
 
-        taskDeadLine.setOnClickListener(new View.OnClickListener() {
+        editCurrentTaskDeadLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDateTimeDialog(taskDeadLine);
-
+                showDateTimeDialog(editCurrentTaskDeadLine);
             }
         });
 
@@ -69,38 +81,32 @@ public class AddTaskPage extends AppCompatActivity {
                 etTaskStartTIme = newTaskStartTime.getText().toString();
                 EditText newTaskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
                 etTaskDeadLine = newTaskDeadLine.getText().toString();
-                TaskObject ifTaskExist = dbHandler.findTask(etTaskTitle);
-                Log.v(TAG,"newTask1:" + ifTaskExist);
-                if(ifTaskExist == null){
-                    Log.v(TAG,"newTask:" + etTaskTitle);
-                    Log.v(TAG,"newTask:" + etTaskDescription);
-                    Log.v(TAG,"newTask:" + etTaskStartTIme);
-                    Log.v(TAG,"newTask:" + etTaskDeadLine);
-                    if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
-                        Toast.makeText(AddTaskPage.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        TaskObject newTaskObject = new TaskObject();
-                        newTaskObject.setTaskCategory(taskCategory);
-                        newTaskObject.setTaskName(etTaskTitle);
-                        newTaskObject.setTaskDescription(etTaskDescription);
-                        newTaskObject.setTaskStartTime(etTaskStartTIme);
-                        newTaskObject.setTaskDeadLine(etTaskDeadLine);
-                        newTaskObject.setTaskStatus(false);
-                        dbHandler.addTask(newTaskObject);
-                        Toast.makeText(AddTaskPage.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
-                        Intent myIntent = new Intent(AddTaskPage.this,ToDoList.class);
-                        startActivity(myIntent);
-                    }
-                }
 
+                Log.v(TAG,"editTask:" + etTaskTitle);
+                Log.v(TAG,"editTask::" + etTaskDescription);
+                Log.v(TAG,"editTask:" + etTaskStartTIme);
+                Log.v(TAG,"editTask:" + etTaskDeadLine);
+                if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
+                    Toast.makeText(ToDOListEditTaskDetails.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
+                }
                 else{
-                    Toast.makeText(AddTaskPage.this,"Task already exist!",Toast.LENGTH_SHORT).show();
+                    currentTask.setTaskName(etTaskTitle);
+                    currentTask.setTaskDescription(etTaskDescription);
+                    currentTask.setTaskStartTime(etTaskStartTIme);
+                    currentTask.setTaskDeadLine(etTaskDeadLine);
+
+                    dbHandler.updateTaskData(currentTask,originalTaskName);
+                    Toast.makeText(ToDOListEditTaskDetails.this,"Task Edited Successfully", Toast.LENGTH_SHORT).show();
+                    Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
+                    Bundle args = new Bundle();
+                    args.putSerializable("TaskObject", (Serializable) currentTask);
+                    myIntent.putExtra("Bundle",args);
+                    startActivity(myIntent);
+                    startActivity(myIntent);
                 }
             }
         });
     }
-
     public void showDateTimeDialog(EditText date_time){
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -119,10 +125,9 @@ public class AddTaskPage extends AppCompatActivity {
                         date_time.setText(simpleDateFormat.format(calendar.getTime()));
                     }
                 };
-                new TimePickerDialog(AddTaskPage.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
+                new TimePickerDialog(ToDOListEditTaskDetails.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
             }
         };
-        new DatePickerDialog(AddTaskPage.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+        new DatePickerDialog(ToDOListEditTaskDetails.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
-
 }

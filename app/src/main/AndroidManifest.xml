@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DontSlack">
         <activity
+            android:name=".ToDOListEditTaskDetails"
+            android:exported="false" />
+        <activity
             android:name=".ToDoListTaskDetails"
             android:exported="false" />
         <activity

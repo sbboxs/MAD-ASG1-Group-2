@@ -1,5 +1,6 @@
 package sg.edu.np.mad.dontslack;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ public class ToDoListViewHolder extends RecyclerView.ViewHolder {
     RelativeLayout taskSection;
     TextView taskName;
     Button taskButton;
+    @SuppressLint("CutPasteId")
     public ToDoListViewHolder(View itemView){
         super(itemView);
         taskSection = itemView.findViewById(R.id.taskSection);

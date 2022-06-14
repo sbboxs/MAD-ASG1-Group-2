@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTaskPage">
+    tools:context=".ToDOListEditTaskDetails">
 
     <Button
         android:id="@+id/saveEditTaskButton"
@@ -16,7 +16,7 @@
         android:backgroundTint="#CC6B49"
         android:drawableEnd="@drawable/ic_addbutton"
         android:padding="15dp"
-        android:text="Create"
+        android:text="Save"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -99,7 +99,7 @@
         android:layout_marginStart="116dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="195dp"
-        android:text="Add New Task"
+        android:text="Task Name"
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
