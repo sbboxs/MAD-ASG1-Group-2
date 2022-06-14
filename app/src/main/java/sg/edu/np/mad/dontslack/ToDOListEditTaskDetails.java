@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -129,5 +130,14 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
             }
         };
         new DatePickerDialog(ToDOListEditTaskDetails.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+        ImageView goBackButton = findViewById(R.id.goBack);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ToDOListEditTaskDetails.this, ToDoListTaskDetails.class);
+                startActivity(myIntent);
+            }
+        });
+
     }
 }
