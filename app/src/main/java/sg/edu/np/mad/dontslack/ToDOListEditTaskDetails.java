@@ -27,7 +27,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
     private static String etTaskDescription;
     private static String etTaskStartTIme;
     private static String etTaskDeadLine;
-
+    private static String originalTaskName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,8 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
 
         Bundle taskBundle = getIntent().getBundleExtra("Bundle");
         TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
+
+        originalTaskName = currentTask.getTaskName();
 
         EditText editCurrentTaskTitle = findViewById(R.id.editCurrentTaskTitle);
         editCurrentTaskTitle.setText(currentTask.getTaskName());
@@ -94,7 +96,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
                     currentTask.setTaskStartTime(etTaskStartTIme);
                     currentTask.setTaskDeadLine(etTaskDeadLine);
 
-                    dbHandler.updateTaskData(currentTask);
+                    dbHandler.updateTaskData(currentTask,originalTaskName);
                     Toast.makeText(ToDOListEditTaskDetails.this,"Task Edited Successfully", Toast.LENGTH_SHORT).show();
                     Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
                     Bundle args = new Bundle();

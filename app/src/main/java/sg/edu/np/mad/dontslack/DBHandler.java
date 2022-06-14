@@ -121,7 +121,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryData;
     }
 
-    public void updateTaskData(TaskObject taskObject){
+    public void updateTaskData(TaskObject taskObject, String originalTaskname){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TASKNAME, taskObject.getTaskName());
@@ -129,7 +129,7 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_TASKDISCRIPTION, taskObject.getTaskDescription());
         cv.put(COLUMN_TASKSTARTTIME, taskObject.getTaskStartTime());
         cv.put(COLUMN_TASKDEADLINE, taskObject.getTaskDeadLine());
-        db.update(TABLE_TASK,cv,"TaskName=?", new String[]{taskObject.getTaskName()});
+        db.update(TABLE_TASK, cv, "TaskName=?", new String[]{originalTaskname});
     }
 
     Cursor readAllTaskData(String taskCategory){
