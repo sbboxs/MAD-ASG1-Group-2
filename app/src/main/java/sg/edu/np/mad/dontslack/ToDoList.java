@@ -24,7 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ToDoList extends AppCompatActivity implements SelectListener{
+public class ToDoList extends AppCompatActivity{
     private String TAG = "ToDoList";
     DBHandler dbHandler = new DBHandler(this, null,null,1);
     ArrayList<TaskObject> workTaskList = new ArrayList<TaskObject>();
@@ -95,10 +95,7 @@ public class ToDoList extends AppCompatActivity implements SelectListener{
         storeTaskDataToArray();
         replaceFragment(new toDoListWork(),workTaskList);
     }
-    @Override
-    public void onItemClicked(TaskObject taskObject) {
-        Toast.makeText(ToDoList.this,"work",Toast.LENGTH_SHORT).show();
-    }
+
     private void replaceFragment(Fragment fragment, ArrayList<TaskObject>taskList) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -120,10 +117,11 @@ public class ToDoList extends AppCompatActivity implements SelectListener{
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                    task.setTaskDetails(cursor.getString(2));
-                    task.setTaskStartTime(cursor.getString(3));
-                    task.setTaskDeadLine(cursor.getString(4));
+                    task.setTaskCategory(cursor.getString(1));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    task.setTaskDescription(cursor.getString(3));
+                    task.setTaskStartTime(cursor.getString(4));
+                    task.setTaskDeadLine(cursor.getString(5));
                     workTaskList.add(task);
                 }
             }else{
@@ -131,10 +129,11 @@ public class ToDoList extends AppCompatActivity implements SelectListener{
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(1)));
-                    task.setTaskDetails(cursor.getString(2));
-                    task.setTaskStartTime(cursor.getString(3));
-                    task.setTaskDeadLine(cursor.getString(4));
+                    task.setTaskCategory(cursor.getString(1));
+                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    task.setTaskDescription(cursor.getString(3));
+                    task.setTaskStartTime(cursor.getString(4));
+                    task.setTaskDeadLine(cursor.getString(5));
                     personalTaskList.add(task);
                 }
             }
