@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Switch;
 
 public class HomePage extends AppCompatActivity {
@@ -29,8 +30,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-
-
         Button NotesButton = findViewById(R.id.notesButton);
         NotesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +39,14 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        ImageView profileImage = findViewById(R.id.profileButton);
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent2 = new Intent(HomePage.this, Profile.class);
+                startActivity(myIntent2);
+            }
+        });
     }
 
 }
