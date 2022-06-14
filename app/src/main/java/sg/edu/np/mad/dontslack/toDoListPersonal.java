@@ -43,6 +43,6 @@ public class toDoListPersonal extends Fragment implements SelectListener{
 
     @Override
     public void onItemClicked(TaskObject taskObject) {
-
+        Toast.makeText(view.getContext(),"work",Toast.LENGTH_SHORT).show();
     }
 }

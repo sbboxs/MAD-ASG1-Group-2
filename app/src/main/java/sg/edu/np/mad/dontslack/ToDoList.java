@@ -24,7 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ToDoList extends AppCompatActivity{
+public class ToDoList extends AppCompatActivity implements SelectListener{
     private String TAG = "ToDoList";
     DBHandler dbHandler = new DBHandler(this, null,null,1);
     ArrayList<TaskObject> workTaskList = new ArrayList<TaskObject>();
@@ -39,19 +39,26 @@ public class ToDoList extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
-
-
         Button workTaskButton = findViewById(R.id.workFragmentButton);
         Button personalTaskButton = findViewById(R.id.personalFragmentButton);
+
+        setDefaultCategory();
+        workTaskButton.setBackgroundColor(Color.LTGRAY);
+        personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
 
         workTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                taskCategory = "work";
-                workTaskButton.setBackgroundColor(Color.LTGRAY);
-                personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
-                storeTaskDataToArray();
-                replaceFragment(new toDoListWork(),workTaskList);
+                if (taskCategory.equals("work")){
+                    Toast.makeText(ToDoList.this,"On work list",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    taskCategory = "work";
+                    workTaskButton.setBackgroundColor(Color.LTGRAY);
+                    personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+                    storeTaskDataToArray();
+                    replaceFragment(new toDoListWork(),workTaskList);
+                }
             }
         });
 
@@ -59,11 +66,16 @@ public class ToDoList extends AppCompatActivity{
         personalTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                taskCategory = "personal";
-                workTaskButton.setBackgroundColor(Color.rgb(225,227,229));
-                personalTaskButton.setBackgroundColor(Color.LTGRAY);
-                storeTaskDataToArray();
-                replaceFragment(new toDoListPersonal(),personalTaskList);
+                if(taskCategory.equals("personal")){
+                    Toast.makeText(ToDoList.this,"On personal list",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    taskCategory = "personal";
+                    workTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+                    personalTaskButton.setBackgroundColor(Color.LTGRAY);
+                    storeTaskDataToArray();
+                    replaceFragment(new toDoListPersonal(),personalTaskList);
+                }
             }
         });
 
@@ -78,6 +90,15 @@ public class ToDoList extends AppCompatActivity{
         });
     }
 
+    private void setDefaultCategory(){
+        taskCategory = "work";
+        storeTaskDataToArray();
+        replaceFragment(new toDoListWork(),workTaskList);
+    }
+    @Override
+    public void onItemClicked(TaskObject taskObject) {
+        Toast.makeText(ToDoList.this,"work",Toast.LENGTH_SHORT).show();
+    }
     private void replaceFragment(Fragment fragment, ArrayList<TaskObject>taskList) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -117,7 +138,8 @@ public class ToDoList extends AppCompatActivity{
                     personalTaskList.add(task);
                 }
             }
-
         }
     }
+
+
 }
