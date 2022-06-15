@@ -1,13 +1,16 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +31,24 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
         initWidgets();
         selectedDate = LocalDate.now();
         setMonthView();
+
+        ImageView goBackButton = findViewById(R.id.goBackHome);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent2 = new Intent(Calendar.this, HomePage.class);
+                startActivity(myIntent2);
+            }
+        });
+
     }
 
     private void initWidgets()

@@ -17,6 +17,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -39,6 +40,17 @@ public class ToDoList extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
+
+        //backbutton
+        ImageView goBackButton = findViewById(R.id.goBackHome);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent2 = new Intent(ToDoList.this, HomePage.class);
+                startActivity(myIntent2);
+            }
+        });
+
         Button workTaskButton = findViewById(R.id.workFragmentButton);
         Button personalTaskButton = findViewById(R.id.personalFragmentButton);
 

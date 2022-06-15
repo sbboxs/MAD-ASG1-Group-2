@@ -10,13 +10,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 
+import java.util.Set;
+
 public class HomePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        /* Hiding the top bar */
+
+        // Hiding the top bar
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
@@ -43,15 +46,44 @@ public class HomePage extends AppCompatActivity {
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent2 = new Intent(HomePage.this, Profile.class);
-                startActivity(myIntent2);
+                Intent myIntent = new Intent(HomePage.this, Profile.class);
+                startActivity(myIntent);
             }
         });
+
         Button CalendarButton = findViewById(R.id.calendarButton);
         CalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomePage.this, Calendar.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageView contactImage = findViewById(R.id.contactButton);
+        contactImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(HomePage.this, Contact.class);
+                startActivity(myIntent);
+            }
+        });
+
+
+        ImageView faqImage = findViewById(R.id.faqButton);
+        faqImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(HomePage.this, FAQ.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageView settingImage = findViewById(R.id.settingsButton);
+        settingImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(HomePage.this, Settings.class);
                 startActivity(myIntent);
             }
         });
