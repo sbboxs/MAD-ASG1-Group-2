@@ -57,6 +57,10 @@ public class Notes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
 
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(new View.OnClickListener() {
