@@ -30,6 +30,8 @@
             android:id="@+id/profileImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
             android:background="@drawable/btn_circle"
             android:src="@drawable/ic_profile" />
 
@@ -118,7 +120,7 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/oswald"
-        android:text="PROFILE"
+        android:text="Profile"
         android:textColor="#6F5643"
         android:textSize="34sp"
         android:textStyle="bold"

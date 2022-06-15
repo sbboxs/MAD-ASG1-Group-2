@@ -84,7 +84,6 @@
         android:id="@+id/backHome"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
@@ -93,8 +92,8 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/oswald"
         android:text="Settings"
         android:textColor="#6f5642"
