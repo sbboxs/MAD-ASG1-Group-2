@@ -10,8 +10,8 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/oswald"
         android:text="About"
         android:textColor="#6f5642"
@@ -28,17 +28,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/roboto"
-        android:text="This is an app created to fulfill our assignment for Mobile Application Development Module from NP."
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 </androidx.constraintlayout.widget.ConstraintLayout>

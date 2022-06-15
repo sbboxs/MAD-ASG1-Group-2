@@ -1,6 +1,7 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -55,6 +56,7 @@ public class Notes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
+
 
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(new View.OnClickListener() {
