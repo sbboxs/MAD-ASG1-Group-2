@@ -5,17 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg4"
+    android:backgroundTintMode="add"
     android:orientation="vertical"
     tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/backHome"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:srcCompat="@drawable/ic_back_col" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="240dp"
         android:fontFamily="@font/oswald"
+        android:text="WELCOME"
         android:textColor="#6F5643"
         android:textSize="40sp"
         android:textStyle="bold" />

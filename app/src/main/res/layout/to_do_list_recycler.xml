@@ -8,27 +8,33 @@
     <RelativeLayout
         android:id="@+id/taskSection"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="130dp"
+        android:padding="10dp">
 
         <Button
             android:id="@+id/taskDetailButton"
             android:layout_width="310dp"
-            android:layout_height="81dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
-            android:background="@drawable/btn_circle"
-            android:backgroundTint="#D2A24D"
+            android:background="@drawable/btn_bg"
+            android:backgroundTint="#f4f1e2"
+            android:elevation="5dp"
             android:fontFamily="@font/roboto"
             android:stateListAnimator="@null"
-            android:text="Button" />
+            android:text="Button"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="79dp"
             android:layout_height="88dp"
-            android:layout_marginStart="280dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="8dp"
+            android:elevation="6dp"
             app:srcCompat="@drawable/ic_playarrow_foreground" />
 
     </RelativeLayout>

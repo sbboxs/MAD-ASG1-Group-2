@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
@@ -33,6 +34,15 @@ public class Login extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
+
+        ImageView backHomePage = findViewById(R.id.backHome);
+        backHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Login.this, HomePage.class);
+                startActivity(myIntent);
+            }
+        });
 
         /* Login Button */
         Button myLoginButton = findViewById(R.id.loginButton);
