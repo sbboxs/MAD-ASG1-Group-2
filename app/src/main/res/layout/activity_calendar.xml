@@ -17,17 +17,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:onClick="previousMonthAction"
             android:drawableLeft="@drawable/ic_arrowleft"
+            android:onClick="previousMonthAction"
             android:textColor="#6f5642"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:onClick="nextMonthAction"
             android:drawableRight="@drawable/ic_arrowright"
+            android:onClick="nextMonthAction"
             android:textColor="#6f5642"
             android:textSize="20sp"
             android:textStyle="bold" />
