@@ -1,5 +1,6 @@
 package sg.edu.np.mad.dontslack;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,7 +9,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import java.util.HashSet;
 
@@ -20,6 +23,20 @@ public class NoteEditorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_editor);
+
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
+        ImageView backHomePage = findViewById(R.id.backHome);
+        backHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(NoteEditorActivity.this, Notes.class);
+                startActivity(myIntent);
+            }
+        });
 
         EditText editText = (EditText)findViewById(R.id.editText);
         Intent intent = getIntent();
