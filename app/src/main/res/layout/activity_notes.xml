@@ -16,8 +16,8 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="298dp"
-        android:layout_height="105dp"
+        android:layout_width="345dp"
+        android:layout_height="65dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/notes_cell"
@@ -35,14 +35,16 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
         android:text="NOTES"
         android:textColor="#6F5643"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/backHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
