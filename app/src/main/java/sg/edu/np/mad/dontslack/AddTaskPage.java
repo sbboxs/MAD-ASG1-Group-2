@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -34,6 +35,15 @@ public class AddTaskPage extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
+
+        ImageView goBackButton = findViewById(R.id.backHome2);
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent2 = new Intent(sg.edu.np.mad.dontslack.AddTaskPage.this, ToDoList.class);
+                startActivity(myIntent2);
+            }
+        });
 
         Bundle categoryBundle = getIntent().getExtras();
         String taskCategory = categoryBundle.getString("category");
