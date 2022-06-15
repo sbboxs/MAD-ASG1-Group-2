@@ -27,5 +27,23 @@ public class Settings extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        ImageView notificationPage = findViewById(R.id.notificationView);
+        notificationPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(Settings.this, Notification.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageView aboutPage = findViewById(R.id.aboutView);
+        aboutPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(Settings.this, About.class);
+                startActivity(myIntent);
+            }
+        });
     }
 }
