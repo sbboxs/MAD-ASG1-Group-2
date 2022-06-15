@@ -9,7 +9,7 @@
     tools:context=".Calendar">
 
     <ImageView
-        android:id="@+id/goBackHome"
+        android:id="@+id/taskDetailBackButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
         app:srcCompat="@drawable/ic_back" />

@@ -42,7 +42,7 @@ public class ToDoList extends AppCompatActivity{
         actionBar.hide();
 
         //backbutton
-        ImageView goBackButton = findViewById(R.id.goBackHome);
+        ImageView goBackButton = findViewById(R.id.toDoListBackButton);
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

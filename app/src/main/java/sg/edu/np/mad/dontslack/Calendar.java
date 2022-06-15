@@ -40,7 +40,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         selectedDate = LocalDate.now();
         setMonthView();
 
-        ImageView goBackButton = findViewById(R.id.goBackHome);
+        ImageView goBackButton = findViewById(R.id.taskDetailBackButton);
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

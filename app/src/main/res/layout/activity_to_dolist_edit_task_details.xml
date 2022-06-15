@@ -16,11 +16,11 @@
         android:textColor="#6f5642"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/goBack2"
+        app:layout_constraintStart_toEndOf="@+id/editDetailBackButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/goBack2"
+        android:id="@+id/editDetailBackButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="8dp"

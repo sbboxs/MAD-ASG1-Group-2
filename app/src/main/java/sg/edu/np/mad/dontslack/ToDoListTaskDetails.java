@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -44,6 +45,15 @@ public class ToDoListTaskDetails extends AppCompatActivity {
 
         TextView taskDeadLine = findViewById(R.id.tasktDeadLine);
         taskDeadLine.setText(currentTask.getTaskDeadLine());
+
+        ImageView backButton = findViewById(R.id.taskDetailBackButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ToDoListTaskDetails.this,ToDoList.class);
+                startActivity(myIntent);
+            }
+        });
 
         Button editTaskButton = findViewById(R.id.editTaskButton);
         editTaskButton.setOnClickListener(new View.OnClickListener() {
@@ -192,6 +202,8 @@ public class ToDoListTaskDetails extends AppCompatActivity {
 
         });
     }
+
+
 
 
 

@@ -39,19 +39,22 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
-        ImageView backHomePage = findViewById(R.id.backHome);
-        backHomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(ToDOListEditTaskDetails.this, ToDoListTaskDetails.class);
-                startActivity(myIntent);
-            }
-        });
-
         Bundle taskBundle = getIntent().getBundleExtra("Bundle");
         TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
 
         originalTaskName = currentTask.getTaskName();
+
+        ImageView backHomePage = findViewById(R.id.editDetailBackButton);
+        backHomePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
+                Bundle args = new Bundle();
+                args.putSerializable("TaskObject", (Serializable) currentTask);
+                myIntent.putExtra("Bundle",args);
+                startActivity(myIntent);
+            }
+        });
 
         EditText editCurrentTaskTitle = findViewById(R.id.editCurrentTaskTitle);
         editCurrentTaskTitle.setText(currentTask.getTaskName());
@@ -111,7 +114,6 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
                     Bundle args = new Bundle();
                     args.putSerializable("TaskObject", (Serializable) currentTask);
                     myIntent.putExtra("Bundle",args);
-                    startActivity(myIntent);
                     startActivity(myIntent);
                 }
             }
