@@ -84,7 +84,6 @@
         android:inputType="textPersonName"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addTaskTitle" />
 
@@ -109,9 +108,9 @@
         android:id="@+id/addTaskTitle"
         android:layout_width="244dp"
         android:layout_height="61dp"
-        android:layout_marginStart="110dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="195dp"
+        android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
         android:text="Add New Task"
         android:textAlignment="center"
@@ -119,8 +118,9 @@
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

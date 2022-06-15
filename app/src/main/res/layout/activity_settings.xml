@@ -7,7 +7,7 @@
     tools:context=".Settings">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout4"
+        android:id="@+id/relativeLayout2"
         android:layout_width="379dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -16,7 +16,7 @@
         android:background="#F4F4F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
 
         <ImageView
             android:id="@+id/imageView6"
@@ -44,7 +44,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/relativeLayout1"
         android:layout_width="379dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -84,7 +84,6 @@
         android:id="@+id/backHome"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginStart="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
@@ -93,14 +92,29 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
         android:text="Settings"
         android:textColor="#6f5642"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/backHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginEnd="185dp"
+        android:layout_marginBottom="24dp"
+        android:text="All Rights Reserved "
+        android:drawableEnd="@drawable/ic_c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

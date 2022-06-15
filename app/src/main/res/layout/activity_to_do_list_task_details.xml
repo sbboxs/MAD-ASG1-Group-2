@@ -12,11 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
         android:text="My Task "
         android:textColor="#6f5642"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -184,4 +186,6 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tasktDeadLine"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
