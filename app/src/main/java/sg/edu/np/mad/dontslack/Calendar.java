@@ -125,4 +125,8 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
+    public void newEventAction(View view)
+    {
+        startActivity(new Intent(this, CalendarEventEditActivity.class));
+    }
 }

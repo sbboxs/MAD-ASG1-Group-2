@@ -58,6 +58,9 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".CalendarEventEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomePage"
             android:exported="true"
             android:label="Don&apos;t Slack">
