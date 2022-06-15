@@ -24,8 +24,8 @@ public class HomePage extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
-        Button toDOListButton = findViewById(R.id.toDoListButton);
-        toDOListButton.setOnClickListener(new View.OnClickListener() {
+        Button ToDOListButton = findViewById(R.id.toDoListButton);
+        ToDOListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomePage.this,ToDoList.class);
@@ -42,6 +42,15 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        Button CalendarButton = findViewById(R.id.calendarButton);
+        CalendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(HomePage.this, Calendar.class);
+                startActivity(myIntent);
+            }
+        });
+
         ImageView profileImage = findViewById(R.id.profileButton);
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,14 +60,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        Button CalendarButton = findViewById(R.id.calendarButton);
-        CalendarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(HomePage.this, Calendar.class);
-                startActivity(myIntent);
-            }
-        });
 
         ImageView contactImage = findViewById(R.id.contactButton);
         contactImage.setOnClickListener(new View.OnClickListener() {
