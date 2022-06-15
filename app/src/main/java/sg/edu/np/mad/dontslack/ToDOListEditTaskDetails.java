@@ -1,12 +1,15 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -87,7 +90,27 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         deleteTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(ToDOListEditTaskDetails.this).create();
+                alertDialog.setTitle("Delete Task");
+                alertDialog.setMessage("Are you sure you want to delete this task?");
 
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dbHandler.deleteTask(currentTask);
+                        Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoList.class);
+                        startActivity(myIntent);
+                    }
+                });
+                alertDialog.show();
             }
         });
 

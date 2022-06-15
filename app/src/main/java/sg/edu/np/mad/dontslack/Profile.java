@@ -1,8 +1,11 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -53,7 +56,31 @@ public class Profile extends AppCompatActivity {
         deleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(Profile.this).create();
+                alertDialog.setTitle("Delete Account");
+                alertDialog.setMessage("Are you sure you want to delete this account?");
 
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dbHandler.deleteUser(user);
+                        sharedPreferences =  getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean(KEY_LOGIN,false);
+                        editor.apply();
+                        Intent myIntent = new Intent(Profile.this,HomePage.class);
+                        startActivity(myIntent);
+                    }
+                });
+                alertDialog.show();
             }
         });
         TextView logoutButton = findViewById(R.id.logoutButton);

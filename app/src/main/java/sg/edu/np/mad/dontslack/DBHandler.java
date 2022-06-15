@@ -80,6 +80,12 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryData;
     }
 
+    public void deleteUser(User user){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_ACCOUNT,"Username=?", new String[]{user.getUsername()});
+        db.close();
+    }
+
     //TABLE_TASK_SECTION
     //Add a task
     public void addTask(TaskObject task){
@@ -131,6 +137,12 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_TASKDEADLINE, taskObject.getTaskDeadLine());
         cv.put(String.valueOf(COLUMN_TASKSTATUS),taskObject.isTaskStatus());
         db.update(TABLE_TASK, cv, "TaskName=?", new String[]{originalTaskname});
+    }
+
+    public void deleteTask(TaskObject taskObject){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_TASK,"TaskName=?", new String[]{taskObject.getTaskName()});
+        db.close();
     }
 
     Cursor readAllTaskData(String taskCategory){
