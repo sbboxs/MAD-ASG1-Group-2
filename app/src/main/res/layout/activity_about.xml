@@ -6,20 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".About">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="284dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="89dp"
+        android:translationZ="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dont_slcak" />
+
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
-        android:text="About"
+        android:text="About Us"
         android:textAlignment="center"
         android:textColor="#6f5642"
         android:textSize="34sp"
         android:textStyle="bold"
+        android:translationZ="90dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,4 +47,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="367dp"
+        android:layout_height="393dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="256dp"
+        android:background="@drawable/textview_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="322dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="84dp"
+        android:text="We hope that while using this application, you will be more productive as well as more organised."
+        android:textAlignment="center"
+        android:textColor="#6f5642"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="199dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/textview_border"
+        android:backgroundTint="#fafafa"
+        app:layout_constraintStart_toEndOf="@+id/backHome3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="321dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="84dp"
+        android:text="Hi! We are a group of students creating this application for our assignments."
+        android:textAlignment="center"
+        android:textColor="#6f5642"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="46dp"
+        android:text="Terms &amp; Conditions"
+        android:textColor="#706A6A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,8 +55,8 @@ public class ToDoList extends AppCompatActivity{
         Button personalTaskButton = findViewById(R.id.personalFragmentButton);
 
         setDefaultCategory();
-        workTaskButton.setBackgroundColor(Color.LTGRAY);
-        personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+        workTaskButton.setBackgroundColor(Color.parseColor("#DFDFDF"));
+        personalTaskButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
 
         workTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +66,8 @@ public class ToDoList extends AppCompatActivity{
                 }
                 else{
                     taskCategory = "work";
-                    workTaskButton.setBackgroundColor(Color.LTGRAY);
-                    personalTaskButton.setBackgroundColor(Color.rgb(225,227,229));
+                    workTaskButton.setBackgroundColor(Color.parseColor("#DFDFDF"));
+                    personalTaskButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
                     storeTaskDataToArray();
                     replaceFragment(new toDoListWork(),workTaskList);
                 }
@@ -83,8 +83,8 @@ public class ToDoList extends AppCompatActivity{
                 }
                 else{
                     taskCategory = "personal";
-                    workTaskButton.setBackgroundColor(Color.rgb(225,227,229));
-                    personalTaskButton.setBackgroundColor(Color.LTGRAY);
+                    workTaskButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
+                    personalTaskButton.setBackgroundColor(Color.parseColor("#DFDFDF"));
                     storeTaskDataToArray();
                     replaceFragment(new toDoListPersonal(),personalTaskList);
                 }

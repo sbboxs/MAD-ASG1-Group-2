@@ -36,8 +36,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="88dp"
-        android:background="#E1E3E5"
+        android:background="#F1F1F1"
         android:fontFamily="@font/roboto"
+        android:stateListAnimator="@null"
         android:text="Work"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -50,8 +51,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="88dp"
-        android:background="#E1E3E5"
+        android:background="#DFDFDF"
         android:fontFamily="@font/roboto"
+        android:stateListAnimator="@null"
         android:text="Personal"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -63,12 +65,12 @@
         android:layout_width="413dp"
         android:layout_height="509dp"
         android:layout_marginTop="5dp"
-        android:background="#e1e3e5"
+        android:background="#f1f1f1"
+        android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton"
-        android:stateListAnimator="@null">
+        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton">
 
     </FrameLayout>
 

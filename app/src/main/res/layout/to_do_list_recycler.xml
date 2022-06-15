@@ -9,6 +9,7 @@
         android:id="@+id/taskSection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#f1f1f1"
         android:padding="10dp">
 
         <Button
@@ -19,7 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/btn_bg"
-            android:backgroundTint="#F1EFE9"
+            android:backgroundTint="#e9e0d4"
             android:fontFamily="@font/roboto"
             android:stateListAnimator="@null"
             android:text="Button"

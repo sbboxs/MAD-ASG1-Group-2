@@ -260,14 +260,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="386dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="14dp"
         android:orientation="horizontal"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -345,7 +345,7 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
+        <!--<androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
@@ -379,7 +379,7 @@
                     android:text="FAQ"
                     android:textStyle="bold" />
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView> -->
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -422,8 +422,8 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="275dp"
-        android:layout_height="97dp"
+        android:layout_width="284dp"
+        android:layout_height="117dp"
         android:layout_marginStart="87dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="89dp"

@@ -100,14 +100,14 @@ public class HomePage extends AppCompatActivity {
         });
 
 
-        ImageView faqImage = findViewById(R.id.faqButton);
+        /* ImageView faqImage = findViewById(R.id.faqButton);
         faqImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(HomePage.this, FAQ.class);
                 startActivity(myIntent);
             }
-        });
+        }); */
 
         ImageView settingImage = findViewById(R.id.settingsButton);
         settingImage.setOnClickListener(new View.OnClickListener() {
