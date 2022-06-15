@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg3"
+    android:background="@drawable/bg4"
     android:orientation="vertical"
     tools:context=".Login">
 
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="WELCOME"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="290dp"
         android:fontFamily="@font/oswald"
         android:textColor="#6F5643"
         android:textSize="40sp"
@@ -59,7 +59,7 @@
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/btn_circle"
         android:backgroundTint="#6F5642"
         android:fontFamily="@font/roboto"
