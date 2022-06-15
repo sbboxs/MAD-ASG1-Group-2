@@ -1,6 +1,7 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +32,12 @@ public class ToDoListTaskDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list_task_details);
+
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
         Bundle taskBundle = getIntent().getBundleExtra("Bundle");
         TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
 

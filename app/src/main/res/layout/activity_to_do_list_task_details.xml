@@ -10,13 +10,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/oswald"
         android:text="My Task "
         android:textColor="#6f5642"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/taskDetailBackButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -24,14 +25,11 @@
         android:layout_width="167dp"
         android:layout_height="53dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="173dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/roboto"
         android:text="Title"
         android:textSize="24sp"
         android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -83,11 +81,16 @@
         android:id="@+id/editTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="144dp"
         android:layout_marginEnd="44dp"
+        android:backgroundTint="#cc6b49"
         android:fontFamily="@font/roboto"
         android:text="edit"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toEndOf="@+id/taskTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -105,29 +108,80 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="173dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#cc6b49"
         android:text="Start"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tasktDeadLine" />
+        app:layout_constraintTop_toBottomOf="@+id/taskTimer" />
 
     <Button
         android:id="@+id/completeTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="91dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="16dp"
         android:text="Complete"
+        android:textColor="#cc6b49"
         app:layout_constraintStart_toEndOf="@+id/startStopTaskButton"
-        app:layout_constraintTop_toBottomOf="@+id/tasktDeadLine" />
+        app:layout_constraintTop_toBottomOf="@+id/taskTimer" />
 
     <TextView
         android:id="@+id/taskTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="163dp"
-        android:layout_marginTop="101dp"
+        android:layout_marginTop="60dp"
         android:text="00:00:00"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tasktDeadLine" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:fontFamily="@font/roboto"
+        android:text="Title "
+        android:textColor="#6F5643"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/taskTitle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:fontFamily="@font/roboto"
+        android:text="Description"
+        android:textColor="#6F5643"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/taskDiscription"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:fontFamily="@font/roboto"
+        android:text="Start Time"
+        android:textColor="#6F5643"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/taskStartTIme"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:fontFamily="@font/roboto"
+        android:text="Deadline"
+        android:textColor="#6F5643"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tasktDeadLine"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
