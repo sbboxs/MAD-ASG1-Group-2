@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
-public class FAQ extends AppCompatActivity {
+public class FAQ extends AppCompatActivity{
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +31,8 @@ public class FAQ extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+
+
     }
 }
