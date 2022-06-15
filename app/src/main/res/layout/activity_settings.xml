@@ -102,4 +102,17 @@
         app:layout_constraintStart_toEndOf="@+id/backHome"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginEnd="185dp"
+        android:layout_marginBottom="24dp"
+        android:text="All Rights Reserved "
+        android:drawableEnd="@drawable/ic_c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
