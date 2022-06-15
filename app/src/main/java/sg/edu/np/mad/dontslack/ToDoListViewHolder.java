@@ -19,5 +19,6 @@ public class ToDoListViewHolder extends RecyclerView.ViewHolder {
         taskSection = itemView.findViewById(R.id.taskSection);
         taskButton = itemView.findViewById(R.id.taskDetailButton);
         taskName = itemView.findViewById(R.id.taskDetailButton);
+
     }
 }

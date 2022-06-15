@@ -5,8 +5,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -119,11 +121,14 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                     });
 
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
+                        @SuppressLint("SetTextI18n")
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             currentTask.setTaskStatus(false);
                             dbHandler.updateTaskData(currentTask,currentTask.getTaskName());
                             dialog.dismiss();
+                            completeTaskButton.setText("Complete");
+                            completeTaskButton.setTextColor(Color.rgb(204,107,73));
                         }
                     });
                 }
@@ -138,12 +143,15 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                     });
 
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
+                        @SuppressLint("SetTextI18n")
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             currentTask.setTaskStatus(true);
                             dbHandler.updateTaskData(currentTask,currentTask.getTaskName());
                             dialog.dismiss();
                             onStop();
+                            completeTaskButton.setText("Completed");
+                            completeTaskButton.setTextColor(Color.rgb(34,139,34));
                         }
                     });
                 }

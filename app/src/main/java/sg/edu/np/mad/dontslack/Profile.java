@@ -35,7 +35,6 @@ public class Profile extends AppCompatActivity {
         String Username = sharedPreferences.getString(KEY_USERNAME,"");
         User user = dbHandler.findUser(Username);
 
-
         TextView profileUsername = findViewById(R.id.textProfileUsername);
         profileUsername.setText(user.getUsername());
 
@@ -50,8 +49,14 @@ public class Profile extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        TextView deleteAccountButton = findViewById(R.id.deleteAccountButton);
+        deleteAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        Button logoutButton = findViewById(R.id.logoutButton);
+            }
+        });
+        TextView logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

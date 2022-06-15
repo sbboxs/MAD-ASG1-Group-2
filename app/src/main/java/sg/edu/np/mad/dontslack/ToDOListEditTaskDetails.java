@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -82,6 +83,14 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
             }
         });
 
+        TextView deleteTaskButton = findViewById(R.id.deleteTaskButton);
+        deleteTaskButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         Button createTaskButton = findViewById(R.id.saveEditTaskButton);
         createTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +128,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
             }
         });
     }
+
     public void showDateTimeDialog(EditText date_time){
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
