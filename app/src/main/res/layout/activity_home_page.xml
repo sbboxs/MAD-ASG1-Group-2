@@ -26,7 +26,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
+            app:cardElevation="3dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -84,7 +84,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="20dp"
-            app:cardElevation="5dp"
+            app:cardElevation="3dp"
             app:cardPreventCornerOverlap="false">
 
 
@@ -126,7 +126,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
+            app:cardElevation="3dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -180,7 +180,7 @@
             android:layout_weight="1"
             android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
+            app:cardElevation="3dp">
 
 
             <RelativeLayout
@@ -221,7 +221,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
+            app:cardElevation="3dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -261,6 +261,7 @@
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -273,12 +274,13 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.3"
-            app:cardCornerRadius="5dp">
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#ece6c2">
+                android:background="#fafafa">
 
                 <ImageView
                     android:id="@+id/profileButton"
@@ -311,11 +313,13 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.3"
-            app:cardCornerRadius="5dp">
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#fafafa">
 
                 <ImageView
                     android:id="@+id/contactButton"
@@ -344,7 +348,9 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.3"
-            app:cardCornerRadius="5dp">
+            app:cardBackgroundColor="#fafafa"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -378,11 +384,13 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.3"
-            app:cardCornerRadius="5dp">
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="#fafafa">
 
                 <ImageView
                     android:id="@+id/settingsButton"
