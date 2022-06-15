@@ -41,7 +41,7 @@ public class ToDoList extends AppCompatActivity{
         assert actionBar != null;
         actionBar.hide();
 
-        //backbutton
+        //Backbutton
         ImageView goBackButton = findViewById(R.id.toDoListBackButton);
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +121,7 @@ public class ToDoList extends AppCompatActivity{
     private void storeTaskDataToArray() {
         Cursor cursor = dbHandler.readAllTaskData(taskCategory);
         if (cursor.getCount() == 0) {
-            Toast.makeText(this,"No Data Found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Task Yet", Toast.LENGTH_SHORT).show();
 
         } else {
             if (taskCategory.equals("work")){

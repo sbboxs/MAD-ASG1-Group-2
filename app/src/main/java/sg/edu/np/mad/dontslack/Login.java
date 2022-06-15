@@ -4,7 +4,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,12 @@ public class Login extends AppCompatActivity {
     private final String TAG = "Login Activity";
     private static String etUsername;
     private static String etPassword;
+
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME = "myPref";
+    private static final String KEY_LOGIN = "accountStatus";
+    private static final String KEY_USERNAME = "userName";
+
     DBHandler dbHandler = new DBHandler(this,null,null,1);
 
     @Override
@@ -42,9 +50,12 @@ public class Login extends AppCompatActivity {
                         User user = new User();
                         user.setUsername(etUsername);
                         user.setPassword(etPassword);
-                        Bundle myBundle = new Bundle();
+                        sharedPreferences =  getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean(KEY_LOGIN,true);
+                        editor.putString(KEY_USERNAME,user.getUsername());
+                        editor.apply();
                         Intent myIntent = new Intent(Login.this,HomePage.class);
-                        myIntent.putExtra("Bundle",myBundle);
                         startActivity(myIntent);
                     }
                     //If invalid login credentials

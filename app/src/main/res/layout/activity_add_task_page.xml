@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/addTaskTitle" />
 
     <EditText
         android:id="@+id/editCurrentTaskDescription"
@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editCurrentTaskTitle" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/addTaskTitle"
         android:layout_width="244dp"
         android:layout_height="61dp"
         android:layout_marginStart="116dp"
