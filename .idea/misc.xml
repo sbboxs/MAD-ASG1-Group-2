@@ -10,6 +10,7 @@
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_notificationBell_foreground.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_playarrow_foreground.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/rightangle_triangle.xml" value="0.1595" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/tab_arrow_button.xml" value="0.1595" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/textview_border.xml" value="0.2025" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/font/alata.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_about.xml" value="0.22" />
@@ -35,10 +36,6 @@
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.22" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/menu/main_menu.xml" value="0.2" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/mipmap-anydpi-v26/ic_notificationbell.xml" value="0.1" />
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/activity_calendar.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/activity_home_page.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/calendar_event_cell.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/calendar_event_edit.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_sign_up.xml" value="0.1265625" />

@@ -20,6 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -28,7 +30,7 @@ public class Notes extends AppCompatActivity {
     static ArrayList<String> notes = new ArrayList<String>();
     static ArrayAdapter<String> arrayAdapter;
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater menuInflater = getMenuInflater();
@@ -50,7 +52,8 @@ public class Notes extends AppCompatActivity {
         }
 
         return false;
-    }
+    }*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,16 @@ public class Notes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(Notes.this, HomePage.class);
                 startActivity(myIntent);
+            }
+        });
+
+
+        FloatingActionButton addNotesButton = findViewById(R.id.addNotesButton);
+        addNotesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
+                startActivity(intent);
             }
         });
 
