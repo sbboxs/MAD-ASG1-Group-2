@@ -38,82 +38,44 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="57dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="44dp"
-        android:fontFamily="@font/roboto"
-        android:text="Change"
-        android:textColor="#128AE6"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
-
-    <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="28dp"
         android:fontFamily="@font/roboto"
         android:text="Change "
         android:textColor="#128AE6"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="44dp"
-        android:fontFamily="@font/roboto"
-        android:text="Add "
-        android:textColor="#128AE6"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
     <TextView
         android:id="@+id/textProfilePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto"
         android:text="**********"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textProfileUsername" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/roboto"
-        android:text="Email Address"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textProfilePassword" />
 
     <TextView
         android:id="@+id/textProfileUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto"
         android:text="Username"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
     <TextView
@@ -136,8 +98,8 @@
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="34dp"
         android:shadowColor="#2A6CA1"
         android:text="Log out account"
         android:textColor="#128AE6"
@@ -149,13 +111,37 @@
         android:id="@+id/deleteAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="34dp"
         android:text="Delete Account"
         android:textColor="#D12B2B"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/textProfilePassword" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Username:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="34dp"
+        android:text="Password"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
