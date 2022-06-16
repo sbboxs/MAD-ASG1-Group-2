@@ -1,5 +1,8 @@
 package sg.edu.np.mad.dontslack;
 
+import static sg.edu.np.mad.dontslack.CalendarUtils.daysInMonthArray;
+import static sg.edu.np.mad.dontslack.CalendarUtils.monthYearFromDate;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +26,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
 {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
-    private LocalDate selectedDate;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -31,21 +34,9 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        /* Hiding the top bar */
-        ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.hide();
-
         initWidgets();
-        selectedDate = LocalDate.now();
+        CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
-
-        ImageView goBackButton = findViewById(R.id.goBackHome);
-        goBackButton.setOnClickListener(v -> {
-            Intent myIntent2 = new Intent(Calendar.this, HomePage.class);
-            startActivity(myIntent2);
-        });
-
     }
 
     private void initWidgets()
@@ -57,8 +48,8 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setMonthView()
     {
-        monthYearText.setText(monthYearFromDate(selectedDate));
-        ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
+        monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
@@ -67,59 +58,27 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private ArrayList<String> daysInMonthArray(LocalDate date)
-    {
-        ArrayList<String> daysInMonthArray = new ArrayList<>();
-        YearMonth yearMonth = YearMonth.from(date);
-
-        int daysInMonth = yearMonth.lengthOfMonth();
-
-        LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
-        int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
-
-        for(int i = 1; i <= 42; i++)
-        {
-            if(i <= dayOfWeek || i > daysInMonth + dayOfWeek)
-            {
-                daysInMonthArray.add("");
-            }
-            else
-            {
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
-            }
-        }
-        return  daysInMonthArray;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private String monthYearFromDate(LocalDate date)
-    {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
-        return date.format(formatter);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void previousMonthAction(View view)
     {
-        selectedDate = selectedDate.minusMonths(1);
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
         setMonthView();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void nextMonthAction(View view)
     {
-        selectedDate = selectedDate.plusMonths(1);
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
         setMonthView();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onItemClick(int position, String dayText)
+    public void onItemClick(int position, LocalDate date)
     {
-        if(!dayText.equals(""))
+        if(date != null)
         {
-            String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            CalendarUtils.selectedDate = date;
+            setMonthView();
         }
     }
     public void newEventAction(View view)
@@ -127,3 +86,4 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         startActivity(new Intent(this, CalendarEventEditActivity.class));
     }
 }
+

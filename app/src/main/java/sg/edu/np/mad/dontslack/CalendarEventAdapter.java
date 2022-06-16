@@ -21,6 +21,10 @@ public class CalendarEventAdapter extends ArrayAdapter<CalendarEvent>
         super(context, 0, events);
     }
 
+    public CalendarEventAdapter(@NonNull Context context, int resource) {
+        super(context, resource);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     @Override
@@ -38,3 +42,4 @@ public class CalendarEventAdapter extends ArrayAdapter<CalendarEvent>
         return convertView;
     }
 }
+
