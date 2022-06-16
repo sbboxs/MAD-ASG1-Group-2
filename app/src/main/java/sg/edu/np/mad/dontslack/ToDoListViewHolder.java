@@ -13,11 +13,13 @@ public class ToDoListViewHolder extends RecyclerView.ViewHolder {
     RelativeLayout taskSection;
     TextView taskName;
     Button taskButton;
+    TextView taskDate;
     @SuppressLint("CutPasteId")
     public ToDoListViewHolder(View itemView){
         super(itemView);
         taskSection = itemView.findViewById(R.id.taskSection);
         taskButton = itemView.findViewById(R.id.taskDetailButton);
+        taskDate = itemView.findViewById(R.id.taskDate);
         taskName = itemView.findViewById(R.id.taskDetailButton);
 
     }
