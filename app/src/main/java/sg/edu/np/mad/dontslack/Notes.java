@@ -126,7 +126,7 @@ public class Notes extends AppCompatActivity {
                                 notes.remove(position);
                                 arrayAdapter.notifyDataSetChanged();
 
-                                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.tanay.thunderbird.deathnote", Context.MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("GETNOTE", Context.MODE_PRIVATE);
                                 HashSet<String> set = new HashSet<>(Notes.notes);
                                 sharedPreferences.edit().putStringSet("notes", set).apply();
                             }
