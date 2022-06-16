@@ -5,11 +5,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder> {
@@ -37,12 +34,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder> {
             holder.taskDate.setText("Task Done");
             holder.taskDate.setTextColor(Color.rgb(34,139,34));
         }
-        holder.taskButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectListener.onItemClicked(data.get(position));
-            }
-        });
+        holder.taskButton.setOnClickListener(v -> selectListener.onItemClicked(data.get(position)));
     }
 
     public int getItemCount(){

@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,60 +34,51 @@ public class Login extends AppCompatActivity {
         actionBar.hide();
 
         ImageView backHomePage = findViewById(R.id.backHome);
-        backHomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(Login.this, HomePage.class);
-                startActivity(myIntent);
-            }
+        backHomePage.setOnClickListener(v -> {
+            Intent myIntent = new Intent(Login.this, HomePage.class);
+            startActivity(myIntent);
         });
 
         /* Login Button */
         Button myLoginButton = findViewById(R.id.loginButton);
-        myLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText etMyUserName = findViewById(R.id.editTextUsername);
-                etUsername = etMyUserName.getText().toString();
-                EditText etMyPassword = findViewById(R.id.editTextPassword);
-                etPassword = etMyPassword.getText().toString();
-                if(!etUsername.equals("") && !etPassword.equals("")){
-                    //Check is valid login credentials
-                    if(isValidCredentials(etUsername,etPassword)){
-                        //Save user data and pass it to intent
-                        User user = new User();
-                        user.setUsername(etUsername);
-                        user.setPassword(etPassword);
-                        sharedPreferences =  getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putBoolean(KEY_LOGIN,true);
-                        editor.putString(KEY_USERNAME,user.getUsername());
-                        editor.apply();
-                        Intent myIntent = new Intent(Login.this,HomePage.class);
-                        startActivity(myIntent);
-                    }
-                    //If invalid login credentials
-                    else{
-                        Toast.makeText(Login.this, "Invalid Login Credentials!", Toast.LENGTH_SHORT).show();
-                    }
+        myLoginButton.setOnClickListener(view -> {
+            EditText etMyUserName = findViewById(R.id.editTextUsername);
+            etUsername = etMyUserName.getText().toString();
+            EditText etMyPassword = findViewById(R.id.editTextPassword);
+            etPassword = etMyPassword.getText().toString();
+            if(!etUsername.equals("") && !etPassword.equals("")){
+                //Check is valid login credentials
+                if(isValidCredentials(etUsername,etPassword)){
+                    //Save user data and pass it to intent
+                    User user = new User();
+                    user.setUsername(etUsername);
+                    user.setPassword(etPassword);
+                    sharedPreferences =  getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean(KEY_LOGIN,true);
+                    editor.putString(KEY_USERNAME,user.getUsername());
+                    editor.apply();
+                    Intent myIntent = new Intent(Login.this,HomePage.class);
+                    startActivity(myIntent);
                 }
+                //If invalid login credentials
                 else{
-                    Toast.makeText(Login.this, "Please ensure all fields is filled!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Invalid Login Credentials!", Toast.LENGTH_SHORT).show();
                 }
-
-                Log.v(TAG, "Login:" + etUsername + " " + etPassword);
             }
+            else{
+                Toast.makeText(Login.this, "Please ensure all fields is filled!", Toast.LENGTH_SHORT).show();
+            }
+
+            Log.v(TAG, "Login:" + etUsername + " " + etPassword);
         });
 
         /* Create User Button */
         Button myNewUserButton = findViewById(R.id.newUserButton);
-        myNewUserButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(Login.this, SignUp.class);
-                startActivity(myIntent);
-                //test
-            }
+        myNewUserButton.setOnClickListener(view -> {
+            Intent myIntent = new Intent(Login.this, SignUp.class);
+            startActivity(myIntent);
+            //test
         });
     }
     public boolean isValidCredentials(String userName, String password){

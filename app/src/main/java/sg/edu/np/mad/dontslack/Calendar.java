@@ -41,12 +41,9 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         setMonthView();
 
         ImageView goBackButton = findViewById(R.id.goBackHome);
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent2 = new Intent(Calendar.this, HomePage.class);
-                startActivity(myIntent2);
-            }
+        goBackButton.setOnClickListener(v -> {
+            Intent myIntent2 = new Intent(Calendar.this, HomePage.class);
+            startActivity(myIntent2);
         });
 
     }

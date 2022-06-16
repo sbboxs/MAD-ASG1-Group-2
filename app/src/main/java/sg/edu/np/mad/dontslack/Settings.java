@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 public class Settings extends AppCompatActivity {
@@ -20,30 +19,21 @@ public class Settings extends AppCompatActivity {
         actionBar.hide();
         //back
         ImageView backHomePage = findViewById(R.id.backHome);
-        backHomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(Settings.this, HomePage.class);
-                startActivity(myIntent);
-            }
+        backHomePage.setOnClickListener(v -> {
+            Intent myIntent = new Intent(Settings.this, HomePage.class);
+            startActivity(myIntent);
         });
 
         ImageView notificationPage = findViewById(R.id.notificationView);
-        notificationPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(Settings.this, Notification.class);
-                startActivity(myIntent);
-            }
+        notificationPage.setOnClickListener(view -> {
+            Intent myIntent = new Intent(Settings.this, Notification.class);
+            startActivity(myIntent);
         });
 
         ImageView aboutPage = findViewById(R.id.aboutView);
-        aboutPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(Settings.this, About.class);
-                startActivity(myIntent);
-            }
+        aboutPage.setOnClickListener(view -> {
+            Intent myIntent = new Intent(Settings.this, About.class);
+            startActivity(myIntent);
         });
     }
 }

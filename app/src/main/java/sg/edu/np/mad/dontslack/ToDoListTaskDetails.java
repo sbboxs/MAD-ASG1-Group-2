@@ -4,23 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.io.Serializable;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ToDoListTaskDetails extends AppCompatActivity {
 
@@ -30,6 +24,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
     private boolean wasRunning;
     private boolean timerStarted = false;
     private boolean isTimerStarted = false;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,54 +52,45 @@ public class ToDoListTaskDetails extends AppCompatActivity {
         taskDeadLine.setText(currentTask.getTaskDeadLine());
 
         ImageView backButton = findViewById(R.id.taskDetailBackButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(ToDoListTaskDetails.this,ToDoList.class);
-                startActivity(myIntent);
-            }
+        backButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(ToDoListTaskDetails.this,ToDoList.class);
+            startActivity(myIntent);
         });
 
         Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
 
         Button editTaskButton = findViewById(R.id.editTaskButton);
-        editTaskButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent (ToDoListTaskDetails.this, ToDOListEditTaskDetails.class);
-                Bundle args = new Bundle();
-                args.putSerializable("TaskObject", (Serializable) currentTask);
-                myIntent.putExtra("Bundle",args);
-                startActivity(myIntent);
-            }
+        editTaskButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent (ToDoListTaskDetails.this, ToDOListEditTaskDetails.class);
+            Bundle args = new Bundle();
+            args.putSerializable("TaskObject", (Serializable) currentTask);
+            myIntent.putExtra("Bundle",args);
+            startActivity(myIntent);
         });
 
         Button startStopButton = findViewById(R.id.startStopTaskButton);
-        startStopButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(savedInstanceState != null){
-                    savedInstanceState.getInt("seconds");
-                    savedInstanceState.getBoolean("running");
-                    savedInstanceState.getBoolean("wasRunning");
-
-                }
-                if(!isTimerStarted){
-                    isTimerStarted = true;
-                    runTimer();
-                }
-                if(timerStarted){
-                    startStopButton.setText("Resume");
-                    timerStarted = false;
-                    onStop();
-                }
-                else{
-                    startStopButton.setText("Stop");
-                    timerStarted = true;
-                    onStart();
-                }
+        startStopButton.setOnClickListener(v -> {
+            if(savedInstanceState != null){
+                savedInstanceState.getInt("seconds");
+                savedInstanceState.getBoolean("running");
+                savedInstanceState.getBoolean("wasRunning");
 
             }
+            if(!isTimerStarted){
+                isTimerStarted = true;
+                runTimer();
+            }
+            if(timerStarted){
+                startStopButton.setText("Resume");
+                timerStarted = false;
+                onStop();
+            }
+            else{
+                startStopButton.setText("Stop");
+                timerStarted = true;
+                onStart();
+            }
+
         });
 
         Button completeTaskButton = findViewById(R.id.completeTaskButton);
@@ -112,61 +98,40 @@ public class ToDoListTaskDetails extends AppCompatActivity {
             completeTaskButton.setText("Completed");
             completeTaskButton.setTextColor(Color.rgb(34,139,34));
         }
-        completeTaskButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog alertDialog = new AlertDialog.Builder(ToDoListTaskDetails.this).create();
-                if(currentTask.isTaskStatus()){
-                    alertDialog.setTitle("Task Completed");
-                    alertDialog.setMessage("Are you sure you want to revert the status");
-                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
+        completeTaskButton.setOnClickListener(v -> {
+            AlertDialog alertDialog = new AlertDialog.Builder(ToDoListTaskDetails.this).create();
+            if(currentTask.isTaskStatus()){
+                alertDialog.setTitle("Task Completed");
+                alertDialog.setMessage("Are you sure you want to revert the status");
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back", (dialog, which) -> dialog.dismiss());
 
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            currentTask.setTaskStatus(false);
-                            dbHandler.updateTaskData(currentTask,currentTask.getTaskName());
-                            dialog.dismiss();
-                            completeTaskButton.setText("Complete");
-                            completeTaskButton.setTextColor(Color.rgb(204,107,73));
-                            Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
-                        }
-                    });
-                }
-                else{
-                    alertDialog.setTitle("Task Completion");
-                    alertDialog.setMessage("Are you sure you have completed the task?");
-                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back to Work", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            currentTask.setTaskStatus(true);
-                            dbHandler.updateTaskData(currentTask,currentTask.getTaskName());
-                            dialog.dismiss();
-                            onStop();
-                            completeTaskButton.setText("Completed");
-                            completeTaskButton.setTextColor(Color.rgb(34,139,34));
-                            Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
-                        }
-                    });
-                }
-                alertDialog.show();
-
-
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
+                    currentTask.setTaskStatus(false);
+                    dbHandler.updateTaskData(currentTask,currentTask.getTaskName());
+                    dialog.dismiss();
+                    completeTaskButton.setText("Complete");
+                    completeTaskButton.setTextColor(Color.rgb(204,107,73));
+                    Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
+                });
             }
+            else{
+                alertDialog.setTitle("Task Completion");
+                alertDialog.setMessage("Are you sure you have completed the task?");
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back to Work", (dialog, which) -> dialog.dismiss());
+
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
+                    currentTask.setTaskStatus(true);
+                    dbHandler.updateTaskData(currentTask,currentTask.getTaskName());
+                    dialog.dismiss();
+                    onStop();
+                    completeTaskButton.setText("Completed");
+                    completeTaskButton.setTextColor(Color.rgb(34,139,34));
+                    Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
+                });
+            }
+            alertDialog.show();
+
+
         });
     }
 

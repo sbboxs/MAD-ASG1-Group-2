@@ -7,15 +7,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
-
-import java.util.Set;
-import java.util.prefs.PreferenceChangeEvent;
 
 public class HomePage extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -40,82 +34,52 @@ public class HomePage extends AppCompatActivity {
         if(IsLogin){
             profileTextView.setText("Profile");
             ImageView profileImage = findViewById(R.id.profileButton);
-            profileImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent myIntent = new Intent(HomePage.this, Profile.class);
-                    startActivity(myIntent);
-                }
+            profileImage.setOnClickListener(v -> {
+                Intent myIntent = new Intent(HomePage.this, Profile.class);
+                startActivity(myIntent);
             });
         }
         else{
             profileTextView.setText("Login");
             ImageView profileImage = findViewById(R.id.profileButton);
-            profileImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent myIntent = new Intent(HomePage.this, Login.class);
-                    startActivity(myIntent);
-                }
+            profileImage.setOnClickListener(v -> {
+                Intent myIntent = new Intent(HomePage.this, Login.class);
+                startActivity(myIntent);
             });
         }
 
         Button ToDOListButton = findViewById(R.id.toDoListButton);
-        ToDOListButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(HomePage.this,ToDoList.class);
-                startActivity(myIntent);
-            }
+        ToDOListButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(HomePage.this,ToDoList.class);
+            startActivity(myIntent);
         });
 
         Button NotesButton = findViewById(R.id.notesButton);
-        NotesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(HomePage.this, Notes.class);
-                startActivity(myIntent);
-            }
+        NotesButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(HomePage.this, Notes.class);
+            startActivity(myIntent);
         });
 
         Button CalendarButton = findViewById(R.id.calendarButton);
-        CalendarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(HomePage.this, Calendar.class);
-                startActivity(myIntent);
-            }
+        CalendarButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(HomePage.this, Calendar.class);
+            startActivity(myIntent);
         });
 
 
 
 
         ImageView contactImage = findViewById(R.id.contactButton);
-        contactImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(HomePage.this, Contact.class);
-                startActivity(myIntent);
-            }
+        contactImage.setOnClickListener(view -> {
+            Intent myIntent = new Intent(HomePage.this, Contact.class);
+            startActivity(myIntent);
         });
 
 
-        /* ImageView faqImage = findViewById(R.id.faqButton);
-        faqImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(HomePage.this, FAQ.class);
-                startActivity(myIntent);
-            }
-        }); */
-
         ImageView settingImage = findViewById(R.id.settingsButton);
-        settingImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(HomePage.this, Settings.class);
-                startActivity(myIntent);
-            }
+        settingImage.setOnClickListener(view -> {
+            Intent myIntent = new Intent(HomePage.this, Settings.class);
+            startActivity(myIntent);
         });
     }
 

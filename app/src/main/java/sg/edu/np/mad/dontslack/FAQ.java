@@ -6,10 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.Spinner;
 
 public class FAQ extends AppCompatActivity{
 
@@ -24,12 +21,9 @@ public class FAQ extends AppCompatActivity{
         actionBar.hide();
 
         ImageView backHomePage = findViewById(R.id.backHome);
-        backHomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(FAQ.this, HomePage.class);
-                startActivity(myIntent);
-            }
+        backHomePage.setOnClickListener(v -> {
+            Intent myIntent = new Intent(FAQ.this, HomePage.class);
+            startActivity(myIntent);
         });
 
 

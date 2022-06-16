@@ -7,20 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
-
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -49,9 +43,72 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         originalTaskName = currentTask.getTaskName();
 
         ImageView backHomePage = findViewById(R.id.editDetailBackButton);
-        backHomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        backHomePage.setOnClickListener(v -> {
+            Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
+            Bundle args = new Bundle();
+            args.putSerializable("TaskObject", (Serializable) currentTask);
+            myIntent.putExtra("Bundle",args);
+            startActivity(myIntent);
+        });
+
+        @SuppressLint("CutPasteId") EditText editCurrentTaskTitle = findViewById(R.id.editCurrentTaskTitle);
+        editCurrentTaskTitle.setText(currentTask.getTaskName());
+
+        @SuppressLint("CutPasteId") EditText editCurrentTaskDescription = findViewById(R.id.editCurrentTaskDescription);
+        editCurrentTaskDescription.setText(currentTask.getTaskDescription());
+
+        @SuppressLint("CutPasteId") EditText editCurrentTaskStartTime = findViewById(R.id.editCurrentTaskStartTime);
+        editCurrentTaskStartTime.setText(currentTask.getTaskStartTime());
+
+        @SuppressLint("CutPasteId") EditText editCurrentTaskDeadLine= findViewById(R.id.editCurrentTaskDeadline);
+        editCurrentTaskDeadLine.setText(currentTask.getTaskDeadLine());
+
+        editCurrentTaskStartTime.setOnClickListener(v -> showDateTimeDialog(editCurrentTaskStartTime));
+
+        editCurrentTaskDeadLine.setOnClickListener(v -> showDateTimeDialog(editCurrentTaskDeadLine));
+
+        TextView deleteTaskButton = findViewById(R.id.deleteTaskButton);
+        deleteTaskButton.setOnClickListener(v -> {
+            AlertDialog alertDialog = new AlertDialog.Builder(ToDOListEditTaskDetails.this).create();
+            alertDialog.setTitle("Delete Task");
+            alertDialog.setMessage("Are you sure you want to delete this task?");
+
+            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", (dialog, which) -> dialog.dismiss());
+
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
+                dbHandler.deleteTask(currentTask);
+                Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoList.class);
+                startActivity(myIntent);
+            });
+            alertDialog.show();
+        });
+
+        Button createTaskButton = findViewById(R.id.saveEditTaskButton);
+        createTaskButton.setOnClickListener(v -> {
+            @SuppressLint("CutPasteId") EditText newTaskTitle = findViewById(R.id.editCurrentTaskTitle);
+            etTaskTitle = newTaskTitle.getText().toString();
+            @SuppressLint("CutPasteId") EditText newTaskDescription = findViewById(R.id.editCurrentTaskDescription);
+            etTaskDescription = newTaskDescription.getText().toString();
+            @SuppressLint("CutPasteId") EditText newTaskStartTime = findViewById(R.id.editCurrentTaskStartTime);
+            etTaskStartTIme = newTaskStartTime.getText().toString();
+            @SuppressLint("CutPasteId") EditText newTaskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
+            etTaskDeadLine = newTaskDeadLine.getText().toString();
+
+            Log.v(TAG,"editTask:" + etTaskTitle);
+            Log.v(TAG,"editTask::" + etTaskDescription);
+            Log.v(TAG,"editTask:" + etTaskStartTIme);
+            Log.v(TAG,"editTask:" + etTaskDeadLine);
+            if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
+                Toast.makeText(ToDOListEditTaskDetails.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                currentTask.setTaskName(etTaskTitle);
+                currentTask.setTaskDescription(etTaskDescription);
+                currentTask.setTaskStartTime(etTaskStartTIme);
+                currentTask.setTaskDeadLine(etTaskDeadLine);
+
+                dbHandler.updateTaskData(currentTask,originalTaskName);
+                Toast.makeText(ToDOListEditTaskDetails.this,"Task Edited Successfully", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
                 Bundle args = new Bundle();
                 args.putSerializable("TaskObject", (Serializable) currentTask);
@@ -59,119 +116,22 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
-        EditText editCurrentTaskTitle = findViewById(R.id.editCurrentTaskTitle);
-        editCurrentTaskTitle.setText(currentTask.getTaskName());
-
-        EditText editCurrentTaskDescription = findViewById(R.id.editCurrentTaskDescription);
-        editCurrentTaskDescription.setText(currentTask.getTaskDescription());
-
-        EditText editCurrentTaskStartTime = findViewById(R.id.editCurrentTaskStartTime);
-        editCurrentTaskStartTime.setText(currentTask.getTaskStartTime());
-
-        EditText editCurrentTaskDeadLine= findViewById(R.id.editCurrentTaskDeadline);
-        editCurrentTaskDeadLine.setText(currentTask.getTaskDeadLine());
-
-        editCurrentTaskStartTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDateTimeDialog(editCurrentTaskStartTime);
-            }
-        });
-
-        editCurrentTaskDeadLine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDateTimeDialog(editCurrentTaskDeadLine);
-            }
-        });
-
-        TextView deleteTaskButton = findViewById(R.id.deleteTaskButton);
-        deleteTaskButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog alertDialog = new AlertDialog.Builder(ToDOListEditTaskDetails.this).create();
-                alertDialog.setTitle("Delete Task");
-                alertDialog.setMessage("Are you sure you want to delete this task?");
-
-                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", new DialogInterface.OnClickListener() {
-                    @SuppressLint("SetTextI18n")
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dbHandler.deleteTask(currentTask);
-                        Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoList.class);
-                        startActivity(myIntent);
-                    }
-                });
-                alertDialog.show();
-            }
-        });
-
-        Button createTaskButton = findViewById(R.id.saveEditTaskButton);
-        createTaskButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText newTaskTitle = findViewById(R.id.editCurrentTaskTitle);
-                etTaskTitle = newTaskTitle.getText().toString();
-                EditText newTaskDescription = findViewById(R.id.editCurrentTaskDescription);
-                etTaskDescription = newTaskDescription.getText().toString();
-                EditText newTaskStartTime = findViewById(R.id.editCurrentTaskStartTime);
-                etTaskStartTIme = newTaskStartTime.getText().toString();
-                EditText newTaskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
-                etTaskDeadLine = newTaskDeadLine.getText().toString();
-
-                Log.v(TAG,"editTask:" + etTaskTitle);
-                Log.v(TAG,"editTask::" + etTaskDescription);
-                Log.v(TAG,"editTask:" + etTaskStartTIme);
-                Log.v(TAG,"editTask:" + etTaskDeadLine);
-                if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
-                    Toast.makeText(ToDOListEditTaskDetails.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    currentTask.setTaskName(etTaskTitle);
-                    currentTask.setTaskDescription(etTaskDescription);
-                    currentTask.setTaskStartTime(etTaskStartTIme);
-                    currentTask.setTaskDeadLine(etTaskDeadLine);
-
-                    dbHandler.updateTaskData(currentTask,originalTaskName);
-                    Toast.makeText(ToDOListEditTaskDetails.this,"Task Edited Successfully", Toast.LENGTH_SHORT).show();
-                    Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
-                    Bundle args = new Bundle();
-                    args.putSerializable("TaskObject", (Serializable) currentTask);
-                    myIntent.putExtra("Bundle",args);
-                    startActivity(myIntent);
-                }
-            }
-        });
     }
 
     public void showDateTimeDialog(EditText date_time){
         Calendar calendar = Calendar.getInstance();
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                calendar.set(Calendar.YEAR,year);
-                calendar.set(Calendar.MONTH,month);
-                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+        DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) -> {
+            calendar.set(Calendar.YEAR,year);
+            calendar.set(Calendar.MONTH,month);
+            calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
 
-                TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        calendar.set(Calendar.MINUTE,minute);
-                        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy h:mm aaa");
-                        date_time.setText(simpleDateFormat.format(calendar.getTime()));
-                    }
-                };
-                new TimePickerDialog(ToDOListEditTaskDetails.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
-            }
+            TimePickerDialog.OnTimeSetListener timeSetListener = (view1, hourOfDay, minute) -> {
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                calendar.set(Calendar.MINUTE,minute);
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy h:mm aaa");
+                date_time.setText(simpleDateFormat.format(calendar.getTime()));
+            };
+            new TimePickerDialog(ToDOListEditTaskDetails.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),false).show();
         };
 
         new DatePickerDialog(ToDOListEditTaskDetails.this,dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 public class About extends AppCompatActivity {
@@ -21,12 +20,9 @@ public class About extends AppCompatActivity {
         actionBar.hide();
 
         ImageView goBackButton = findViewById(R.id.backHome3);
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent2 = new Intent(About.this, Settings.class);
-                startActivity(myIntent2);
-            }
+        goBackButton.setOnClickListener(v -> {
+            Intent myIntent2 = new Intent(About.this, Settings.class);
+            startActivity(myIntent2);
         });
     }
 }

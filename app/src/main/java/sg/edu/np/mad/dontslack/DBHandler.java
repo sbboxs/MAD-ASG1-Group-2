@@ -1,7 +1,5 @@
 package sg.edu.np.mad.dontslack;
 
-import static java.sql.Types.INTEGER;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

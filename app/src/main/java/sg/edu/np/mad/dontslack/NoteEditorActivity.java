@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -30,12 +29,9 @@ public class NoteEditorActivity extends AppCompatActivity {
         actionBar.hide();
 
         ImageView backHomePage = findViewById(R.id.backHome);
-        backHomePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(NoteEditorActivity.this, Notes.class);
-                startActivity(myIntent);
-            }
+        backHomePage.setOnClickListener(v -> {
+            Intent myIntent = new Intent(NoteEditorActivity.this, Notes.class);
+            startActivity(myIntent);
         });
 
         EditText editText = (EditText)findViewById(R.id.editText);
