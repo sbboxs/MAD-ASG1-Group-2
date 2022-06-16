@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Contact extends AppCompatActivity {
 
@@ -25,6 +27,14 @@ public class Contact extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(Contact.this, HomePage.class);
                 startActivity(myIntent);
+            }
+        });
+
+        Button contactSubmitButton = findViewById(R.id.contactSubmitButton);
+        contactSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Contact.this,"Message submmite successfully!!",Toast.LENGTH_SHORT).show();
             }
         });
 

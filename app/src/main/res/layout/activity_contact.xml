@@ -7,7 +7,7 @@
     tools:context=".Contact">
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/contactSubmitButton"
         android:layout_width="320dp"
         android:layout_height="65dp"
         android:layout_marginStart="45dp"

@@ -118,7 +118,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                 AlertDialog alertDialog = new AlertDialog.Builder(ToDoListTaskDetails.this).create();
                 if(currentTask.isTaskStatus()){
                     alertDialog.setTitle("Task Completed");
-                    alertDialog.setMessage("Are you sure you have revert the status");
+                    alertDialog.setMessage("Are you sure you want to revert the status");
                     alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
