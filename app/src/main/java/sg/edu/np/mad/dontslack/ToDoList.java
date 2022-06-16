@@ -15,6 +15,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -130,7 +131,13 @@ public class ToDoList extends AppCompatActivity{
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
                     task.setTaskCategory(cursor.getString(1));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    if (cursor.getString(2).equals("1")) {
+                        task.setTaskStatus(true);
+                    }
+                    else{
+                        task.setTaskStatus(false);
+                    }
+                    Log.v(TAG,"TaskStatus"+task.isTaskStatus());
                     task.setTaskDescription(cursor.getString(3));
                     task.setTaskStartTime(cursor.getString(4));
                     task.setTaskDeadLine(cursor.getString(5));
@@ -142,7 +149,13 @@ public class ToDoList extends AppCompatActivity{
                     TaskObject task = new TaskObject();
                     task.setTaskName(cursor.getString(0));
                     task.setTaskCategory(cursor.getString(1));
-                    task.setTaskStatus(Boolean.parseBoolean(cursor.getString(2)));
+                    if (cursor.getString(2).equals("1")) {
+                        task.setTaskStatus(true);
+                    }
+                    else{
+                        task.setTaskStatus(false);
+                    }
+
                     task.setTaskDescription(cursor.getString(3));
                     task.setTaskStartTime(cursor.getString(4));
                     task.setTaskDeadLine(cursor.getString(5));

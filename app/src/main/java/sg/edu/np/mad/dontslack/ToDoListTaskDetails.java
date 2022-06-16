@@ -23,7 +23,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ToDoListTaskDetails extends AppCompatActivity {
-    DBHandler dbHandler = new DBHandler(this,null,null,1);
+
     private final String TAG = "Task Detail";
     private int seconds;
     private boolean running;
@@ -34,6 +34,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list_task_details);
+        DBHandler dbHandler = new DBHandler(this,null,null,1);
 
         /* Hiding the top bar */
         ActionBar actionBar = getSupportActionBar();
@@ -63,6 +64,8 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
 
         Button editTaskButton = findViewById(R.id.editTaskButton);
         editTaskButton.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +108,13 @@ public class ToDoListTaskDetails extends AppCompatActivity {
         });
 
         Button completeTaskButton = findViewById(R.id.completeTaskButton);
+        if(currentTask.isTaskStatus()){
+            completeTaskButton.setText("Completed");
+            completeTaskButton.setTextColor(Color.rgb(34,139,34));
+        }
         completeTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
                 AlertDialog alertDialog = new AlertDialog.Builder(ToDoListTaskDetails.this).create();
                 if(currentTask.isTaskStatus()){
                     alertDialog.setTitle("Task Completed");
@@ -129,6 +135,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                             dialog.dismiss();
                             completeTaskButton.setText("Complete");
                             completeTaskButton.setTextColor(Color.rgb(204,107,73));
+                            Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
                         }
                     });
                 }
@@ -152,10 +159,13 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                             onStop();
                             completeTaskButton.setText("Completed");
                             completeTaskButton.setTextColor(Color.rgb(34,139,34));
+                            Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
                         }
                     });
                 }
                 alertDialog.show();
+
+
             }
         });
     }
@@ -212,8 +222,6 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                 }
                 handler.postDelayed(this,1000);
             }
-
-
 
         });
     }
