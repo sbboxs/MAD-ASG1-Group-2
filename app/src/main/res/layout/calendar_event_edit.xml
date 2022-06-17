@@ -28,25 +28,32 @@
 
     <TextView
         android:id="@+id/eventDateTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_width="320dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:ems="10"
+        android:focusable="false"
         android:text="Date"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:padding="10dp"/>
 
-    <TextView
-        android:id="@+id/eventTimeTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Time"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/EventTimeET"
+        android:layout_width="320dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/ic_time"
+        android:ems="10"
+        android:focusable="false"
+        android:fontFamily="@font/roboto"
+        android:hint="Select Time"
+        android:inputType="datetime"
+        android:padding="10dp"/>
+
 
     <Button
         android:layout_marginTop="20dp"

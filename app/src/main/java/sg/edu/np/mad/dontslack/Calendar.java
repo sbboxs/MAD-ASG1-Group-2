@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
 {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
+    private ListView eventListView;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -43,6 +45,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
+        eventListView = findViewById(R.id.eventListView);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -55,6 +58,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+        setCalendarEventAdpater();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -81,6 +85,19 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
             setMonthView();
         }
     }
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        setCalendarEventAdpater();
+    }
+
+    private void setCalendarEventAdpater() {
+        ArrayList<CalendarEvent> dailyEvents = CalendarEvent.eventsForDate(CalendarUtils.selectedDate);
+        CalendarEventAdapter eventAdapter = new CalendarEventAdapter(getApplicationContext(), dailyEvents);
+        eventListView.setAdapter(eventAdapter);
+    }
+
     public void newEventAction(View view)
     {
         startActivity(new Intent(this, CalendarEventEditActivity.class));

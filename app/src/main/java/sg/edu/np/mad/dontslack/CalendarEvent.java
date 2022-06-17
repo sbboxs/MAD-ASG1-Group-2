@@ -1,5 +1,7 @@
 package sg.edu.np.mad.dontslack;
 
+import android.app.TimePickerDialog;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -24,9 +26,9 @@ public class CalendarEvent
 
     private String name;
     private LocalDate date;
-    private LocalTime time;
+    private TimePickerDialog time;
 
-    public CalendarEvent(String name, LocalDate date, LocalTime time)
+    public CalendarEvent(String name, LocalDate date, TimePickerDialog time)
     {
         this.name = name;
         this.date = date;
@@ -53,14 +55,13 @@ public class CalendarEvent
         this.date = date;
     }
 
-    public LocalTime getTime()
-    {
-        return time;
-    }
+    public TimePickerDialog getTime() { return time; }
 
-    public void setTime(LocalTime time)
+    public void setTime(TimePickerDialog time)
     {
         this.time = time;
     }
+
+
 }
 
