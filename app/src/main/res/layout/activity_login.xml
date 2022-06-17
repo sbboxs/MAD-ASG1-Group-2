@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg5"
+    android:background="@drawable/bg6"
     android:backgroundTintMode="add"
     android:orientation="vertical"
     tools:context=".Login">
@@ -13,7 +13,7 @@
         android:id="@+id/backHome"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        app:srcCompat="@drawable/ic_back_col" />
+        app:srcCompat="@drawable/ic_back" />
 
     <TextView
         android:id="@+id/textView6"
@@ -67,12 +67,12 @@
         android:layout_height="65dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/btn_circle"
-        android:backgroundTint="#6F5642"
+        android:background="@drawable/btn_bg"
         android:fontFamily="@font/roboto"
         android:text="login"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:cornerRadius="70dp"
         app:layout_constraintStart_toStartOf="@id/newUserButton"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
@@ -83,12 +83,13 @@
         android:layout_height="65dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/btn_circle"
-        android:backgroundTint="#6F5642"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="#6F5643"
         android:fontFamily="@font/roboto"
         android:text="new user?"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:cornerRadius="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
