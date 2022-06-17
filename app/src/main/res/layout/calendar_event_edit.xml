@@ -50,8 +50,8 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/eventTimeTV"
+    <EditText
+        android:id="@+id/calEventTimeTV"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"

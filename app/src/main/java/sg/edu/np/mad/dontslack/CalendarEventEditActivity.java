@@ -34,7 +34,7 @@ public class CalendarEventEditActivity extends AppCompatActivity
         setContentView(R.layout.calendar_event_edit);
         initWidgets();
         eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
-        @SuppressLint("CutPasteId") EditText EventTimeET = findViewById(R.id.EventTimeET);
+        @SuppressLint("CutPasteId") EditText EventTimeET = findViewById(R.id.calEventTimeTV);
         EventTimeET.setOnClickListener(v -> setTime(EventTimeET));
     }
 
@@ -48,7 +48,7 @@ public class CalendarEventEditActivity extends AppCompatActivity
     {
         String eventName = eventNameET.getText().toString();
         //String eventTime = EventTImeET.getText().toString();
-        CalendarEvent newEvent = new CalendarEvent(eventName, CalendarUtils.selectedDate, time);
+        CalendarEvent newEvent = new CalendarEvent(eventName, CalendarUtils.selectedDate, TaskObject.getCalendarTime());
         CalendarEvent.eventsList.add(newEvent);
         finish();
     }

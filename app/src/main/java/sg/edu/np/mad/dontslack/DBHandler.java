@@ -19,6 +19,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String COLUMN_TASKDISCRIPTION = "TaskDiscription";
     public static String COLUMN_TASKSTARTTIME = "TaskStartTime";
     public static String COLUMN_TASKDEADLINE = "TaskDeadLine";
+    public static String TABLE_CALENDAR = "Calendar";
+    public static String COLUMN_CALENDAR_TASKNAME = "CalendarName";
+    public static String COLUMN_CALENDAR_TASKTIME = "CalendarTime";
+    public static String COLUMN_CALENDAR_TASKDATE = "CalendarDate";
     public static int DATABASE_VERSION = 1;
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -33,8 +37,12 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_TASKCATEGORY + " TEXT,"
                 +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDISCRIPTION + " TEXT, "
                 + COLUMN_TASKSTARTTIME + " TEXT, " + COLUMN_TASKDEADLINE + " TEXT" + " ) " ;
+        String CREATE_CALENDAR_TABLE = "CREATE TABLE " + TABLE_CALENDAR + " ( " + COLUMN_CALENDAR_TASKNAME + " TEXT, "
+                + COLUMN_CALENDAR_TASKDATE+ " TEXT,"
+                +  COLUMN_CALENDAR_TASKTIME +  " TEXT" + " ) " ;
         db.execSQL(CREATE_ACCOUNT_TABLE);
         db.execSQL(CREATE_TASKLIST_TABLE);
+        db.execSQL(CREATE_CALENDAR_TABLE);
     }
 
     //On upgrade
@@ -42,6 +50,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACCOUNT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TASK);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CALENDAR);
         onCreate(db);
     }
 
@@ -124,7 +133,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return queryData;
     }
-
     public void updateTaskData(TaskObject taskObject, String originalTaskname){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -153,4 +161,66 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return  cursor;
     }
+
+    //Add a task
+    public void addCalendarTask(TaskObject task){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //Put user details into ContentValues
+        values.put(COLUMN_CALENDAR_TASKNAME, task.getCalendarName());
+        values.put(COLUMN_CALENDAR_TASKDATE, task.getCalendarDate());
+        values.put(COLUMN_CALENDAR_TASKTIME, task.getCalendarTime());
+        //Insert ContentValues into DataBase
+        db.insert(TABLE_CALENDAR, null, values);
+        db.close();
+    }
+
+    //Retrieve a task from the DataBase
+    public TaskObject findCalendarTask(String calendarDate){
+        String query = "SELECT * FROM " + TABLE_CALENDAR + " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + calendarDate + "\"";
+        SQLiteDatabase db = this.getReadableDatabase();
+        //Set cursor to search for specific account details
+        Cursor cursor = db.rawQuery(query, null);
+        //Creating new user using data return from cursor
+        TaskObject queryData = new TaskObject();
+        if (cursor.moveToFirst()){
+            queryData.setCalendarName(cursor.getString(0));
+            queryData.setCalendarDate(cursor.getString(1));
+            queryData.setCalendarTime(cursor.getString(2));
+        }
+        else{
+            queryData = null;
+        }
+        cursor.close();
+        db.close();
+        return queryData;
+    }
+    public void updateCalendarData(TaskObject taskObject, String originalTaskname){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_CALENDAR_TASKNAME, taskObject.getCalendarName());
+        cv.put(COLUMN_CALENDAR_TASKDATE, taskObject.getCalendarDate());
+        cv.put(COLUMN_CALENDAR_TASKTIME, taskObject.getCalendarTime());
+        cv.put(String.valueOf(COLUMN_TASKSTATUS),taskObject.isTaskStatus());
+        db.update(TABLE_CALENDAR, cv, "TaskName=?", new String[]{originalTaskname});
+    }
+
+    public void deleteCalendarTask(TaskObject taskObject){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{taskObject.getTaskName()});
+        db.close();
+    }
+
+    Cursor readCalendarTaskData(String taskCategory){
+        String query = "SELECT * FROM " + TABLE_CALENDAR + " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + taskCategory + "\"";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return  cursor;
+    }
+
+    //add calendar, find calendar, read all calender, add delete to calendar task. for code ref refer to top.
 }
