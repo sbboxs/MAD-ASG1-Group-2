@@ -39,6 +39,17 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         initWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
+
+        //back button
+        ImageView backHomePage = findViewById(R.id.backHome);
+        backHomePage.setOnClickListener(v -> {
+            Intent myIntent = new Intent(Calendar.this, HomePage.class);
+            startActivity(myIntent);
+        });
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
     }
 
     private void initWidgets()
