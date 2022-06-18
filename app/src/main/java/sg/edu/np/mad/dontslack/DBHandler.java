@@ -5,11 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import java.time.LocalDate;
 
 public class DBHandler extends SQLiteOpenHelper {
     public static String DATABASE_NAME = "Don'tSlack.db";
@@ -151,6 +146,7 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_TASKDEADLINE, taskObject.getTaskDeadLine());
         cv.put(String.valueOf(COLUMN_TASKSTATUS),taskObject.isTaskStatus());
         db.update(TABLE_TASK, cv, "TaskName=?", new String[]{originalTaskname});
+        db.close();
     }
 
     public void deleteTask(TaskObject taskObject){
@@ -167,7 +163,8 @@ public class DBHandler extends SQLiteOpenHelper {
         if(db != null){
             cursor = db.rawQuery(query,null);
         }
-        return  cursor;
+        assert db != null;
+        return cursor;
     }
 
     //Add a task
@@ -185,7 +182,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public void deleteCalendarTask(CalendarEvent calObject){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{calObject.getName()});
+        db.delete(TABLE_CALENDAR,"CalendarName=?", new String[]{calObject.getName()});
         db.close();
     }
 

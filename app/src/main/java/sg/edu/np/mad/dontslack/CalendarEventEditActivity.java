@@ -11,14 +11,12 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -27,7 +25,6 @@ import java.util.Calendar;
 public class CalendarEventEditActivity extends AppCompatActivity
 {
     private TextView eventDateTV;
-    private final String TAG = "Add Task";
     DBHandler dbHandler = new DBHandler(this,null,null,1);
     private static String TaskName;
     private static String TaskDate;

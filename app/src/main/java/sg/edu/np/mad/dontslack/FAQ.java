@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 public class FAQ extends AppCompatActivity{
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

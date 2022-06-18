@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
@@ -30,11 +29,7 @@ public class Settings extends AppCompatActivity {
 
 
         RelativeLayout notificationPage = findViewById(R.id.notificationRelativeLayout);
-        notificationPage.setOnClickListener(view -> {
-            /*Intent myIntent = new Intent(Settings.this, Notification.class);
-            startActivity(myIntent);*/
-            Toast.makeText(this,"Feature Not Available Yet", Toast.LENGTH_SHORT).show();
-        });
+        notificationPage.setOnClickListener(view -> Toast.makeText(this,"Feature Not Available Yet", Toast.LENGTH_SHORT).show());
 
         RelativeLayout aboutPage = findViewById(R.id.aboutRelativeLayout);
         aboutPage.setOnClickListener(view -> {

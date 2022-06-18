@@ -5,29 +5,28 @@ import static sg.edu.np.mad.dontslack.CalendarUtils.monthYearFromDate;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Calendar extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
-    private final String TAG = "Calendar Activity";
-
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
@@ -54,6 +53,21 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
+
+        eventListView.setOnItemLongClickListener((parent, view, position, id) -> {
+            CalendarEvent calendarEvent = dailyEvents.get(position);
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Delete Event");
+            alertDialog.setMessage("Are you sure you want to delete this event?");
+            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", (dialog, which) -> dialog.dismiss());
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
+                dbHandler.deleteCalendarTask(calendarEvent);
+                Toast.makeText(getApplicationContext(),"Event deleted successfully!",Toast.LENGTH_SHORT).show();
+                this.recreate();
+            });
+            alertDialog.show();
+            return false;
+        });
     }
 
     private void initWidgets()
@@ -112,7 +126,6 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setCalendarEventAdapter() {
         storeCalDataToArray(String.valueOf(CalendarUtils.selectedDate));
-        Log.v(TAG, String.valueOf(CalendarUtils.selectedDate));
         CalendarEventAdapter eventAdapter = new CalendarEventAdapter(getApplicationContext(), dailyEvents);
         eventListView.setAdapter(eventAdapter);
     }
@@ -127,7 +140,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         dailyEvents.clear();
         Cursor cursor = dbHandler.readCalendarTaskData(date);
         if (cursor.getCount() == 0) {
-            Toast.makeText(this,"No Task Yet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No Event Yet", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
                 CalendarEvent task = new CalendarEvent();
