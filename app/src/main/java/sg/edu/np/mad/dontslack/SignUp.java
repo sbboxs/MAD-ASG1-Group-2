@@ -60,7 +60,7 @@ public class SignUp extends AppCompatActivity {
                 }
             }
             else{
-                Toast.makeText(SignUp.this, "Please ensure all fields is filled!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUp.this, "Please ensure all fields are filled!", Toast.LENGTH_SHORT).show();
             }
 
         });

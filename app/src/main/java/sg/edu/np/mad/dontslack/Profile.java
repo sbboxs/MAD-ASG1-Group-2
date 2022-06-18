@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
+
 public class Profile extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private static  User user;
@@ -43,11 +45,22 @@ public class Profile extends AppCompatActivity {
             profilePassword.setText(user.getPassword());
         }
 
-
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Profile.this, HomePage.class);
             startActivity(myIntent);
+        });
+
+        TextView changePasswordButton = findViewById(R.id.changePassword);
+        changePasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Profile.this,ChangePassword.class);
+                Bundle args = new Bundle();
+                args.putSerializable("User", (Serializable) user);
+                myIntent.putExtra("Bundle",args);
+                startActivity(myIntent);
+            }
         });
 
         TextView deleteAccountButton = findViewById(R.id.deleteAccountButton);

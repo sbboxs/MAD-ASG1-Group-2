@@ -2,26 +2,21 @@ package sg.edu.np.mad.dontslack;
 
 import static sg.edu.np.mad.dontslack.CalendarUtils.daysInMonthArray;
 import static sg.edu.np.mad.dontslack.CalendarUtils.monthYearFromDate;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

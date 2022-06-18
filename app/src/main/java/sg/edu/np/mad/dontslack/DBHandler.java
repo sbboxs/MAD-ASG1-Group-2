@@ -90,6 +90,15 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryData;
     }
 
+    public void updateUserData(User user){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_USERNAME, user.getUsername());
+        cv.put(COLUMN_PASSWORD, user.getPassword());
+        db.update(TABLE_ACCOUNT, cv, "Username=?", new String[]{user.getUsername()});
+        db.close();
+    }
+
     public void deleteUser(User user){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_ACCOUNT,"Username=?", new String[]{user.getUsername()});

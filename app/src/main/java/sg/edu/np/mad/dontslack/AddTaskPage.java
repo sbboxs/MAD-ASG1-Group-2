@@ -67,7 +67,7 @@ public class AddTaskPage extends AppCompatActivity {
                 Log.v(TAG,"newTask:" + etTaskStartTIme);
                 Log.v(TAG,"newTask:" + etTaskDeadLine);
                 if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
-                    Toast.makeText(AddTaskPage.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddTaskPage.this,"Please ensure all fields are filled.",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     TaskObject newTaskObject = new TaskObject();
