@@ -36,6 +36,7 @@
             android:id="@+id/monthYearTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="2"
             android:capitalize="words"
             android:fontFamily="@font/oswald"
@@ -145,6 +146,8 @@
 
 
 
+
+
     ]]>
 
     <Button
@@ -153,14 +156,15 @@
         android:layout_height="34dp"
         android:layout_gravity="center"
         android:background="@null"
+        android:drawableEnd="@drawable/ic_pencil"
+        android:drawablePadding="5dp"
         android:fontFamily="@font/roboto"
         android:onClick="newEventAction"
         android:text="New Event"
+        android:textAlignment="center"
         android:textColor="#6F5643"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:drawableEnd="@drawable/ic_pencil"
-        android:drawablePadding="5dp"/>
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/eventListView"

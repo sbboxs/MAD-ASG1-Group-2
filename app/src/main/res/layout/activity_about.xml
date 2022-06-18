@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
         android:text="About Us"
@@ -50,8 +50,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="367dp"
-        android:layout_height="393dp"
+        android:layout_width="370dp"
+        android:layout_height="450dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="3dp"
@@ -61,42 +61,58 @@
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="156dp"
+        android:text="Welcome to Don't Slack!"
+        android:textColor="#6f5642"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
         android:id="@+id/textView18"
         android:layout_width="322dp"
         android:layout_height="103dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="84dp"
         android:text="We hope that while using this application, you will be more productive as well as more organised."
         android:textAlignment="center"
         android:textColor="#6f5642"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="321dp"
-        android:layout_height="78dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="84dp"
-        android:text="Hi! We are a group of students creating this application for our assignments."
+        android:text="This app was created by a group of students from Ngee Ann Polytechnic as fulfilment for their assignment on the Mobile Application Development module."
         android:textAlignment="center"
         android:textColor="#6f5642"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="147dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="144dp"
         android:text="Terms &amp; Conditions"
         android:textColor="#706A6A"

@@ -3,6 +3,7 @@ package sg.edu.np.mad.dontslack;
 import static android.app.AlertDialog.THEME_HOLO_DARK;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,16 @@ public class CalendarEventEditActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_event_edit);
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
+        ImageView goBackButton = findViewById(R.id.gobackButton);
+        goBackButton.setOnClickListener(v -> {
+            Intent myIntent2 = new Intent(CalendarEventEditActivity.this, sg.edu.np.mad.dontslack.Calendar.class);
+            startActivity(myIntent2);
+        });
         initWidgets();
         TaskDate = CalendarUtils.formattedDate(CalendarUtils.selectedDate);
         eventDateTV.setText(TaskDate);
