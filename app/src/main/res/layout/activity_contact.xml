@@ -41,13 +41,15 @@
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
         android:fontFamily="@font/oswald"
         android:text="Contact Us"
         android:textColor="#6f5642"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +57,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
         android:gravity="center_horizontal"
@@ -64,6 +65,7 @@
         android:textColor="#6f5542"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
@@ -73,12 +75,14 @@
         android:layout_height="50dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
         android:fontFamily="@font/oswald"
         android:text="Email us at"
         android:textAlignment="center"
         android:textColor="#6F5642"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -86,15 +90,16 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:background="#F2f2f2"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/roboto"
         android:padding="10dp"
         android:text="mushroomcoding@gmail.com"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
