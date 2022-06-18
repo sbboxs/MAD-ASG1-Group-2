@@ -54,6 +54,21 @@ seniors and of course, to the procrastinators.
 
 **Hwee Min**
 - Layout & Design
+    - Wireframe Prototyping
+    - Color Theme
+    - Fixing Layout errors
+    - Adjusting Layouts & Changing Color Combinations
+- To-Do List Layout
+    - Complete task button in fragment
+- Calender Layout
+    - Layout for editing events
+- Notes Layout
+    - Editing the add notes button
+- Contact Us Layout
+- Settings Layout
+- About Us Layout
+- Changing Mainpage launcher & setting portrait mode
+- Linking the pages together
 
 **Sumayyah**
 -Layout & Design 
