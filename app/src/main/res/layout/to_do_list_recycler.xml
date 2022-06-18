@@ -16,7 +16,7 @@
             android:id="@+id/taskDetailButton"
             android:layout_width="310dp"
             android:layout_height="85dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_bg"
             android:backgroundTint="#e9e0d4"
@@ -42,7 +42,7 @@
             android:id="@+id/taskDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="69dp"
             android:text="TextView"
             android:textStyle="italic" />
