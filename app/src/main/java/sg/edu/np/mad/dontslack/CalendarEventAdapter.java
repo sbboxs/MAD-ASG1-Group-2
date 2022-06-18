@@ -2,11 +2,13 @@ package sg.edu.np.mad.dontslack;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,13 +18,11 @@ import java.util.List;
 
 public class CalendarEventAdapter extends ArrayAdapter<CalendarEvent>
 {
+    private final String TAG = "Calendar event";
+
     public CalendarEventAdapter(@NonNull Context context, List<CalendarEvent> events)
     {
         super(context, 0, events);
-    }
-
-    public CalendarEventAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -32,11 +32,11 @@ public class CalendarEventAdapter extends ArrayAdapter<CalendarEvent>
     {
         CalendarEvent event = getItem(position);
 
-        if (convertView == null)
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.calendar_event_cell, parent, false);
+        }
 
         TextView eventCellTV = convertView.findViewById(R.id.eventCellTV);
-
         String eventTitle = event.getName() +" "+ event.getTime();
         eventCellTV.setText(eventTitle);
         return convertView;

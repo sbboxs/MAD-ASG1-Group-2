@@ -183,44 +183,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    //Retrieve a task from the DataBase
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public CalendarEvent findCalendarTask(String calendarDate){
-        String query = "SELECT * FROM " + TABLE_CALENDAR + " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + calendarDate + "\"";
-        SQLiteDatabase db = this.getReadableDatabase();
-        //Set cursor to search for specific account details
-        Cursor cursor = db.rawQuery(query, null);
-        //Creating new user using data return from cursor
-        CalendarEvent queryData = new CalendarEvent();
-        if (cursor.moveToFirst()){
-            queryData.setName(cursor.getString(0));
-            queryData.setDate(LocalDate.parse(cursor.getString(1)));
-            queryData.setTime(cursor.getString(2));
-        }
-        else{
-            queryData = null;
-        }
-        cursor.close();
-        db.close();
-        return queryData;
-    }
-    public void updateCalendarData(CalendarEvent calObject, String originalTaskName){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_CALENDAR_TASKNAME, calObject.getName());
-        cv.put(COLUMN_CALENDAR_TASKDATE, String.valueOf(calObject.getDate()));
-        cv.put(COLUMN_CALENDAR_TASKTIME, calObject.getTime());
-        db.update(TABLE_CALENDAR, cv, "TaskName=?", new String[]{originalTaskName});
-    }
-
     public void deleteCalendarTask(CalendarEvent calObject){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{calObject.getName()});
         db.close();
     }
 
-    Cursor readCalendarTaskData(){
-        String query = "SELECT * FROM " + TABLE_CALENDAR +  "\"" +  "\"";
+    Cursor readCalendarTaskData(String date){
+        String query = "SELECT * FROM " + TABLE_CALENDAR +  " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + date +  "\"";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
@@ -230,5 +200,4 @@ public class DBHandler extends SQLiteOpenHelper {
         return  cursor;
     }
 
-    //add calendar, find calendar, read all calender, add delete to calendar task. for code ref refer to top.
 }
