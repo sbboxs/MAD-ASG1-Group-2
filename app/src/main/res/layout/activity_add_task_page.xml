@@ -109,7 +109,7 @@
         android:layout_width="244dp"
         android:layout_height="61dp"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="144dp"
         android:fontFamily="@font/oswald"
         android:text="Add New Task"
