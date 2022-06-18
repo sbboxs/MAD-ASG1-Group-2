@@ -54,6 +54,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         assert actionBar != null;
         actionBar.hide();
 
+
         eventListView.setOnItemLongClickListener((parent, view, position, id) -> {
             CalendarEvent calendarEvent = dailyEvents.get(position);
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();

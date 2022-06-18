@@ -102,4 +102,7 @@ public class CalendarEventEditActivity extends AppCompatActivity
         };
         new TimePickerDialog(CalendarEventEditActivity.this, THEME_HOLO_DARK, timeSetListener,calendar.get(java.util.Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true).show();
     }
+
+
+
 }
