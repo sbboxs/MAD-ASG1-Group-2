@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class Profile extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -65,6 +69,8 @@ public class Profile extends AppCompatActivity {
             });
             alertDialog.show();
         });
+
+
         TextView logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(v -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -75,5 +81,6 @@ public class Profile extends AppCompatActivity {
             Intent myIntent = new Intent(Profile.this, HomePage.class);
             startActivity(myIntent);
         });
+
     }
 }
