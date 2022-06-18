@@ -38,21 +38,19 @@ seniors and of course, to the procrastinators.
 
 ##Roles and contributions for each of our member
 
-**Jiun Hong**
-- To-Do List Feature
-    - Add Task
-    - Set Timer
-- Database implementation
-- Account Login/signup implementation
-- Calendar Add Event Feature
+**Jiun Hong** (The Coder)
+- To-Do List Feature Implementation
+- Database Implementation
+- Account Login/signup Implementation
+- Calendar Add Event Feature Implementation
 
-**Haowen**
+**Haowen** (The Coder)
 - Notes Feature
 
-**Gabriel**
+**Gabriel** (The Coder)
 - Calendar Feature
 
-**Hwee Min**
+**Hwee Min** (Layout Designer)
 - Layout & Design
     - Wireframe Prototyping
     - Color Theme
@@ -70,7 +68,7 @@ seniors and of course, to the procrastinators.
 - Changing Mainpage launcher & setting portrait mode
 - Linking the pages together
 
-**Sumayyah**
+**Sumayyah** (Leader and Layout Designer)
 -Layout & Design 
     - App Wireframing on Adobe XD
     - Color & Theme Scheming
