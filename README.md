@@ -40,9 +40,36 @@ seniors and of course, to the procrastinators.
 
 **Jiun Hong** (The Coder)
 - To-Do List Feature Implementation
+    - Add new task
+    - View all task
+    - View a task details
+    - Edit a task details
+    - Delete a task
 - Database Implementation
-- Account Login/signup Implementation
-- Calendar Add Event Feature Implementation
+    - Store User account data
+        - Find User account data
+        - Add a User account data
+        - Update User acccount data
+        - Delete User account data
+    - Store To_Do task data
+        - Retrive all To_Do task data
+        - Find a To_Do task data
+        - Add a Calender event data
+        - Update a To_Do task data
+        - Delete a To_Do task data
+    - Store Calendar event data
+        - Retrive all Calendar event data by date
+        - Add a Calendar event data
+        - Delete a Calendar event data
+- Account Implementation
+    - Login
+    - Logout
+    - View Profile
+    - Change Password
+    - Delete Account
+- Calendar Event Feature Implementation
+    - Add a Calendar event
+    - Delete a Calendar event 
 
 **Haowen** (The Coder)
 - Notes Feature
