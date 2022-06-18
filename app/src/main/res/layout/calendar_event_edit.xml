@@ -38,8 +38,18 @@
         android:hint="Name of Event"
         android:inputType="text"
         android:paddingLeft="20dp"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto"
+        android:text="Date:"
+        android:textColor="#6F5642"
+        android:textSize="20sp"></TextView>
 
     <TextView
         android:id="@+id/eventDateTV"
@@ -47,14 +57,24 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/custom_input"
         android:fontFamily="@font/roboto"
         android:padding="10dp"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto"
+        android:text="Time:"
+        android:textColor="#6F5642"
+        android:textSize="20sp"></TextView>
 
     <EditText
         android:id="@+id/calEventTimeET"
@@ -62,20 +82,21 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/custom_input"
+        android:focusable="false"
         android:fontFamily="@font/roboto"
+        android:hint="3:00PM"
         android:padding="10dp"
-        android:text="Time"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/calAddEventBtn"
-        android:layout_width="182dp"
-        android:layout_height="58dp"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
