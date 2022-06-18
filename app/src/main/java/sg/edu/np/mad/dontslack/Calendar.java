@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -95,7 +96,6 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         if(date != null)
         {
-            Toast.makeText(this,"here",Toast.LENGTH_SHORT).show();
             CalendarUtils.selectedDate = date;
             setMonthView();
         }
@@ -112,7 +112,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setCalendarEventAdapter() {
         storeCalDataToArray();
-        dailyEvents = CalendarEvent.eventsForDate(CalendarUtils.selectedDate);
+        Log.v(TAG, String.valueOf(CalendarUtils.selectedDate));
         CalendarEventAdapter eventAdapter = new CalendarEventAdapter(getApplicationContext(), dailyEvents);
         eventListView.setAdapter(eventAdapter);
     }

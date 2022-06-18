@@ -59,26 +59,19 @@ public class CalendarEventEditActivity extends AppCompatActivity
             TaskName = newCalTaskName.getText().toString();
             @SuppressLint("CutPasteId") EditText newCalTaskTime = findViewById(R.id.calEventTimeET);
             TaskTime = newCalTaskTime.getText().toString();
-            CalendarEvent ifTaskExist = dbHandler.findCalendarTask(TaskName);
-            Log.v(TAG,"newTask1:" + ifTaskExist);
-            if(ifTaskExist == null){
-                if(TaskName.equals("") || TaskTime.equals("")){
-                    Toast.makeText(CalendarEventEditActivity.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    CalendarEvent newCalTaskObject = new CalendarEvent();
-                    newCalTaskObject.setName(TaskName);
-                    LocalDate localDate = LocalDate.parse(TaskDate);
-                    newCalTaskObject.setDate(localDate);
-                    newCalTaskObject.setTime(TaskTime);
-                    dbHandler.addCalendarTask(newCalTaskObject);
-                    Toast.makeText(CalendarEventEditActivity.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
-                    Intent myIntent = new Intent(CalendarEventEditActivity.this, sg.edu.np.mad.dontslack.Calendar.class);
-                    startActivity(myIntent);
-                }
+            if(TaskName.equals("") || TaskTime.equals("")){
+                Toast.makeText(CalendarEventEditActivity.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
             }
             else{
-                Toast.makeText(CalendarEventEditActivity.this,"Task already exist!",Toast.LENGTH_SHORT).show();
+                CalendarEvent newCalTaskObject = new CalendarEvent();
+                newCalTaskObject.setName(TaskName);
+                LocalDate localDate = LocalDate.parse(TaskDate);
+                newCalTaskObject.setDate(localDate);
+                newCalTaskObject.setTime(TaskTime);
+                dbHandler.addCalendarTask(newCalTaskObject);
+                Toast.makeText(CalendarEventEditActivity.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(CalendarEventEditActivity.this, sg.edu.np.mad.dontslack.Calendar.class);
+                startActivity(myIntent);
             }
         });
     }
