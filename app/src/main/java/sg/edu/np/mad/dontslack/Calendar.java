@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Calendar extends AppCompatActivity implements CalendarAdapter.OnItemListener
@@ -28,6 +27,8 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
+    DBHandler dbHandler = new DBHandler(this, null,null,1);
+    ArrayList<CalendarObject> calData = new ArrayList<CalendarObject>();
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -39,6 +40,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         initWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
+        storeCalDataToArray();
 
         //back button
         ImageView backHomePage = findViewById(R.id.backHome);
@@ -112,6 +114,20 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     public void newEventAction(View view)
     {
         startActivity(new Intent(this, CalendarEventEditActivity.class));
+    }
+    public void storeCalDataToArray() {
+        Cursor cursor = dbHandler.readCalendarTaskData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this,"No Task Yet", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                CalendarObject task = new CalendarObject();
+                task.setCalendarName((cursor.getString(0)));
+                task.setCalendarDate((cursor.getString(1)));
+                task.setCalendarTime(cursor.getString(2));
+                calData.add(task);
+            }
+        }
     }
 }
 

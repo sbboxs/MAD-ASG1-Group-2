@@ -20,8 +20,6 @@ public class CalendarEvent
         return events;
     }
 
-
-
     private String calendar_name;
     private LocalDate date;
     private String time;

@@ -73,12 +73,11 @@ public class CalendarEventEditActivity extends AppCompatActivity
                     Toast.makeText(CalendarEventEditActivity.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    TaskObject newTaskObject = new TaskObject();
-                    newTaskObject.setCalendarName(TaskName);
-                    newTaskObject.setCalendarDate(TaskDate);
-                    newTaskObject.setCalendarTime(TaskTime);
-                    newTaskObject.setTaskStatus(false);
-                    dbHandler.addTask(newTaskObject);
+                    CalendarObject newCalTaskObject = new CalendarObject();
+                    newCalTaskObject.setCalendarName(TaskName);
+                    newCalTaskObject.setCalendarDate(TaskDate);
+                    newCalTaskObject.setCalendarTime(TaskTime);
+                    dbHandler.addCalendarTask(newCalTaskObject);
                     Toast.makeText(CalendarEventEditActivity.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
                     Intent myIntent = new Intent(CalendarEventEditActivity.this, sg.edu.np.mad.dontslack.Calendar.class);
                     startActivity(myIntent);

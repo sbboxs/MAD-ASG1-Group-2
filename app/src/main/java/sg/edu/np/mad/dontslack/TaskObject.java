@@ -9,10 +9,6 @@ public class TaskObject implements Serializable {
     private String taskStartTime;
     private String taskDeadLine;
     private boolean taskStatus;
-    private String calendar_name;
-    private String date;
-    private static String time;
-
 
     public TaskObject(){
 
@@ -61,33 +57,4 @@ public class TaskObject implements Serializable {
     public String getTaskCategory(){return taskCategory;}
 
     public void setTaskCategory(String taskCategory){ this.taskCategory = taskCategory;}
-
-    public String getCalendarName()
-    {
-        return calendar_name;
-    }
-
-    public void setCalendarName(String name)
-    {
-        this.calendar_name = name;
-    }
-
-    public String getCalendarDate()
-    {
-        return date;
-    }
-
-    public void setCalendarDate(String date)
-    {
-        this.date = date;
-    }
-
-    public static String getCalendarTime() { return time; }
-
-    public void setCalendarTime(String time)
-    {
-        this.time = time;
-    }
-
-
 }

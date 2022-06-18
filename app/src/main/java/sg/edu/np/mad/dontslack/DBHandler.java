@@ -163,7 +163,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Add a task
-    public void addCalendarTask(TaskObject task){
+    public void addCalendarTask(CalendarObject task){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //Put user details into ContentValues
@@ -176,13 +176,13 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Retrieve a task from the DataBase
-    public TaskObject findCalendarTask(String calendarDate){
+    public CalendarObject findCalendarTask(String calendarDate){
         String query = "SELECT * FROM " + TABLE_CALENDAR + " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + calendarDate + "\"";
         SQLiteDatabase db = this.getReadableDatabase();
         //Set cursor to search for specific account details
         Cursor cursor = db.rawQuery(query, null);
         //Creating new user using data return from cursor
-        TaskObject queryData = new TaskObject();
+        CalendarObject queryData = new CalendarObject();
         if (cursor.moveToFirst()){
             queryData.setCalendarName(cursor.getString(0));
             queryData.setCalendarDate(cursor.getString(1));
@@ -195,24 +195,23 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return queryData;
     }
-    public void updateCalendarData(TaskObject taskObject, String originalTaskname){
+    public void updateCalendarData(CalendarObject calObject, String originalTaskname){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_CALENDAR_TASKNAME, taskObject.getCalendarName());
-        cv.put(COLUMN_CALENDAR_TASKDATE, taskObject.getCalendarDate());
-        cv.put(COLUMN_CALENDAR_TASKTIME, taskObject.getCalendarTime());
-        cv.put(String.valueOf(COLUMN_TASKSTATUS),taskObject.isTaskStatus());
+        cv.put(COLUMN_CALENDAR_TASKNAME, CalendarObject.getCalendarName());
+        cv.put(COLUMN_CALENDAR_TASKDATE, CalendarObject.getCalendarDate());
+        cv.put(COLUMN_CALENDAR_TASKTIME, CalendarObject.getCalendarTime());
         db.update(TABLE_CALENDAR, cv, "TaskName=?", new String[]{originalTaskname});
     }
 
-    public void deleteCalendarTask(TaskObject taskObject){
+    public void deleteCalendarTask(CalendarObject calObject){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{taskObject.getTaskName()});
+        db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{calObject.getCalendarName()});
         db.close();
     }
 
-    Cursor readCalendarTaskData(String taskCategory){
-        String query = "SELECT * FROM " + TABLE_CALENDAR + " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + taskCategory + "\"";
+    Cursor readCalendarTaskData(){
+        String query = "SELECT * FROM " + TABLE_CALENDAR +  "\"" +  "\"";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
