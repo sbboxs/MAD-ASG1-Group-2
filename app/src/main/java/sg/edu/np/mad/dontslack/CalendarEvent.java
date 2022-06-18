@@ -7,6 +7,10 @@ public class CalendarEvent
 {
     public static ArrayList<CalendarEvent> eventsList = new ArrayList<>();
 
+    public CalendarEvent() {
+
+    }
+
     public static ArrayList<CalendarEvent> eventsForDate(LocalDate date)
     {
         ArrayList<CalendarEvent> events = new ArrayList<>();

@@ -78,6 +78,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
 
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
                 dbHandler.deleteTask(currentTask);
+                Toast.makeText(ToDOListEditTaskDetails.this,"Task deleted successfully!",Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoList.class);
                 startActivity(myIntent);
             });

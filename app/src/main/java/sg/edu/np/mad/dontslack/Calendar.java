@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,13 +25,13 @@ import java.util.ArrayList;
 
 public class Calendar extends AppCompatActivity implements CalendarAdapter.OnItemListener
 {
+    private final String TAG = "Calendar Activity";
+
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
     DBHandler dbHandler = new DBHandler(this, null,null,1);
-    ArrayList<CalendarObject> calData = new ArrayList<>();
-    ArrayList<CalendarObject> dailyEvents = new ArrayList<>();
-
+    ArrayList<CalendarEvent> dailyEvents = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -41,7 +42,6 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         initWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
-        storeCalDataToArray();
 
         //back button
         ImageView backHomePage = findViewById(R.id.backHome);
@@ -67,11 +67,11 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
         ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
-
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+
         setCalendarEventAdapter();
     }
 
@@ -95,10 +95,13 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         if(date != null)
         {
+            Toast.makeText(this,"here",Toast.LENGTH_SHORT).show();
             CalendarUtils.selectedDate = date;
             setMonthView();
         }
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onResume()
     {
@@ -106,8 +109,10 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         setCalendarEventAdapter();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void setCalendarEventAdapter() {
-        ArrayList<CalendarEvent> dailyEvents = CalendarEvent.eventsForDate(CalendarUtils.selectedDate);
+        storeCalDataToArray();
+        dailyEvents = CalendarEvent.eventsForDate(CalendarUtils.selectedDate);
         CalendarEventAdapter eventAdapter = new CalendarEventAdapter(getApplicationContext(), dailyEvents);
         eventListView.setAdapter(eventAdapter);
     }
@@ -116,18 +121,20 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     {
         startActivity(new Intent(this, CalendarEventEditActivity.class));
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void storeCalDataToArray() {
+        dailyEvents.clear();
         Cursor cursor = dbHandler.readCalendarTaskData();
         if (cursor.getCount() == 0) {
             Toast.makeText(this,"No Task Yet", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                CalendarObject task = new CalendarObject();
-                task.setCalendarName((cursor.getString(0)));
-                task.setCalendarDate((cursor.getString(1)));
-                task.setCalendarTime(cursor.getString(2));
+                CalendarEvent task = new CalendarEvent();
+                task.setName((cursor.getString(0)));
+                task.setDate(LocalDate.parse(cursor.getString(1)));
+                task.setTime(cursor.getString(2));
                 dailyEvents.add(task);
-
             }
         }
     }

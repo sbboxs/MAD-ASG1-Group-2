@@ -5,6 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.time.LocalDate;
 
 public class DBHandler extends SQLiteOpenHelper {
     public static String DATABASE_NAME = "Don'tSlack.db";
@@ -166,30 +171,31 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Add a task
-    public void addCalendarTask(CalendarObject task){
+    public void addCalendarTask(CalendarEvent task){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //Put user details into ContentValues
-        values.put(COLUMN_CALENDAR_TASKNAME, task.getCalendarName());
-        values.put(COLUMN_CALENDAR_TASKDATE, task.getCalendarDate());
-        values.put(COLUMN_CALENDAR_TASKTIME, task.getCalendarTime());
+        values.put(COLUMN_CALENDAR_TASKNAME, task.getName());
+        values.put(COLUMN_CALENDAR_TASKDATE, String.valueOf(task.getDate()));
+        values.put(COLUMN_CALENDAR_TASKTIME, task.getTime());
         //Insert ContentValues into DataBase
         db.insert(TABLE_CALENDAR, null, values);
         db.close();
     }
 
     //Retrieve a task from the DataBase
-    public CalendarObject findCalendarTask(String calendarDate){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public CalendarEvent findCalendarTask(String calendarDate){
         String query = "SELECT * FROM " + TABLE_CALENDAR + " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + calendarDate + "\"";
         SQLiteDatabase db = this.getReadableDatabase();
         //Set cursor to search for specific account details
         Cursor cursor = db.rawQuery(query, null);
         //Creating new user using data return from cursor
-        CalendarObject queryData = new CalendarObject();
+        CalendarEvent queryData = new CalendarEvent();
         if (cursor.moveToFirst()){
-            queryData.setCalendarName(cursor.getString(0));
-            queryData.setCalendarDate(cursor.getString(1));
-            queryData.setCalendarTime(cursor.getString(2));
+            queryData.setName(cursor.getString(0));
+            queryData.setDate(LocalDate.parse(cursor.getString(1)));
+            queryData.setTime(cursor.getString(2));
         }
         else{
             queryData = null;
@@ -198,18 +204,18 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return queryData;
     }
-    public void updateCalendarData(CalendarObject calObject, String originalTaskname){
+    public void updateCalendarData(CalendarEvent calObject, String originalTaskName){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_CALENDAR_TASKNAME, CalendarObject.getCalendarName());
-        cv.put(COLUMN_CALENDAR_TASKDATE, CalendarObject.getCalendarDate());
-        cv.put(COLUMN_CALENDAR_TASKTIME, CalendarObject.getCalendarTime());
-        db.update(TABLE_CALENDAR, cv, "TaskName=?", new String[]{originalTaskname});
+        cv.put(COLUMN_CALENDAR_TASKNAME, calObject.getName());
+        cv.put(COLUMN_CALENDAR_TASKDATE, String.valueOf(calObject.getDate()));
+        cv.put(COLUMN_CALENDAR_TASKTIME, calObject.getTime());
+        db.update(TABLE_CALENDAR, cv, "TaskName=?", new String[]{originalTaskName});
     }
 
-    public void deleteCalendarTask(CalendarObject calObject){
+    public void deleteCalendarTask(CalendarEvent calObject){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{calObject.getCalendarName()});
+        db.delete(TABLE_CALENDAR,"TaskName=?", new String[]{calObject.getName()});
         db.close();
     }
 

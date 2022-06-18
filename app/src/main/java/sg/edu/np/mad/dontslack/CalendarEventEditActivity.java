@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 
@@ -38,7 +39,8 @@ public class CalendarEventEditActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_event_edit);
         initWidgets();
-        eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
+        TaskDate = CalendarUtils.formattedDate(CalendarUtils.selectedDate);
+        eventDateTV.setText(TaskDate);
         @SuppressLint("CutPasteId") EditText EventTimeET = findViewById(R.id.calEventTimeET);
         EventTimeET.setOnClickListener(v -> setTime(EventTimeET));
     }
@@ -48,30 +50,27 @@ public class CalendarEventEditActivity extends AppCompatActivity
         eventDateTV = findViewById(R.id.eventDateTV);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void saveEventAction(View view)
     {
         Button createTaskButton = findViewById(R.id.calAddEventBtn);
         createTaskButton.setOnClickListener(v -> {
             EditText newCalTaskName = findViewById(R.id.eventNameET);
             TaskName = newCalTaskName.getText().toString();
-            TextView newCalTaskDate = findViewById(R.id.eventDateTV);
-            TaskDate = newCalTaskDate.toString();
             @SuppressLint("CutPasteId") EditText newCalTaskTime = findViewById(R.id.calEventTimeET);
             TaskTime = newCalTaskTime.getText().toString();
-            TaskObject ifTaskExist = dbHandler.findTask(TaskName);
+            CalendarEvent ifTaskExist = dbHandler.findCalendarTask(TaskName);
             Log.v(TAG,"newTask1:" + ifTaskExist);
             if(ifTaskExist == null){
-                Log.v(TAG,"newTask:" + TaskName);
-                Log.v(TAG,"newTask:" + TaskDate);
-                Log.v(TAG,"newTask:" + TaskTime);
-                if(TaskName.equals("") || TaskDate.equals("") || TaskTime.equals("")){
+                if(TaskName.equals("") || TaskTime.equals("")){
                     Toast.makeText(CalendarEventEditActivity.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    CalendarObject newCalTaskObject = new CalendarObject();
-                    newCalTaskObject.setCalendarName(TaskName);
-                    newCalTaskObject.setCalendarDate(TaskDate);
-                    newCalTaskObject.setCalendarTime(TaskTime);
+                    CalendarEvent newCalTaskObject = new CalendarEvent();
+                    newCalTaskObject.setName(TaskName);
+                    LocalDate localDate = LocalDate.parse(TaskDate);
+                    newCalTaskObject.setDate(localDate);
+                    newCalTaskObject.setTime(TaskTime);
                     dbHandler.addCalendarTask(newCalTaskObject);
                     Toast.makeText(CalendarEventEditActivity.this,"Task Added Successfully", Toast.LENGTH_SHORT).show();
                     Intent myIntent = new Intent(CalendarEventEditActivity.this, sg.edu.np.mad.dontslack.Calendar.class);
