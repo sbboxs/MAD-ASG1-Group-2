@@ -13,7 +13,7 @@
 ![app_icon](app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png)
 
 ###Application Logo
-![app_icon](app/src/main/res/drawable/dont_slcak.png)
+![app_icon](app/src/main/res/drawable/dont_slcak8.png)
 
 ###Description
 Don't Slack is an application created for user's to gain focus through their daily tasks.
