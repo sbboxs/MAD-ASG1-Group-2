@@ -27,10 +27,8 @@ public class Settings extends AppCompatActivity {
             startActivity(myIntent);
         });
 
-        ImageView notificationPage = findViewById(R.id.notificationView);
-        notificationPage.setOnClickListener(view -> Toast.makeText(Settings.this,"Not available yet.",Toast.LENGTH_SHORT).show());
 
-        ImageView aboutPage = findViewById(R.id.aboutView);
+
         RelativeLayout notificationPage = findViewById(R.id.notificationRelativeLayout);
         notificationPage.setOnClickListener(view -> {
             /*Intent myIntent = new Intent(Settings.this, Notification.class);
