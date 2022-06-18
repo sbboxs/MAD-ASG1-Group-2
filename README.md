@@ -13,7 +13,7 @@
 ![app_icon](app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png)
 
 ###Application Logo
-![app_icon](app/src/main/res/drawable/dont_slcak.png)
+![app_icon](app/src/main/res/drawable/dont_slcak8.png)
 
 ###Description
 Don't Slack is an application created for user's to gain focus through their daily tasks.
@@ -72,5 +72,18 @@ seniors and of course, to the procrastinators.
 
 **Sumayyah**
 -Layout & Design 
+    - App Wireframing on Adobe XD
+    - Color & Theme Scheming
+    - App Logo Design
+    - App Icon Design
+- Profile Layout
+- Homepage Layout
+- Login & Signup Layout & Background implementation
+- To-Do List Layout
+   - Add Task
+   - Task Detail
+   - Edit Task 
+- Notes Layout
+    - Edit Notes
 
 ##All relevant appendices (diagrams, screenshots, user guides)
