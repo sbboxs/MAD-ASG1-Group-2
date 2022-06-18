@@ -31,12 +31,12 @@
 
         <ImageView
             android:id="@+id/taskStatusButton"
-            android:layout_width="79dp"
-            android:layout_height="88dp"
-            android:layout_marginStart="260dp"
-            android:layout_marginTop="8dp"
-            android:elevation="6dp"
-            app:srcCompat="@drawable/ic_playarrow_foreground" />
+        android:layout_width="79dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="8dp"
+        android:elevation="6dp"
+        app:srcCompat="@drawable/ic_playarrow_foreground" />
 
         <TextView
             android:id="@+id/taskDate"
