@@ -94,7 +94,6 @@ public class ToDoListTaskDetails extends AppCompatActivity {
             }
 
         });
-
         Button completeTaskButton = findViewById(R.id.completeTaskButton);
         if(currentTask.isTaskStatus()){
             completeTaskButton.setText("Completed");
