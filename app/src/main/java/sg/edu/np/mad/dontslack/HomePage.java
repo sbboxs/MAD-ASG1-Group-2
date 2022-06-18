@@ -67,8 +67,6 @@ public class HomePage extends AppCompatActivity {
         });
 
 
-
-
         ImageView contactImage = findViewById(R.id.contactButton);
         contactImage.setOnClickListener(view -> {
             Intent myIntent = new Intent(HomePage.this, Contact.class);

@@ -53,12 +53,15 @@
         android:layout_width="367dp"
         android:layout_height="393dp"
         android:layout_marginStart="3dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="256dp"
         android:background="@drawable/textview_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backHome3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView18"
@@ -81,8 +84,10 @@
         android:layout_height="124dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/textview_border"
         android:backgroundTint="#fafafa"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintStart_toEndOf="@+id/backHome3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,7 +96,7 @@
         android:layout_width="321dp"
         android:layout_height="78dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="84dp"
         android:text="Hi! We are a group of students creating this application for our assignments."
         android:textAlignment="center"
@@ -106,13 +111,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
+        android:layout_marginTop="191dp"
         android:layout_marginEnd="144dp"
         android:layout_marginBottom="46dp"
         android:text="Terms &amp; Conditions"
         android:textColor="#706A6A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

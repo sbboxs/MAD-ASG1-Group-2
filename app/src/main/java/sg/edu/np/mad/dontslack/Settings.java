@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 public class Settings extends AppCompatActivity {
 
@@ -24,16 +25,18 @@ public class Settings extends AppCompatActivity {
             startActivity(myIntent);
         });
 
-        ImageView notificationPage = findViewById(R.id.notificationView);
+
+        RelativeLayout notificationPage = findViewById(R.id.notificationRelativeLayout);
         notificationPage.setOnClickListener(view -> {
             Intent myIntent = new Intent(Settings.this, Notification.class);
             startActivity(myIntent);
         });
 
-        ImageView aboutPage = findViewById(R.id.aboutView);
+        RelativeLayout aboutPage = findViewById(R.id.aboutRelativeLayout);
         aboutPage.setOnClickListener(view -> {
             Intent myIntent = new Intent(Settings.this, About.class);
             startActivity(myIntent);
         });
+
     }
 }

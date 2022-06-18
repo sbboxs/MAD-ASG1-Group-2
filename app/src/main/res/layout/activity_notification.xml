@@ -7,7 +7,7 @@
     tools:context=".Notification">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/aboutRelativeLayout"
         android:layout_width="379dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
@@ -16,7 +16,7 @@
         android:background="#F4F4F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/notificationRelativeLayout">
 
         <Switch
             android:id="@+id/switch2"
@@ -40,7 +40,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout1"
+        android:id="@+id/notificationRelativeLayout"
         android:layout_width="379dp"
         android:layout_height="67dp"
         android:layout_marginStart="16dp"
