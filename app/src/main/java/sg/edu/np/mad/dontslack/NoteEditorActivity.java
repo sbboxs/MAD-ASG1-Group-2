@@ -1,5 +1,6 @@
 package sg.edu.np.mad.dontslack;
 
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -64,7 +65,7 @@ public class NoteEditorActivity extends AppCompatActivity {
                 Notes.notes.set(noteID, String.valueOf(s));
                 Notes.arrayAdapter.notifyDataSetChanged();
 
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("GETNOTE", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("NOTE", Context.MODE_PRIVATE);
                 HashSet<String> set = new HashSet<>(Notes.notes);
                 sharedPreferences.edit().putStringSet("notes", set).apply();
             }
@@ -75,5 +76,6 @@ public class NoteEditorActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }
