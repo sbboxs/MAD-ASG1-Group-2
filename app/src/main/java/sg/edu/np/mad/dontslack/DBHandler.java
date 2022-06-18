@@ -189,8 +189,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    Cursor readCalendarTaskData(){
-        String query = "SELECT * FROM " + TABLE_CALENDAR +  "\"" +  "\"";
+    Cursor readCalendarTaskData(String date){
+        String query = "SELECT * FROM " + TABLE_CALENDAR +  " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + date +  "\"";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

@@ -111,7 +111,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setCalendarEventAdapter() {
-        storeCalDataToArray();
+        storeCalDataToArray(String.valueOf(CalendarUtils.selectedDate));
         Log.v(TAG, String.valueOf(CalendarUtils.selectedDate));
         CalendarEventAdapter eventAdapter = new CalendarEventAdapter(getApplicationContext(), dailyEvents);
         eventListView.setAdapter(eventAdapter);
@@ -123,9 +123,9 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void storeCalDataToArray() {
+    public void storeCalDataToArray(String date) {
         dailyEvents.clear();
-        Cursor cursor = dbHandler.readCalendarTaskData();
+        Cursor cursor = dbHandler.readCalendarTaskData(date);
         if (cursor.getCount() == 0) {
             Toast.makeText(this,"No Task Yet", Toast.LENGTH_SHORT).show();
         } else {
