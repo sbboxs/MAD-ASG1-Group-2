@@ -150,30 +150,34 @@
 
 
 
+
+
     ]]>
 
     <Button
         android:id="@+id/calendarNewEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_width="183dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="50dp"
-        android:background="@null"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/btn_bg"
         android:drawableEnd="@drawable/ic_pencil"
-        android:drawablePadding="5dp"
         android:fontFamily="@font/roboto"
         android:onClick="newEventAction"
+        android:padding="12dp"
         android:text="New Event"
         android:textAlignment="center"
-        android:textColor="#6F5643"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <ListView
         android:id="@+id/eventListView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="293dp"
         android:layout_weight="5" />
 
 </LinearLayout>

@@ -54,6 +54,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
+
     }
 
     private void initWidgets()
