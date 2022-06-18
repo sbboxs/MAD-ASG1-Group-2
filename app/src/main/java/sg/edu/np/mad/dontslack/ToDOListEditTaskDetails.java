@@ -26,6 +26,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
     private static String etTaskStartTIme;
     private static String etTaskDeadLine;
     private static String originalTaskName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

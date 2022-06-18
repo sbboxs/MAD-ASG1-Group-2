@@ -13,17 +13,19 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.Serializable;
 import java.util.Locale;
 
 public class ToDoListTaskDetails extends AppCompatActivity {
-
     private final String TAG = "Task Detail";
     private int seconds;
     private boolean running;
     private boolean wasRunning;
     private boolean timerStarted = false;
     private boolean isTimerStarted = false;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +128,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                     onStop();
                     completeTaskButton.setText("Completed");
                     completeTaskButton.setTextColor(Color.rgb(34,139,34));
-                    Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
+                    Toast.makeText(ToDoListTaskDetails.this,"Nice Job! You have completed the task!",Toast.LENGTH_SHORT).show();
                 });
             }
             alertDialog.show();

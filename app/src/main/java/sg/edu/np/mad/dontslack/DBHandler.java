@@ -12,6 +12,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String COLUMN_USERID = "UserID";
     public static String COLUMN_USERNAME = "Username";
     public static String COLUMN_PASSWORD = "Password";
+
     public static String TABLE_TASK = "Tasks";
     public static String COLUMN_TASKNAME = "TaskName";
     public static String COLUMN_TASKCATEGORY = "Category";
@@ -19,11 +20,13 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String COLUMN_TASKDISCRIPTION = "TaskDiscription";
     public static String COLUMN_TASKSTARTTIME = "TaskStartTime";
     public static String COLUMN_TASKDEADLINE = "TaskDeadLine";
+
     public static String TABLE_CALENDAR = "Calendar";
     public static String COLUMN_CALENDAR_TASKNAME = "CalendarName";
     public static String COLUMN_CALENDAR_TASKTIME = "CalendarTime";
     public static String COLUMN_CALENDAR_TASKDATE = "CalendarDate";
     public static int DATABASE_VERSION = 1;
+
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
