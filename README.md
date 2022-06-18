@@ -72,5 +72,18 @@ seniors and of course, to the procrastinators.
 
 **Sumayyah**
 -Layout & Design 
+    - App Wireframing on Adobe XD
+    - Color & Theme Scheming
+    - App Logo Design
+    - App Icon Design
+- Profile Layout
+- Homepage Layout
+- Login & Signup Layout & Background implementation
+- To-Do List Layout
+   - Add Task
+   - Task Detail
+   - Edit Task 
+- Notes Layout
+    - Edit Notes
 
 ##All relevant appendices (diagrams, screenshots, user guides)
