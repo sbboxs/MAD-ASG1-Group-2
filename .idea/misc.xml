@@ -3,17 +3,69 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/activity_calendar.xml" value="0.21240942028985507" />
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/calendar_event_cell.xml" value="0.21240942028985507" />
-        <entry key="..\:/Users/Gabriel/Downloads/MAD/MAD ASG 1/app/src/main/res/layout/calendar_event_edit.xml" value="0.2" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable-anydpi/ic_arrowleft.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable-anydpi/ic_arrowright.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable-anydpi/ic_back.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_notificationBell_background.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_notificationBell_foreground.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_playarrow_foreground.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/rightangle_triangle.xml" value="0.1595" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/tab_arrow_button.xml" value="0.1595" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/textview_border.xml" value="0.2025" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/font/alata.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_about.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_add_task_page.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_calendar.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_contact.xml" value="0.17721518987341772" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_faq.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_home_page.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_home_page_more.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_note_editor.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_notes.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_notification.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_profile.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_settings.xml" value="0.16666666666666666" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_sign_up.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_to_do_list.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_to_do_list_task_details.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/activity_to_dolist_edit_task_details.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/calendar_cell.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/fragment_to_do_list_work.xml" value="0.1408514492753623" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/menu/main_menu.xml" value="0.2" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/mipmap-anydpi-v26/ic_notificationbell.xml" value="0.1" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_sign_up.xml" value="0.1265625" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_about.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_add_task_page.xml" value="0.1" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_calendar.xml" value="0.13634488448844884" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_contact.xml" value="0.13634488448844884" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_faq.xml" value="0.1069682151589242" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_home_page.xml" value="0.275" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_home_page_more.xml" value="0.13634488448844884" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_note_editor.xml" value="0.1884498480243161" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_notes.xml" value="0.1884498480243161" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_profile.xml" value="0.1884498480243161" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_settings.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_note_editor.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_notes.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_settings.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_to_do_list.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.25" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/fragment_to_do_list_work.xml" value="0.3686594202898551" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/to_do_list_recycler.xml" value="0.1884498480243161" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/activity_to_do_list.xml" value="0.24070716228467814" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/calendar_cell.xml" value="0.24070716228467814" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/calendar_event_cell.xml" value="0.24070716228467814" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/calendar_event_edit.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-Android Studio/MAD-ASG1-Group-2/app/src/main/res/layout/to_do_list_recycler.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_addbutton.xml" value="0.148" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_back.xml" value="0.1075" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_calendar.xml" value="0.131" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_deadline.xml" value="0.137" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable-anydpi/ic_friendlist.xml" value="0.1" />
@@ -32,32 +84,29 @@
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable/btn_circle.xml" value="0.131" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable/custom_input.xml" value="0.13" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable/ic_launcher_background.xml" value="0.131" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_add_task_page.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable/ic_playarrow_background.xml" value="0.1385" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable/ic_playarrow_foreground.xml" value="0.184" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/drawable/notes_cell.xml" value="0.184" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_about.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_add_task_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_calendar.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_contact.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_faq.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_home_page.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_home_page_more.xml" value="0.1703125" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_note_editor.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notes.xml" value="0.22" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notification.xml" value="0.17346014492753623" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_profile.xml" value="0.22" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_settings.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_profile.xml" value="0.11875" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_do_list.xml" value="0.15942028985507245" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_do_list.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_do_list_task_details.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_dolist_edit_task_details.xml" value="0.22" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_dolist_edit_task_details.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/calendar_cell.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/calendar_event_cell.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/calendar_event_edit.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/fragment_to_do_list_work.xml" value="0.15989583333333332" />
-        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.15942028985507245" />
       </map>
     </option>
   </component>

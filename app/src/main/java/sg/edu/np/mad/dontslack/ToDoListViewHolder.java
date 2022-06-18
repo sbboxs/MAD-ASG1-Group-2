@@ -13,6 +13,7 @@ public class ToDoListViewHolder extends RecyclerView.ViewHolder {
     TextView taskName;
     Button taskButton;
     TextView taskDate;
+
     @SuppressLint("CutPasteId")
     public ToDoListViewHolder(View itemView){
         super(itemView);

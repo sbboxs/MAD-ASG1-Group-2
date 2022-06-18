@@ -16,7 +16,7 @@ public class toDoListPersonal extends Fragment implements SelectListener{
     View view;
     ArrayList<TaskObject> taskList = new ArrayList<>();
 
-
+    @SuppressWarnings("unchecked")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
