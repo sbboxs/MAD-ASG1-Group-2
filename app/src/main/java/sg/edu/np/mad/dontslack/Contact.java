@@ -26,8 +26,8 @@ public class Contact extends AppCompatActivity {
             startActivity(myIntent);
         });
 
-        Button contactSubmitButton = findViewById(R.id.contactSubmitButton);
-        contactSubmitButton.setOnClickListener(v -> Toast.makeText(Contact.this,"Message submitted successfully!!",Toast.LENGTH_SHORT).show());
-
+        /*Button contactSubmitButton = findViewById(R.id.contactSubmitButton);
+        contactSubmitButton.setOnClickListener(v -> Toast.makeText(Contact.this,"Message submmite successfully!!",Toast.LENGTH_SHORT).show());
+        */
     }
 }
