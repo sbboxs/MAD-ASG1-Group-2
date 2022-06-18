@@ -17,7 +17,7 @@ public class CalendarObject implements Serializable {
 
     public void setCalendarName(String name)
     {
-        this.calendar_name = name;
+        calendar_name = name;
     }
 
     public static String getCalendarDate()
@@ -27,14 +27,14 @@ public class CalendarObject implements Serializable {
 
     public void setCalendarDate(String date)
     {
-        this.date = date;
+        CalendarObject.date = date;
     }
 
     public static String getCalendarTime() { return time; }
 
     public void setCalendarTime(String time)
     {
-        this.time = time;
+        CalendarObject.time = time;
     }
 }
 

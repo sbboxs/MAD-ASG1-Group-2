@@ -1,10 +1,8 @@
 package sg.edu.np.mad.dontslack;
 
 import static android.app.AlertDialog.THEME_HOLO_DARK;
-import static androidx.appcompat.app.AlertDialog.*;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -17,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -26,15 +23,14 @@ import java.util.Calendar;
 
 public class CalendarEventEditActivity extends AppCompatActivity
 {
-    private EditText eventNameET;
     private TextView eventDateTV;
-    TimePickerDialog time;
     private final String TAG = "Add Task";
     DBHandler dbHandler = new DBHandler(this,null,null,1);
     private static String TaskName;
     private static String TaskDate;
     private static String TaskTime;
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,7 +45,6 @@ public class CalendarEventEditActivity extends AppCompatActivity
 
     private void initWidgets()
     {
-        eventNameET = findViewById(R.id.eventNameET);
         eventDateTV = findViewById(R.id.eventDateTV);
     }
 
@@ -58,9 +53,9 @@ public class CalendarEventEditActivity extends AppCompatActivity
         Button createTaskButton = findViewById(R.id.calAddEventBtn);
         createTaskButton.setOnClickListener(v -> {
             EditText newCalTaskName = findViewById(R.id.eventNameET);
-            TaskName = eventNameET.getText().toString();
+            TaskName = newCalTaskName.getText().toString();
             TextView newCalTaskDate = findViewById(R.id.eventDateTV);
-            TaskDate = CalendarUtils.selectedDate.toString();
+            TaskDate = newCalTaskDate.toString();
             @SuppressLint("CutPasteId") EditText newCalTaskTime = findViewById(R.id.calEventTimeET);
             TaskTime = newCalTaskTime.getText().toString();
             TaskObject ifTaskExist = dbHandler.findTask(TaskName);
@@ -104,7 +99,6 @@ public class CalendarEventEditActivity extends AppCompatActivity
             @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("h:mm aaa");
             eventTimeET.setText(simpleDateFormat.format(calendar.getTime()));
         };
-        int style = THEME_HOLO_DARK;
-        new TimePickerDialog(CalendarEventEditActivity.this, style, timeSetListener,calendar.get(java.util.Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true).show();
+        new TimePickerDialog(CalendarEventEditActivity.this, THEME_HOLO_DARK, timeSetListener,calendar.get(java.util.Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true).show();
     }
 }

@@ -28,7 +28,8 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     private RecyclerView calendarRecyclerView;
     private ListView eventListView;
     DBHandler dbHandler = new DBHandler(this, null,null,1);
-    ArrayList<CalendarObject> calData = new ArrayList<CalendarObject>();
+    ArrayList<CalendarObject> calData = new ArrayList<>();
+    ArrayList<CalendarObject> dailyEvents = new ArrayList<>();
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -71,7 +72,7 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
-        setCalendarEventAdpater();
+        setCalendarEventAdapter();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -102,10 +103,10 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
     protected void onResume()
     {
         super.onResume();
-        setCalendarEventAdpater();
+        setCalendarEventAdapter();
     }
 
-    private void setCalendarEventAdpater() {
+    private void setCalendarEventAdapter() {
         ArrayList<CalendarEvent> dailyEvents = CalendarEvent.eventsForDate(CalendarUtils.selectedDate);
         CalendarEventAdapter eventAdapter = new CalendarEventAdapter(getApplicationContext(), dailyEvents);
         eventListView.setAdapter(eventAdapter);
@@ -125,7 +126,8 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
                 task.setCalendarName((cursor.getString(0)));
                 task.setCalendarDate((cursor.getString(1)));
                 task.setCalendarTime(cursor.getString(2));
-                calData.add(task);
+                dailyEvents.add(task);
+
             }
         }
     }
