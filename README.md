@@ -75,6 +75,10 @@ seniors and of course, to the procrastinators.
 
 **Haowen** (The Coder)
 - Notes Feature
+ - Add new note
+ - Edit notes with note editor
+ - Save notes
+ - Delete notes
 
 **Gabriel** (The Coder)
 - Calendar Feature
