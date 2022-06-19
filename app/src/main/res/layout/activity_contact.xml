@@ -12,7 +12,8 @@
         android:layout_height="65dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        app:srcCompat="@drawable/ic_back"
+        android:contentDescription="@string/button"/>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -33,7 +34,8 @@
             android:layout_marginTop="35dp"
             android:background="@drawable/btn_circle"
             android:foregroundGravity="center"
-            app:srcCompat="@drawable/ic_email_foreground" />
+            app:srcCompat="@drawable/ic_email_foreground"
+            android:contentDescription="@null"/>
 
     </RelativeLayout>
 

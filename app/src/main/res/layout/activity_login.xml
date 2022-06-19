@@ -13,13 +13,14 @@
         android:id="@+id/backHome"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        app:srcCompat="@drawable/ic_back" />
+        app:srcCompat="@drawable/ic_back"
+        android:contentDescription="@string/button"/>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="240dp"
         android:fontFamily="@font/oswald"
         android:text="WELCOME"
@@ -31,7 +32,7 @@
         android:id="@+id/editTextUsername"
         android:layout_width="320dp"
         android:layout_height="53dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_person"
@@ -39,10 +40,12 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Username"
+        android:autofillHints="Username"
         android:inputType="textPersonName"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
         android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -56,10 +59,12 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Password"
+        android:autofillHints="Password"
         android:inputType="textPersonName"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
         android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextUsername"
+        tools:ignore="RtlSymmetry,TextFields" />
 
     <Button
         android:id="@+id/loginButton"

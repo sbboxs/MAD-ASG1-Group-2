@@ -11,7 +11,8 @@
         android:id="@+id/gobackButton"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        app:srcCompat="@drawable/ic_back" />
+        app:srcCompat="@drawable/ic_back"
+        android:contentDescription="@string/button"/>
 
     <TextView
         android:id="@+id/textView20"
@@ -26,9 +27,8 @@
 
     <EditText
         android:id="@+id/eventNameET"
-        android:layout_width="320dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_gravity="center"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="50dp"
@@ -36,10 +36,12 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Name of Event"
+        android:autofillHints="Name of Event"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
         android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,9 +55,9 @@
 
     <TextView
         android:id="@+id/eventDateTV"
-        android:layout_width="320dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_gravity="center"
+
         android:layout_marginLeft="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="50dp"
@@ -78,9 +80,9 @@
 
     <EditText
         android:id="@+id/calEventTimeET"
-        android:layout_width="320dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_gravity="center"
+
         android:layout_marginLeft="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="50dp"
@@ -89,10 +91,12 @@
         android:focusableInTouchMode="false"
         android:fontFamily="@font/roboto"
         android:hint="Select Time"
+        android:autofillHints="Select Time"
         android:padding="10dp"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="TextFields" />
 
     <Button
         android:id="@+id/calAddEventBtn"

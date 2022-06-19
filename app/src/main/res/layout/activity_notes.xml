@@ -29,7 +29,8 @@
         android:layout_height="65dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        app:srcCompat="@drawable/ic_back"
+        android:contentDescription="@string/button"/>
 
     <TextView
         android:id="@+id/textView8"
@@ -61,6 +62,8 @@
         app:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_notes" />
+        app:srcCompat="@drawable/ic_notes"
+        android:contentDescription="@string/button"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

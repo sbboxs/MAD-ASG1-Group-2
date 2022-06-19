@@ -46,11 +46,13 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Username"
+        android:autofillHints="Username"
         android:inputType="textPersonName"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/editTextCreatePassword"
@@ -64,11 +66,13 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Password"
+        android:autofillHints="Password"
         android:inputType="textPersonName"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCreateUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreateUsername"
+        tools:ignore="RtlSymmetry,TextFields" />
 
     <EditText
         android:id="@+id/editTextConfirmPassword"
@@ -82,11 +86,13 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Confirm Password"
+        android:autofillHints="Confirm Password"
         android:inputType="textPersonName"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCreatePassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCreatePassword"
+        tools:ignore="RtlSymmetry,TextFields" />
 
     <Button
         android:id="@+id/createButton"

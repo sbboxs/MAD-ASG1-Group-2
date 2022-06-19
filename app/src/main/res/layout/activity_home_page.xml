@@ -101,7 +101,8 @@
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_todo" />
+                    app:srcCompat="@drawable/ic_todo"
+                    android:contentDescription="@null"/>
 
                 <Button
                     android:id="@+id/toDoListButton"
@@ -155,7 +156,8 @@
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_calendar" />
+                    app:srcCompat="@drawable/ic_calendar"
+                    android:contentDescription="@null"/>
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -199,7 +201,8 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_notes" />
+                        app:srcCompat="@drawable/ic_notes"
+                        android:contentDescription="@null"/>
 
                     <Button
                         android:id="@+id/notesButton"
@@ -293,6 +296,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/btn_bg"
                     android:backgroundTint="#6F5643"
+                    android:contentDescription="@string/button"
                     app:srcCompat="@drawable/ic_profile" />
 
                 <TextView
@@ -331,6 +335,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/btn_bg"
+                    android:contentDescription="@string/button"
                     app:srcCompat="@drawable/ic_contact" />
 
                 <TextView
@@ -403,7 +408,8 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/btn_bg"
                     android:backgroundTint="#73BDA8"
-                    app:srcCompat="@drawable/ic_settings" />
+                    app:srcCompat="@drawable/ic_settings"
+                    android:contentDescription="@string/button"/>
 
                 <TextView
                     android:id="@+id/textView15"
@@ -432,7 +438,8 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dont_slcak8" />
+        app:srcCompat="@drawable/dont_slcak8"
+        android:contentDescription="@null"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

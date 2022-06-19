@@ -25,7 +25,8 @@
             android:layout_marginStart="300dp"
             android:layout_marginTop="20dp"
             android:scaleX="1.5"
-            android:scaleY="1.5" />
+            android:scaleY="1.5"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <TextView
             android:id="@+id/textView29"
@@ -68,7 +69,8 @@
             android:layout_marginStart="300dp"
             android:layout_marginTop="20dp"
             android:scaleX="1.5"
-            android:scaleY="1.5" />
+            android:scaleY="1.5"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
     </RelativeLayout>
 
     <TextView
@@ -94,5 +96,6 @@
         android:layout_marginStart="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        app:srcCompat="@drawable/ic_back"
+        android:contentDescription="@string/button"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

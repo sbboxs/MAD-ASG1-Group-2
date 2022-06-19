@@ -21,7 +21,8 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCurrentTaskDeadline" />
+        app:layout_constraintTop_toBottomOf="@+id/editCurrentTaskDeadline"
+        tools:ignore="UseCompatTextViewDrawableXml" />
 
     <TextView
         android:id="@+id/textView7"
@@ -45,7 +46,8 @@
         android:layout_height="65dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        app:srcCompat="@drawable/ic_back"
+        android:contentDescription="@string/button"/>
 
     <Button
         android:id="@+id/saveEditTaskButton"
@@ -78,6 +80,7 @@
         android:focusable="false"
         android:fontFamily="@font/roboto"
         android:hint="Start Time"
+        android:autofillHints="Start Time"
         android:inputType="datetime"
         android:padding="10dp"
         android:textColor="@android:color/darker_gray"
@@ -99,6 +102,7 @@
         android:focusable="false"
         android:fontFamily="@font/roboto"
         android:hint="Deadline"
+        android:autofillHints="Deadline"
         android:inputType="datetime"
         android:padding="10dp"
         android:textColor="@android:color/darker_gray"
@@ -118,6 +122,7 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Title"
+        android:autofillHints="Title"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@android:color/darker_gray"
@@ -139,6 +144,7 @@
         android:ems="10"
         android:fontFamily="@font/roboto"
         android:hint="Description"
+        android:autofillHints="Description"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@android:color/darker_gray"
