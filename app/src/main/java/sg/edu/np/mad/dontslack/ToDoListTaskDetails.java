@@ -180,7 +180,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
                 int secs = seconds % 60;
-                String time = String.format(Locale.getDefault(),"%d:%02d:%02d", hours, minutes, secs);
+                String time = String.format(Locale.getDefault(),"%02d : %02d : %02d", hours, minutes, secs);
                 timeView.setText(time);
 
                 if (running){
