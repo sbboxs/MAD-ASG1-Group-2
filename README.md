@@ -70,6 +70,8 @@ seniors and of course, to the procrastinators.
 - Calendar Event Feature Implementation
     - Add a Calendar event
     - Delete a Calendar event 
+- Brainstorm app feature ideas
+- Giving feedback to layout
 
 **Haowen** (The Coder)
 - Notes Feature
