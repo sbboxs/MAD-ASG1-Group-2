@@ -96,7 +96,7 @@ seniors and of course, to the procrastinators.
 - Linking the pages together
 
 **Sumayyah** (Leader and Layout Designer)
--Layout & Design 
+- Layout & Design 
     - App Wireframing on Adobe XD
     - Color & Theme Scheming
     - App Logo Design
