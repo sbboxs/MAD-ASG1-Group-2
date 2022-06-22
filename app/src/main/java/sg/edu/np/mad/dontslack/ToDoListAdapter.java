@@ -30,7 +30,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder> {
         String taskDate = data.get(position).getTaskDeadLine();
         holder.taskButton.setOnClickListener(v -> selectListener.onItemClicked(data.get(position)));
 
-
+        //Check if the task is completed
         if(data.get(position).isTaskStatus()){
             holder.taskDate.setText("Task Completed!");
             holder.taskButton.getBackground().setTint(holder.taskButton.getResources().getColor(R.color.greyish_brown));

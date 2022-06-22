@@ -33,22 +33,25 @@ public class AddTaskPage extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        //Getting bundle from previous activity
+        Bundle categoryBundle = getIntent().getExtras();
+        String taskCategory = categoryBundle.getString("category");
+
+        //Back button
         ImageView goBackButton = findViewById(R.id.backHome2);
         goBackButton.setOnClickListener(v -> {
             Intent myIntent2 = new Intent(AddTaskPage.this, ToDoList.class);
             startActivity(myIntent2);
         });
 
-        Bundle categoryBundle = getIntent().getExtras();
-        String taskCategory = categoryBundle.getString("category");
 
         @SuppressLint("CutPasteId") EditText taskStartTime = findViewById(R.id.editCurrentTaskStartTime);
-        @SuppressLint("CutPasteId") EditText taskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
-
         taskStartTime.setOnClickListener(v -> showDateTimeDialog(taskStartTime));
 
+        @SuppressLint("CutPasteId") EditText taskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
         taskDeadLine.setOnClickListener(v -> showDateTimeDialog(taskDeadLine));
 
+        //Creating task button
         Button createTaskButton = findViewById(R.id.saveEditTaskButton);
         createTaskButton.setOnClickListener(v -> {
             EditText newTaskTitle = findViewById(R.id.editCurrentTaskTitle);
@@ -60,12 +63,9 @@ public class AddTaskPage extends AppCompatActivity {
             @SuppressLint("CutPasteId") EditText newTaskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
             etTaskDeadLine = newTaskDeadLine.getText().toString();
             TaskObject ifTaskExist = dbHandler.findTask(etTaskTitle);
-            Log.v(TAG,"newTask1:" + ifTaskExist);
+            //Check is the task exist
             if(ifTaskExist == null){
-                Log.v(TAG,"newTask:" + etTaskTitle);
-                Log.v(TAG,"newTask:" + etTaskDescription);
-                Log.v(TAG,"newTask:" + etTaskStartTIme);
-                Log.v(TAG,"newTask:" + etTaskDeadLine);
+                //if not exist check if all fields are filled
                 if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
                     Toast.makeText(AddTaskPage.this,"Please ensure all fields are filled.",Toast.LENGTH_SHORT).show();
                 }

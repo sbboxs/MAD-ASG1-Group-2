@@ -19,18 +19,19 @@ public class Settings extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
-        //back
+
+        //Back button
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Settings.this, HomePage.class);
             startActivity(myIntent);
         });
 
-
-
+        //Notification button
         RelativeLayout notificationPage = findViewById(R.id.notificationRelativeLayout);
         notificationPage.setOnClickListener(view -> Toast.makeText(this,"Feature Not Available Yet", Toast.LENGTH_SHORT).show());
 
+        //About button
         RelativeLayout aboutPage = findViewById(R.id.aboutRelativeLayout);
         aboutPage.setOnClickListener(view -> {
             Intent myIntent = new Intent(Settings.this, About.class);

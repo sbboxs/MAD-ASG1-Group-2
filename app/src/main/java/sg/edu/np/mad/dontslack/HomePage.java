@@ -30,7 +30,9 @@ public class HomePage extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         boolean IsLogin = sharedPreferences.getBoolean(KEY_LOGIN,false);
 
+        //Profile and login button
         TextView profileTextView = findViewById(R.id.ifLoginMessage);
+        //If login it will be profile button
         if(IsLogin){
             profileTextView.setText("Profile");
             ImageView profileImage = findViewById(R.id.profileButton);
@@ -38,7 +40,7 @@ public class HomePage extends AppCompatActivity {
                 Intent myIntent = new Intent(HomePage.this, Profile.class);
                 startActivity(myIntent);
             });
-        }
+        }//Else it will be login button
         else{
             profileTextView.setText("Login");
             ImageView profileImage = findViewById(R.id.profileButton);
@@ -48,32 +50,35 @@ public class HomePage extends AppCompatActivity {
             });
         }
 
+        //To do list button
         Button ToDOListButton = findViewById(R.id.toDoListButton);
         ToDOListButton.setOnClickListener(v -> {
             Intent myIntent = new Intent(HomePage.this,ToDoList.class);
             startActivity(myIntent);
         });
 
+        //Notes button
         Button NotesButton = findViewById(R.id.notesButton);
         NotesButton.setOnClickListener(v -> {
             Intent myIntent = new Intent(HomePage.this, Notes.class);
             startActivity(myIntent);
         });
 
+        //Calendar button
         Button CalendarButton = findViewById(R.id.calendarButton);
         CalendarButton.setOnClickListener(v -> {
             Intent myIntent = new Intent(HomePage.this, Calendar.class);
             startActivity(myIntent);
         });
 
-
+        //Contact Me button
         ImageView contactImage = findViewById(R.id.contactButton);
         contactImage.setOnClickListener(view -> {
             Intent myIntent = new Intent(HomePage.this, Contact.class);
             startActivity(myIntent);
         });
 
-
+        //Setting button
         ImageView settingImage = findViewById(R.id.settingsButton);
         settingImage.setOnClickListener(view -> {
             Intent myIntent = new Intent(HomePage.this, Settings.class);

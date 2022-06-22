@@ -38,14 +38,19 @@ public class ToDoList extends AppCompatActivity{
             startActivity(myIntent2);
         });
 
+        //Work category
         Button workTaskButton = findViewById(R.id.workFragmentButton);
+        //Personal category
         Button personalTaskButton = findViewById(R.id.personalFragmentButton);
 
+        //Set default category
         setDefaultCategory();
         workTaskButton.setBackgroundColor(Color.parseColor("#DFDFDF"));
         personalTaskButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
 
+        //Display work task fragment
         workTaskButton.setOnClickListener(v -> {
+            //If in the current category will display toast instead replace fragment
             if (taskCategory.equals("work")){
                 Toast.makeText(ToDoList.this,"On work list",Toast.LENGTH_SHORT).show();
             }
@@ -58,8 +63,9 @@ public class ToDoList extends AppCompatActivity{
             }
         });
 
-
+        //Display personal task button
         personalTaskButton.setOnClickListener(v -> {
+            //If in the current category will display toast instead replace fragment
             if(taskCategory.equals("personal")){
                 Toast.makeText(ToDoList.this,"On personal list",Toast.LENGTH_SHORT).show();
             }
@@ -72,6 +78,7 @@ public class ToDoList extends AppCompatActivity{
             }
         });
 
+        //Add button to the task
         FloatingActionButton addTaskButton = findViewById(R.id.addTaskButton);
         addTaskButton.setOnClickListener(v -> {
             Intent myIntent = new Intent(ToDoList.this,AddTaskPage.class);
@@ -86,6 +93,7 @@ public class ToDoList extends AppCompatActivity{
         replaceFragment(new toDoListWork(),workTaskList);
     }
 
+    //Replace the fragment base on category
     private void replaceFragment(Fragment fragment, ArrayList<TaskObject>taskList) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -96,6 +104,7 @@ public class ToDoList extends AppCompatActivity{
         fragmentTransaction.commit();
     }
 
+    //Retrieve all data and stored base on category
     private void storeTaskDataToArray() {
         Cursor cursor = dbHandler.readAllTaskData(taskCategory);
         if (cursor.getCount() == 0) {

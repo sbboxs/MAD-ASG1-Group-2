@@ -38,18 +38,19 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
 
+        /* Hiding the top bar */
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
+
         //back button
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Calendar.this, HomePage.class);
             startActivity(myIntent);
         });
-        /* Hiding the top bar */
-        ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.hide();
 
-
+        //To delete current event
         eventListView.setOnItemLongClickListener((parent, view, position, id) -> {
             CalendarEvent calendarEvent = dailyEvents.get(position);
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -131,10 +132,12 @@ public class Calendar extends AppCompatActivity implements CalendarAdapter.OnIte
         startActivity(new Intent(this, CalendarEventEditActivity.class));
     }
 
+    //Getting all task base on date
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void storeCalDataToArray(String date) {
         dailyEvents.clear();
         Cursor cursor = dbHandler.readCalendarTaskData(date);
+        //Check if have any event
         if (cursor.getCount() == 0) {
             Toast.makeText(this,"No Event Yet", Toast.LENGTH_SHORT).show();
         } else {

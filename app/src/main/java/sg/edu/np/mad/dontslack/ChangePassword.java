@@ -25,6 +25,7 @@ public class ChangePassword extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        //Get bundle from previous activity
         Bundle userBundle = getIntent().getBundleExtra("Bundle");
         User currentUser = (User) userBundle.getSerializable("User");
 
@@ -34,6 +35,7 @@ public class ChangePassword extends AppCompatActivity {
             startActivity(myIntent2);
         });
 
+        //Confirm change password button
         Button confirmChangeButton = findViewById(R.id.changePWButton);
         confirmChangeButton.setOnClickListener(v -> {
             @SuppressLint("CutPasteId") EditText etCurrentPassword = findViewById(R.id.editTextCurrentPW);
@@ -43,9 +45,13 @@ public class ChangePassword extends AppCompatActivity {
             String newPassword = etNewPassword.getText().toString();
             String confirmNewPassword = etConfirmNewPassword.getText().toString();
 
+            //Check if all the field is filled
             if(!currentPassword.equals("") && !newPassword.equals("") && !confirmNewPassword.equals("")){
+                //Check if the current password is correct
                 if(currentPassword.equals(currentUser.getPassword())){
+                    //Check if the new password same to the confirm new password
                     if(newPassword.equals(confirmNewPassword)){
+                        //Check if the new password is same as the current password
                         if(!confirmNewPassword.equals(currentPassword)){
                             currentUser.setPassword(confirmNewPassword);
                             dbHandler.updateUserData(currentUser);

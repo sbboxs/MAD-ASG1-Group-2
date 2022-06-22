@@ -42,11 +42,13 @@ public class CalendarEventEditActivity extends AppCompatActivity
         assert actionBar != null;
         actionBar.hide();
 
+        //Back button
         ImageView goBackButton = findViewById(R.id.gobackButton);
         goBackButton.setOnClickListener(v -> {
             Intent myIntent2 = new Intent(CalendarEventEditActivity.this, sg.edu.np.mad.dontslack.Calendar.class);
             startActivity(myIntent2);
         });
+
         initWidgets();
         TaskDate = CalendarUtils.formattedDate(CalendarUtils.selectedDate);
         eventDateTV.setText(TaskDate);
@@ -62,12 +64,14 @@ public class CalendarEventEditActivity extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void saveEventAction(View view)
     {
+        //Create task button
         Button createTaskButton = findViewById(R.id.calAddEventBtn);
         createTaskButton.setOnClickListener(v -> {
             EditText newCalTaskName = findViewById(R.id.eventNameET);
             TaskName = newCalTaskName.getText().toString();
             @SuppressLint("CutPasteId") EditText newCalTaskTime = findViewById(R.id.calEventTimeET);
             TaskTime = newCalTaskTime.getText().toString();
+            //Check if all fields is filled
             if(TaskName.equals("") || TaskTime.equals("")){
                 Toast.makeText(CalendarEventEditActivity.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
             }

@@ -17,6 +17,7 @@ public class Notification extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        //Back button
         ImageView goBackButton = findViewById(R.id.backHome4);
         goBackButton.setOnClickListener(v -> {
             Intent myIntent2 = new Intent(Notification.this, Settings.class);

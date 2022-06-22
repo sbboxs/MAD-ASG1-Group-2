@@ -18,6 +18,7 @@ public class Contact extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        //Back home page button
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Contact.this, HomePage.class);

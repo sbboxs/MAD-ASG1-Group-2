@@ -35,6 +35,7 @@ public class Profile extends AppCompatActivity {
         actionBar.hide();
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
+        //Setting the user profile
         String Username = sharedPreferences.getString(KEY_USERNAME, "");
         if(!Username.equals("")){
             user = dbHandler.findUser(Username);
@@ -45,12 +46,14 @@ public class Profile extends AppCompatActivity {
             profilePassword.setText(user.getPassword());
         }
 
+        //Back button
         ImageView backHomePage = findViewById(R.id.backHome);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Profile.this, HomePage.class);
             startActivity(myIntent);
         });
 
+        //Change password button
         TextView changePasswordButton = findViewById(R.id.changePassword);
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,14 +66,13 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+        //Delete account button
         TextView deleteAccountButton = findViewById(R.id.deleteAccountButton);
         deleteAccountButton.setOnClickListener(v -> {
             AlertDialog alertDialog = new AlertDialog.Builder(Profile.this).create();
             alertDialog.setTitle("Delete Account");
             alertDialog.setMessage("Are you sure you want to delete this account?");
-
             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", (dialog, which) -> dialog.dismiss());
-
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
                 dbHandler.deleteUser(user);
                 sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
@@ -83,7 +85,7 @@ public class Profile extends AppCompatActivity {
             alertDialog.show();
         });
 
-
+        //Logout account button
         TextView logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(v -> {
             SharedPreferences.Editor editor = sharedPreferences.edit();

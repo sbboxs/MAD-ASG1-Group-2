@@ -38,11 +38,14 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        //Get bundle from previous activity
         Bundle taskBundle = getIntent().getBundleExtra("Bundle");
         TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
 
+        //Store current task name
         originalTaskName = currentTask.getTaskName();
 
+        //Back button
         ImageView backHomePage = findViewById(R.id.editDetailBackButton);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoListTaskDetails.class);
@@ -52,6 +55,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
             startActivity(myIntent);
         });
 
+        //Setting current task details
         @SuppressLint("CutPasteId") EditText editCurrentTaskTitle = findViewById(R.id.editCurrentTaskTitle);
         editCurrentTaskTitle.setText(currentTask.getTaskName());
 
@@ -64,10 +68,12 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         @SuppressLint("CutPasteId") EditText editCurrentTaskDeadLine= findViewById(R.id.editCurrentTaskDeadline);
         editCurrentTaskDeadLine.setText(currentTask.getTaskDeadLine());
 
+        //Edit task start time and deadline
         editCurrentTaskStartTime.setOnClickListener(v -> showDateTimeDialog(editCurrentTaskStartTime));
 
         editCurrentTaskDeadLine.setOnClickListener(v -> showDateTimeDialog(editCurrentTaskDeadLine));
 
+        //Delete current task button
         TextView deleteTaskButton = findViewById(R.id.deleteTaskButton);
         deleteTaskButton.setOnClickListener(v -> {
             AlertDialog alertDialog = new AlertDialog.Builder(ToDOListEditTaskDetails.this).create();
@@ -85,8 +91,9 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
             alertDialog.show();
         });
 
-        Button createTaskButton = findViewById(R.id.saveEditTaskButton);
-        createTaskButton.setOnClickListener(v -> {
+        //Save task button
+        Button saveTaskButton = findViewById(R.id.saveEditTaskButton);
+        saveTaskButton.setOnClickListener(v -> {
             @SuppressLint("CutPasteId") EditText newTaskTitle = findViewById(R.id.editCurrentTaskTitle);
             etTaskTitle = newTaskTitle.getText().toString();
             @SuppressLint("CutPasteId") EditText newTaskDescription = findViewById(R.id.editCurrentTaskDescription);
@@ -96,10 +103,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
             @SuppressLint("CutPasteId") EditText newTaskDeadLine = findViewById(R.id.editCurrentTaskDeadline);
             etTaskDeadLine = newTaskDeadLine.getText().toString();
 
-            Log.v(TAG,"editTask:" + etTaskTitle);
-            Log.v(TAG,"editTask::" + etTaskDescription);
-            Log.v(TAG,"editTask:" + etTaskStartTIme);
-            Log.v(TAG,"editTask:" + etTaskDeadLine);
+            //Check if all fields are filled
             if(etTaskTitle.equals("") || etTaskDescription.equals("") || etTaskStartTIme.equals("") || etTaskDeadLine.equals("")){
                 Toast.makeText(ToDOListEditTaskDetails.this,"Please ensure all fields is filled.",Toast.LENGTH_SHORT).show();
             }

@@ -46,6 +46,7 @@ public class Login extends AppCompatActivity {
             etUsername = etMyUserName.getText().toString();
             EditText etMyPassword = findViewById(R.id.editTextPassword);
             etPassword = etMyPassword.getText().toString();
+            //Check if all fields are filled
             if(!etUsername.equals("") && !etPassword.equals("")){
                 //Check is valid login credentials
                 if(isValidCredentials(etUsername,etPassword)){
@@ -81,6 +82,7 @@ public class Login extends AppCompatActivity {
             //test
         });
     }
+    //To check if the user account is exist
     public boolean isValidCredentials(String userName, String password){
         User dbData = dbHandler.findUser(userName);
         //If Username is found

@@ -8,11 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHandler extends SQLiteOpenHelper {
     public static String DATABASE_NAME = "Don'tSlack.db";
+    //Table account section
     public static String TABLE_ACCOUNT = "Account";
     public static String COLUMN_USERID = "UserID";
     public static String COLUMN_USERNAME = "Username";
     public static String COLUMN_PASSWORD = "Password";
 
+    //Table task section
     public static String TABLE_TASK = "Tasks";
     public static String COLUMN_TASKNAME = "TaskName";
     public static String COLUMN_TASKCATEGORY = "Category";
@@ -21,6 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static String COLUMN_TASKSTARTTIME = "TaskStartTime";
     public static String COLUMN_TASKDEADLINE = "TaskDeadLine";
 
+    //Table calendar section
     public static String TABLE_CALENDAR = "Calendar";
     public static String COLUMN_CALENDAR_TASKNAME = "CalendarName";
     public static String COLUMN_CALENDAR_TASKTIME = "CalendarTime";
@@ -33,13 +36,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
+        //Creating account table
         String CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_ACCOUNT + " ( " + COLUMN_USERID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_USERNAME + " TEXT, "
                 + COLUMN_PASSWORD + " TEXT " + " ) ";
+        //Creating task button
         String CREATE_TASKLIST_TABLE = "CREATE TABLE " + TABLE_TASK + " ( " + COLUMN_TASKNAME + " TEXT, "
                 + COLUMN_TASKCATEGORY + " TEXT,"
                 +  COLUMN_TASKSTATUS + " TEXT, " + COLUMN_TASKDISCRIPTION + " TEXT, "
                 + COLUMN_TASKSTARTTIME + " TEXT, " + COLUMN_TASKDEADLINE + " TEXT" + " ) " ;
+        //Creating calendar table
         String CREATE_CALENDAR_TABLE = "CREATE TABLE " + TABLE_CALENDAR + " ( " + COLUMN_CALENDAR_TASKNAME + " TEXT, "
                 + COLUMN_CALENDAR_TASKDATE+ " TEXT,"
                 +  COLUMN_CALENDAR_TASKTIME +  " TEXT" + " ) " ;
@@ -90,6 +96,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return queryData;
     }
 
+    //Update a user data
     public void updateUserData(User user){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -99,6 +106,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Delete a user
     public void deleteUser(User user){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_ACCOUNT,"Username=?", new String[]{user.getUsername()});
@@ -145,6 +153,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return queryData;
     }
+    //Update a task data
     public void updateTaskData(TaskObject taskObject, String originalTaskname){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -157,13 +166,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.update(TABLE_TASK, cv, "TaskName=?", new String[]{originalTaskname});
         db.close();
     }
-
+    //Delete a task
     public void deleteTask(TaskObject taskObject){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TASK,"TaskName=?", new String[]{taskObject.getTaskName()});
         db.close();
     }
 
+    //Read all the task
     Cursor readAllTaskData(String taskCategory){
         String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + COLUMN_TASKCATEGORY + "=\"" + taskCategory + "\"";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -176,7 +186,8 @@ public class DBHandler extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //Add a task
+    //Calendar section
+    //Add a calendar task
     public void addCalendarTask(CalendarEvent task){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -189,12 +200,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Add a calendar task
     public void deleteCalendarTask(CalendarEvent calObject){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CALENDAR,"CalendarName=?", new String[]{calObject.getName()});
         db.close();
     }
 
+    //Read all the calendar task base on date
     Cursor readCalendarTaskData(String date){
         String query = "SELECT * FROM " + TABLE_CALENDAR +  " WHERE " + COLUMN_CALENDAR_TASKDATE + "=\"" + date +  "\"";
         SQLiteDatabase db = this.getReadableDatabase();
