@@ -22,10 +22,10 @@ accomplished upon completion.
 
 ### Features
 Some of our main features include:
-    - Add tasks
-    - Set start time and deadline
-    - Create Notes
-    - Set Events on Calendar
+- Add tasks
+- Set start time and deadline
+- Create Notes
+- Set Events on Calendar
 
 ## Target Audience
 Our application mainly targets students who seek a study buddy who can help them focus
