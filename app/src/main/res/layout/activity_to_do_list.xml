@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f1f1f1"
     tools:context=".ToDoList">
 
     <ImageView
         android:id="@+id/toDoListBackButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
+        android:contentDescription="@string/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back"
-        android:contentDescription="@string/button"/>
+        app:srcCompat="@drawable/ic_back" />
 
     <TextView
         android:id="@+id/textView5"
@@ -70,12 +71,15 @@
         android:layout_width="414dp"
         android:layout_height="520dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:background="#f1f1f1"
         android:stateListAnimator="@null"
+        app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton">
+        app:layout_constraintTop_toBottomOf="@+id/workFragmentButton"
+        app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
 
@@ -84,17 +88,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="18dp"
         android:layout_marginEnd="176dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="36dp"
         android:clickable="true"
+        android:contentDescription="@string/button"
+        android:focusable="true"
         app:backgroundTint="#cc6b49"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toDoListFrameLayout"
-        app:srcCompat="@drawable/ic_addbutton"
-        android:contentDescription="@string/button"
-        android:focusable="true"/>
+        app:srcCompat="@drawable/ic_addbutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

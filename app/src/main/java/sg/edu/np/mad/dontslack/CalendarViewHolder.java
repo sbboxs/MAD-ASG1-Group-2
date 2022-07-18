@@ -1,5 +1,7 @@
 package sg.edu.np.mad.dontslack;
 
+import android.database.Cursor;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 
 public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
 {
+
     private final ArrayList<LocalDate> days;
     public final View parentView;
     public final TextView dayOfMonth;
@@ -23,6 +26,14 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         this.onItemListener = onItemListener;
         itemView.setOnClickListener(this);
         this.days = days;
+
+//        DBHandler dbHandler = new DBHandler(this.parentView.getContext(), null,null,1);
+//
+//        Cursor cursor = dbHandler.readCalendarTaskData(days.get(getAdapterPosition()).toString());
+//        //Check if have any event
+//        if (cursor.getCount() != 0) {
+//            dayOfMonth.setTextColor(Color.RED);
+//        }
     }
 
     @Override

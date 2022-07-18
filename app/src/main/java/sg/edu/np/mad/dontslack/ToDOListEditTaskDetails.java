@@ -73,23 +73,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
 
         editCurrentTaskDeadLine.setOnClickListener(v -> showDateTimeDialog(editCurrentTaskDeadLine));
 
-        //Delete current task button
-        TextView deleteTaskButton = findViewById(R.id.deleteTaskButton);
-        deleteTaskButton.setOnClickListener(v -> {
-            AlertDialog alertDialog = new AlertDialog.Builder(ToDOListEditTaskDetails.this).create();
-            alertDialog.setTitle("Delete Task");
-            alertDialog.setMessage("Are you sure you want to delete this task?");
 
-            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", (dialog, which) -> dialog.dismiss());
-
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
-                dbHandler.deleteTask(currentTask);
-                Toast.makeText(ToDOListEditTaskDetails.this,"Task deleted successfully!",Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(ToDOListEditTaskDetails.this,ToDoList.class);
-                startActivity(myIntent);
-            });
-            alertDialog.show();
-        });
 
         //Save task button
         Button saveTaskButton = findViewById(R.id.saveEditTaskButton);

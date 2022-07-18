@@ -1,10 +1,12 @@
 package sg.edu.np.mad.dontslack;
 
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -39,6 +41,7 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         return new CalendarViewHolder(view, onItemListener, days);
     }
 
+    //While date on click
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
@@ -49,10 +52,12 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         else
         {
             holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
-            if(date.equals(CalendarUtils.selectedDate))
+            if(date.equals(CalendarUtils.selectedDate)) {
                 holder.parentView.setBackgroundColor(Color.LTGRAY);
+            }
         }
     }
+
 
     @Override
     public int getItemCount()
