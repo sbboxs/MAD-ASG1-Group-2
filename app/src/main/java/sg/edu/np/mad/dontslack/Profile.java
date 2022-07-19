@@ -43,7 +43,7 @@ public class Profile extends AppCompatActivity {
             profileUsername.setText(user.getUsername());
 
             TextView profilePassword = findViewById(R.id.textProfilePassword);
-            profilePassword.setText(user.getPassword());
+
         }
 
         //Back button
