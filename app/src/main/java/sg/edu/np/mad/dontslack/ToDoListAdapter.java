@@ -26,8 +26,8 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder> {
     @SuppressLint("SetTextI18n")
     public void onBindViewHolder(@NonNull ToDoListViewHolder holder, @SuppressLint("RecyclerView") int position){
         String taskName = data.get(position).getTaskName();
-        if(taskName.length()>20){
-            String simplifyTaskName = taskName.substring(0,20) + "...";
+        if(taskName.length()>22){
+            String simplifyTaskName = taskName.substring(0,22) + "...";
             holder.taskName.setText(simplifyTaskName);
         }
         else{
