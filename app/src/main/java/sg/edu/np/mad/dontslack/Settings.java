@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.RelativeLayout;
 
 public class Settings extends AppCompatActivity {
@@ -28,11 +27,14 @@ public class Settings extends AppCompatActivity {
         });
 
         //Notification button
-        RelativeLayout notificationPage = findViewById(R.id.notificationRelativeLayout);
-        notificationPage.setOnClickListener(view -> Toast.makeText(this,"Feature Not Available Yet", Toast.LENGTH_SHORT).show());
+        RelativeLayout notificationPage = findViewById(R.id.aboutRelativeLayout);
+        notificationPage.setOnClickListener(view -> {
+            Intent myIntent = new Intent(this,Notification.class);
+            startActivity(myIntent);
+        });
 
         //About button
-        RelativeLayout aboutPage = findViewById(R.id.aboutRelativeLayout);
+        RelativeLayout aboutPage = findViewById(R.id.notificationRelativeLayout);
         aboutPage.setOnClickListener(view -> {
             Intent myIntent = new Intent(Settings.this, About.class);
             startActivity(myIntent);

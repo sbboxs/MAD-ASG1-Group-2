@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sg.edu.np.mad.dontslack">
 
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.SET_ALARM" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -110,6 +113,7 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".ReminderBroadcast" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
