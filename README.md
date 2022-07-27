@@ -72,6 +72,11 @@ seniors and of course, to the procrastinators.
     - Delete a Calendar event 
 - Brainstorm app feature ideas
 - Giving feedback to layout
+=====Part 2=====
+- Feature implemented with not covered topic : 
+    - Manage Device awake state
+        - Schedule alarms
+- Feature implemented:
 
 **Haowen** (The Coder)
 - Notes Feature
