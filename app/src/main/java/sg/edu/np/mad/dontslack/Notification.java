@@ -42,8 +42,8 @@ public class Notification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         createNotificationChannel();
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
 
         /* Hiding the top bar */
         ActionBar actionBar = getSupportActionBar();
@@ -165,11 +165,11 @@ public class Notification extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void setAlarmNotify(boolean ifNotify){
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         //Setting up notification
         Intent myIntent = new Intent(this, ReminderBroadcast.class);
         //myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent myPIntent = PendingIntent.getActivity(this,0,myIntent,0);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        PendingIntent myPIntent = PendingIntent.getBroadcast(this,0,myIntent,0);
 
         //Check if notification allow
         if(ifNotify){
@@ -199,7 +199,7 @@ public class Notification extends AppCompatActivity {
             //set Inexact as this is a daily notification.
             //Inexact notification might have a few minutes delay
             //alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),myPIntent);
-            alarmManager.set(AlarmManager.RTC_WAKEUP,1000*10,myPIntent);
+            alarmManager.set(AlarmManager.RTC_WAKEUP,1000,myPIntent);
             //Due to android OS, as of API 19 now all repeating alarm is not exact
             //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,myPIntent);
             Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
@@ -207,10 +207,14 @@ public class Notification extends AppCompatActivity {
 
         //Cancel notification if not allow
         else{
-            alarmManager.cancel(myPIntent);
-            Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
+            //If no alarm is set
+            if(alarmManager == null){
+                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            }
+            else{
+                alarmManager.cancel(myPIntent);
+                Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
+            }
         }
-
-
     }
 }
