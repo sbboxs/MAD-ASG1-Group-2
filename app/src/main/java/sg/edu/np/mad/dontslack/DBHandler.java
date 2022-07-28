@@ -186,6 +186,19 @@ public class DBHandler extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //Read all task by date
+    Cursor readTaskByDate(String dateTime){
+        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " +" substr(" +(COLUMN_TASKSTARTTIME) +",0,9) "+ "=\"" + dateTime + "\"";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        assert db != null;
+        return cursor;
+    }
+
     //Calendar section
     //Add a calendar task
     public void addCalendarTask(CalendarEvent task){
