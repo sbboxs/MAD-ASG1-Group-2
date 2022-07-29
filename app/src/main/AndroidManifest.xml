@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DontSlack">
         <activity
+            android:name=".NotificationDetailsFragment"
+            android:exported="false" />
+        <activity
             android:name=".NotificationDetails"
             android:exported="false" />
         <activity
