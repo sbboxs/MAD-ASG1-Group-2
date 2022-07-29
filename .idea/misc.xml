@@ -6,6 +6,9 @@
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable-anydpi/ic_arrowleft.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable-anydpi/ic_arrowright.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable-anydpi/ic_back.xml" value="0.1" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/btn_bg.xml" value="0.15" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/btn_circle.xml" value="0.15" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/custom_input.xml" value="0.15" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_notificationBell_background.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_notificationBell_foreground.xml" value="0.1" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/drawable/ic_playarrow_foreground.xml" value="0.1" />
@@ -38,6 +41,7 @@
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/fragment_to_do_list_personal.xml" value="0.1408514492753623" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/fragment_to_do_list_work.xml" value="0.1408514492753623" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/to_do_list_recycler.xml" value="0.22" />
+        <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/layout/widget.xml" value="0.22" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/menu/main_menu.xml" value="0.2" />
         <entry key="..\:/MAD_Android_Studio/MAD_ASG/app/src/main/res/mipmap-anydpi-v26/ic_notificationbell.xml" value="0.1" />
         <entry key="..\:/Users/chiaj/Desktop/school work/Year2/MAD-ASG1-Group-2/app/src/main/res/layout/activity_login.xml" value="0.1265625" />
