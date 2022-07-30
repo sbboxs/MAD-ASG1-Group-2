@@ -97,6 +97,13 @@ public class HomePage extends AppCompatActivity {
             startActivity(myIntent);
         });
 
+        //Timer button
+        Button TimerButton = findViewById(R.id.timerButton);
+        TimerButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(HomePage.this, Timer.class);
+            startActivity(myIntent);
+        });
+
         //Contact Me button
         ImageView contactImage = findViewById(R.id.contactButton);
         contactImage.setOnClickListener(view -> {

@@ -96,6 +96,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Timer"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".NoteEditorActivity"
             android:configChanges="orientation"
             android:exported="false"
@@ -128,7 +133,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <service android:name=".MyService"/>
     </application>
 
 </manifest>

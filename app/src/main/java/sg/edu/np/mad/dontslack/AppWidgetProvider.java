@@ -4,7 +4,11 @@ import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.RemoteViews;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class AppWidgetProvider extends android.appwidget.AppWidgetProvider {
@@ -18,8 +22,12 @@ public class AppWidgetProvider extends android.appwidget.AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(),R.layout.widget);
             views.setOnClickPendingIntent(R.id.widget_button,pendingIntent);
 
+            //TextView view = findIdByView
+            //int noOfTask = db.getProfilesCount();
             appWidgetManager.updateAppWidget(appWidgetId,views);
+
         }
     }
+
 
 }
