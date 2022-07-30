@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity {
@@ -84,6 +85,13 @@ public class HomePage extends AppCompatActivity {
             Intent myIntent = new Intent(HomePage.this, Settings.class);
             startActivity(myIntent);
         });
-    }
 
+        //switch to home page more
+        Switch mySwitch = findViewById(R.id.switch1);
+        mySwitch.setOnClickListener(view -> {
+            Intent myIntent = new Intent(HomePage.this, HomePageMore.class);
+            startActivity(myIntent);
+        });
+
+    }
 }
