@@ -1,6 +1,9 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -30,6 +33,13 @@ public class NotificationDetailsFragment extends Fragment {
 
         if(currentCategory.equals("task")){
             ArrayList<TaskObject> taskList = (ArrayList<TaskObject>) taskListBundle.getSerializable("objectList");
+            //Setting up recyclerview
+            RecyclerView recyclerView = view.findViewById(R.id.notificationRecycler);
+            NotificationAdapter myAdapter = new NotificationAdapter(taskList);
+            LinearLayoutManager notificationLayoutManager = new LinearLayoutManager(this.getContext());
+            recyclerView.setLayoutManager(notificationLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(myAdapter);
         }
         else {
             ArrayList<CalendarEvent> eventList = (ArrayList<CalendarEvent>) taskListBundle.getSerializable("objectList");

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sg.edu.np.mad.dontslack">
 
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DontSlack">
+
         <activity
             android:name=".ChangePassword"
             android:exported="false" />
@@ -27,6 +28,12 @@
             android:configChanges="orientation"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".NotificationDetails"
+            android:exported="false" />
+        <activity
+            android:name=".MusicPlayer"
+            android:exported="false" />
         <activity
             android:name=".ToDOListEditTaskDetails"
             android:configChanges="orientation"
@@ -116,6 +123,7 @@
         </activity>
 
         <receiver android:name=".ReminderBroadcast" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
