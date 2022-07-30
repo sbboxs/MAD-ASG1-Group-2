@@ -120,7 +120,8 @@
             android:configChanges="orientation"
             android:exported="true"
             android:label="Don&apos;t Slack"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -129,10 +130,19 @@
         </activity>
 
         <receiver android:name=".ReminderBroadcast" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <receiver android:name=".AppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+                <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/appwidget_info"/>
+        </receiver>
+
     </application>
 
 </manifest>
