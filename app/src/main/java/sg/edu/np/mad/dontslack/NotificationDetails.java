@@ -1,5 +1,6 @@
 package sg.edu.np.mad.dontslack;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,14 +12,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 
 public class NotificationDetails extends AppCompatActivity {
@@ -35,7 +37,10 @@ public class NotificationDetails extends AppCompatActivity {
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     String date = sdf.format(System.currentTimeMillis());
-
+    @SuppressLint("SimpleDateFormat")
+    SimpleDateFormat csdf = new SimpleDateFormat("yyyy-MM-dd");
+    String calendarDate = csdf.format(System.currentTimeMillis());
+    @RequiresApi(api = Build.VERSION_CODES.O)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_details);
@@ -51,60 +56,49 @@ public class NotificationDetails extends AppCompatActivity {
         Button eventButton = findViewById(R.id.eventFragmentButton);
         Button dunSlackButton = findViewById(R.id.dunSlackButton);
 
-        taskButton.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                if(currentCategory.equals("task")){
-                    Toast.makeText(NotificationDetails.this,"Currently on task category",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    currentCategory = "task";
-                    taskButton.setBackgroundColor(Color.parseColor("#CC6B49"));
-                    taskButton.setTextColor(Color.parseColor("#FFFFFF"));
-                    eventButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
-                    eventButton.setTextColor(Color.parseColor("#000000"));
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(KEY_currentCategory, currentCategory);
-                    editor.apply();
-                    storeTaskDataToArray();
-                    replaceTaskFragment(new NotificationDetailsFragment(),taskList);
-                }
+        taskButton.setOnClickListener(v -> {
+            if(currentCategory.equals("task")){
+                Toast.makeText(NotificationDetails.this,"Currently on task category",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                currentCategory = "task";
+                taskButton.setBackgroundColor(Color.parseColor("#CC6B49"));
+                taskButton.setTextColor(Color.parseColor("#FFFFFF"));
+                eventButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
+                eventButton.setTextColor(Color.parseColor("#000000"));
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(KEY_currentCategory, currentCategory);
+                editor.apply();
+                storeTaskDataToArray();
+                replaceTaskFragment(new NotificationDetailsFragment(),taskList);
             }
         });
 
-        eventButton.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                if(currentCategory.equals("event")){
-                    Toast.makeText(NotificationDetails.this,"Currently on task category",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    currentCategory = "event";
-                    taskButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
-                    taskButton.setTextColor(Color.parseColor("#000000"));
-                    eventButton.setBackgroundColor(Color.parseColor("#CC6B49"));
-                    eventButton.setTextColor(Color.parseColor("#FFFFFF"));
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(KEY_currentCategory, currentCategory);
-                    editor.apply();
-                    storeTaskDataToArray();
-                    replaceEventFragment(new NotificationDetailsFragment(),eventList);
-                }
+        eventButton.setOnClickListener(v -> {
+            if(currentCategory.equals("event")){
+                Toast.makeText(NotificationDetails.this,"Currently on task category",Toast.LENGTH_SHORT).show();
             }
-
+            else{
+                currentCategory = "event";
+                taskButton.setBackgroundColor(Color.parseColor("#F1F1F1"));
+                taskButton.setTextColor(Color.parseColor("#000000"));
+                eventButton.setBackgroundColor(Color.parseColor("#CC6B49"));
+                eventButton.setTextColor(Color.parseColor("#FFFFFF"));
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(KEY_currentCategory, currentCategory);
+                editor.apply();
+                storeTaskDataToArray();
+                replaceEventFragment(new NotificationDetailsFragment(),eventList);
+            }
         });
 
-        dunSlackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(NotificationDetails.this, HomePage.class);
-                startActivity(myIntent);
-            }
+        dunSlackButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(NotificationDetails.this, HomePage.class);
+            startActivity(myIntent);
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void setDefaultCategory(){
         currentCategory = "task";
         storeTaskDataToArray();
@@ -117,6 +111,7 @@ public class NotificationDetails extends AppCompatActivity {
     }
 
     //Retrieve all data and stored base on category
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void storeTaskDataToArray() {
         //Check current category
         if(currentCategory.equals("task")){
@@ -142,19 +137,16 @@ public class NotificationDetails extends AppCompatActivity {
         }
         else{
             if(!(eventList.size()>0)){
-                Cursor cursor = dbHandler.readCalendarTaskData(date);
+                Cursor cursor = dbHandler.readCalendarTaskData(calendarDate);
                 if (cursor.getCount() == 0) {
                     Toast.makeText(this,"No event is found", Toast.LENGTH_SHORT).show();
                 } else {
                     while (cursor.moveToNext()) {
-                        TaskObject task = new TaskObject();
-                        task.setTaskName(cursor.getString(0));
-                        task.setTaskCategory(cursor.getString(1));
-                        task.setTaskStatus(cursor.getString(2).equals("1"));
-                        task.setTaskDescription(cursor.getString(3));
-                        task.setTaskStartTime(cursor.getString(4));
-                        task.setTaskDeadLine(cursor.getString(5));
-                        taskList.add(task);
+                        CalendarEvent event = new CalendarEvent();
+                        event.setName(cursor.getString(0));
+                        event.setDate(LocalDate.parse(cursor.getString(1)));
+                        event.setTime(cursor.getString(2));
+                        eventList.add(event);
                     }
                 }
             }

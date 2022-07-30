@@ -11,11 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationViewHolder> {
-    ArrayList<TaskObject> data;
-//    SelectListener selectListener;
-    public NotificationAdapter (ArrayList <TaskObject> input){
-        data = input;
-//        selectListener = listener;
+
+    ArrayList<TaskObject> taskData;
+    ArrayList<CalendarEvent> calendarData;
+    String currentCategory;
+    public NotificationAdapter (ArrayList <TaskObject> firstInput, ArrayList <CalendarEvent> secondInput, String currentCat){
+        currentCategory = currentCat;
+        if(currentCategory.equals("task")){
+            taskData = firstInput;
+        }
+        else {
+            calendarData = secondInput;
+        }
     }
 
     @NonNull
@@ -27,13 +34,27 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationViewHo
 
     @SuppressLint("SetTextI18n")
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, @SuppressLint("RecyclerView") int position){
-        String taskName = data.get(position).getTaskName();
-        holder.objectName.setText(taskName);
-//        String taskDate = data.get(position).getTaskDeadLine();
-//        holder.taskButton.setOnClickListener(v -> selectListener.onItemClicked(data.get(position)));
+        String objectName;
+        String objectDueDate;
+        if(currentCategory.equals("task")){
+            objectName = taskData.get(position).getTaskName();
+            objectDueDate = taskData.get(position).getTaskDeadLine();
+        }
+        else{
+            objectName = calendarData.get(position).getName();
+            objectDueDate = calendarData.get(position).getDate()+""+calendarData.get(position).getTime();
+        }
+        holder.objectDate.setText(objectDueDate);
+        holder.objectName.setText(objectName);
+
     }
 
     public int getItemCount(){
-        return data.size();
+        if(currentCategory.equals("task")){
+            return taskData.size();
+        }
+        else{
+            return  calendarData.size();
+        }
     }
 }

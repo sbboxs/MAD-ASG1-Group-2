@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".NotificationViewHolder">
 
     <RelativeLayout
         android:id="@+id/notificationViewRelative"
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="119dp"
+        android:background="#f1f1f1">
 
         <TextView
             android:id="@+id/objectName"
@@ -18,7 +19,9 @@
             android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:text="Name"
-            android:textSize="20sp" />
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/objectDate"
@@ -35,7 +38,9 @@
             android:layout_height="wrap_content"
             android:paddingStart="30dp"
             android:paddingTop="70dp"
-            android:text="DateStatus"
-            android:textSize="20sp" />
+            android:text="TODAY!"
+            android:textColor="#4CAF50"
+            android:textSize="18sp"
+            android:textStyle="italic" />
     </RelativeLayout>
 </LinearLayout>

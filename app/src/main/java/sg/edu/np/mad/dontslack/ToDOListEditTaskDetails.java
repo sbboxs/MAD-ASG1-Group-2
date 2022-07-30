@@ -1,27 +1,22 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ToDOListEditTaskDetails extends AppCompatActivity {
-    private final String TAG = "Edit Task";
     private static String etTaskTitle;
     private static String etTaskDescription;
     private static String etTaskStartTIme;

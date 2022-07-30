@@ -8,14 +8,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.util.Log;
-import android.widget.Toast;
-
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class ReminderBroadcast extends BroadcastReceiver {
 
@@ -31,10 +28,13 @@ public class ReminderBroadcast extends BroadcastReceiver {
         //Getting total to do task and calendar event
         DBHandler dbHandler = new DBHandler(context,null,null,1);
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat csdf = new SimpleDateFormat("yyyy-MM-dd");
+        String calendarDate = csdf.format(System.currentTimeMillis());
         String date = sdf.format(System.currentTimeMillis());
         Log.v("Here", date);
         Cursor taskCursor = dbHandler.readTaskByDate(date);
-        Cursor eventCursor = dbHandler.readCalendarTaskData(date);
+        Cursor eventCursor = dbHandler.readCalendarTaskData(calendarDate);
         int totalTask = taskCursor.getCount();
         int totalEvent = eventCursor.getCount();
 
