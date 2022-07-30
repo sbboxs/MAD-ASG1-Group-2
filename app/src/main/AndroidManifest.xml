@@ -96,6 +96,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Timer"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".NoteEditorActivity"
             android:configChanges="orientation"
             android:exported="false"
