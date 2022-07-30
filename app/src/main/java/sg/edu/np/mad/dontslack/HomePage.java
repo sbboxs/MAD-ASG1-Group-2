@@ -99,7 +99,7 @@ public class HomePage extends AppCompatActivity {
 
         //Timer button
         Button TimerButton = findViewById(R.id.timerButton);
-        CalendarButton.setOnClickListener(v -> {
+        TimerButton.setOnClickListener(v -> {
             Intent myIntent = new Intent(HomePage.this, Timer.class);
             startActivity(myIntent);
         });

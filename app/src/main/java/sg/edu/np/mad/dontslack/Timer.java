@@ -50,7 +50,7 @@ public class Timer extends AppCompatActivity {
         actionBar.hide();
 
         //back button
-        ImageView backHomePage = findViewById(R.id.backHome);
+        ImageView backHomePage = findViewById(R.id.backHomeTimer);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Timer.this, HomePage.class);
             startActivity(myIntent);
