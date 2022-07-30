@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".NotificationViewHolder">
+
+    <RelativeLayout
+        android:id="@+id/notificationViewRelative"
+        android:layout_width="match_parent"
+        android:layout_height="119dp"
+        android:background="#f1f1f1">
+
+        <TextView
+            android:id="@+id/objectName"
+            android:layout_width="114dp"
+            android:layout_height="41dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
+            android:text="Name"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/objectDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingTop="40dp"
+            android:text="ByDate"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/dateStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingTop="70dp"
+            android:text="TODAY!"
+            android:textColor="#4CAF50"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </RelativeLayout>
+</LinearLayout>

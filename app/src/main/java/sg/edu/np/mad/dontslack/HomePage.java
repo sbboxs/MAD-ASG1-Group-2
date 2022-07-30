@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,18 +13,41 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class HomePage extends AppCompatActivity {
     SharedPreferences sharedPreferences;
+
     private static final String SHARED_PREF_NAME = "myPref";
     private static final String KEY_LOGIN = "accountStatus";
-
+    private String quote;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home_page);
+
+
+        SharedPreferences prefs  = getSharedPreferences("prefs",MODE_PRIVATE);
+
 
         // Hiding the top bar
         ActionBar actionBar = getSupportActionBar();
@@ -93,5 +118,66 @@ public class HomePage extends AppCompatActivity {
             startActivity(myIntent);
         });
 
+
+            // Instantiate the RequestQueue.
+            RequestQueue queue = Volley.newRequestQueue(this);
+            String url = "https://zenquotes.io/api/today";
+
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,null, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    quote = "";
+                    try {
+                        JSONObject data = response.getJSONObject(0);
+                        quote = data.getString("q");
+                    } catch(JSONException e){
+                        e.printStackTrace();
+                    }
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.US);
+                    String currentDate = sdf.format(new Date());
+                    if(prefs.getString("LAST_LAUNCH_DATE", "noDate").contains(currentDate))
+                    {
+                        //Does Nothing if the date is the same
+                    }
+                    else
+                    {
+                        showStartDialog(quote);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putString("LAST_LAUNCH_DATE", currentDate);
+                        editor.apply();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(HomePage.this, "Error has occurred", Toast.LENGTH_SHORT).show();
+                }
+            });
+                      queue.add(request);
+
+
+
+
+
+
+
     }
+
+    private String showStartDialog(String q)
+    {
+        new AlertDialog.Builder(this)
+                .setTitle("Inspirational Quote of the day")
+                .setMessage(q)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .create().show();
+
+        return q;
+    }
+
+
 }

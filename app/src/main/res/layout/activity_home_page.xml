@@ -228,37 +228,7 @@
                 android:layout_weight="1"
                 app:cardBackgroundColor="#fafafa"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="0dp">
-
-                <!-- <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F4F1E2">
-
-                    <ImageView
-                        android:id="@+id/imageView11"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        app:srcCompat="@drawable/ic_timer" />
-
-                    <Button
-                        android:id="@+id/timerButton"
-                        android:layout_width="140dp"
-                        android:layout_height="50dp"
-                        android:layout_below="@id/imageView11"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/btn_bg"
-                        android:fontFamily="@font/roboto"
-                        android:text="timer"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </RelativeLayout> -->
-
-            </androidx.cardview.widget.CardView>
+                app:cardElevation="0dp"/>
 
         </LinearLayout>
 

@@ -1,6 +1,9 @@
 package sg.edu.np.mad.dontslack;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class NotificationDetailsFragment extends Fragment {
     SharedPreferences sharedPreferences;
@@ -30,9 +32,27 @@ public class NotificationDetailsFragment extends Fragment {
 
         if(currentCategory.equals("task")){
             ArrayList<TaskObject> taskList = (ArrayList<TaskObject>) taskListBundle.getSerializable("objectList");
+            ArrayList<CalendarEvent> eventList = new ArrayList<>();
+
+            //Setting up recyclerview
+            RecyclerView recyclerView = view.findViewById(R.id.notificationRecycler);
+            NotificationAdapter myAdapter = new NotificationAdapter(taskList,eventList,currentCategory);
+            LinearLayoutManager notificationLayoutManager = new LinearLayoutManager(this.getContext());
+            recyclerView.setLayoutManager(notificationLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(myAdapter);
         }
         else {
             ArrayList<CalendarEvent> eventList = (ArrayList<CalendarEvent>) taskListBundle.getSerializable("objectList");
+            ArrayList<TaskObject> taskList = new ArrayList<>();
+
+            //Setting up recyclerview
+            RecyclerView recyclerView = view.findViewById(R.id.notificationRecycler);
+            NotificationAdapter myAdapter = new NotificationAdapter(taskList,eventList,currentCategory);
+            LinearLayoutManager notificationLayoutManager = new LinearLayoutManager(this.getContext());
+            recyclerView.setLayoutManager(notificationLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(myAdapter);
         }
         return view;
     }

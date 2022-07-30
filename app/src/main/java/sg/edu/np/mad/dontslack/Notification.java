@@ -17,10 +17,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -32,7 +31,6 @@ import java.util.Calendar;
 public class Notification extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME = "myPref";
-    private final String TAG = "Notification Setting";
     private static final String KEY_IfNotification = "Notification";
     private static final String Key_NotifyTime = "NotificationTiming";
     public boolean ifChanges = false;
@@ -64,7 +62,6 @@ public class Notification extends AppCompatActivity {
                 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
                 alertDialog.setTitle("Changes is found");
                 alertDialog.setMessage("Are you sure you want to back without saving your changes?");
-
                 alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", (dialog, which) -> {
                     alertDialog.dismiss();
                 });
@@ -93,44 +90,33 @@ public class Notification extends AppCompatActivity {
         }
 
         //If allow notification, display notify timing selector
-        notificationAllowSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ifChanges = true;
-                if(isChecked){
-                    expandableNotification.setVisibility(View.VISIBLE);
-                }
-                else{
-                    expandableNotification.setVisibility(View.GONE);
-                }
+        notificationAllowSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            ifChanges = true;
+            if(isChecked){
+                expandableNotification.setVisibility(View.VISIBLE);
+            }
+            else{
+                expandableNotification.setVisibility(View.GONE);
             }
         });
 
         //Setting notify time picker
         notificationTiming.setText(sharedPreferences.getString(Key_NotifyTime,"08:00"));
-        notificationTiming.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDateTimeDialog(notificationTiming);
-            }
-        });
+        notificationTiming.setOnClickListener(v -> showDateTimeDialog(notificationTiming));
 
         //Save notification time if have
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ifChanges){
-                    @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(Key_NotifyTime, notificationTiming.getText().toString());
-                    editor.putBoolean(KEY_IfNotification, notificationAllowSwitch.isChecked());
-                    editor.apply();
-                    setAlarmNotify(notificationAllowSwitch.isChecked());
-                    ifChanges = false;
-                }
-                else{
-                    Toast.makeText(Notification.this,"No changes is found.",Toast.LENGTH_SHORT).show();
+        saveButton.setOnClickListener(v -> {
+            if(ifChanges){
+                @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(Key_NotifyTime, notificationTiming.getText().toString());
+                editor.putBoolean(KEY_IfNotification, notificationAllowSwitch.isChecked());
+                editor.apply();
+                setAlarmNotify(notificationAllowSwitch.isChecked());
+                ifChanges = false;
+            }
+            else{
+                Toast.makeText(Notification.this,"No changes is found.",Toast.LENGTH_SHORT).show();
 
-                }
             }
         });
 
@@ -178,8 +164,6 @@ public class Notification extends AppCompatActivity {
             String time = sharedPreferences.getString(Key_NotifyTime,"08:00");
             int hour = Integer.parseInt(time.substring(0,2));
             int minute = Integer.parseInt(time.substring(3,5));
-            Log.v(TAG, time);
-            Log.v(TAG, String.valueOf(minute));
 
             //Set the notify time
             calendar.set(Calendar.HOUR_OF_DAY,hour);
@@ -190,12 +174,9 @@ public class Notification extends AppCompatActivity {
             //Compare calendar to actual time, if time pass then will show next day
             if(calendar.before((Calendar.getInstance()))){
                 calendar.add(Calendar.DAY_OF_MONTH,1);
-                Log.v(TAG, "NOOO");
 
             }
 
-            Log.v(TAG, String.valueOf(calendar.getTime()));
-            Log.v(TAG, String.valueOf(calendar.getTimeInMillis()));
             //set Inexact as this is a daily notification.
             //Inexact notification might have a few minutes delay
             //alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),myPIntent);
