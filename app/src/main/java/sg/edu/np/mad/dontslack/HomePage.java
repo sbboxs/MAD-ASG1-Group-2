@@ -114,53 +114,46 @@ public class HomePage extends AppCompatActivity {
         //switch to home page more
         Switch mySwitch = findViewById(R.id.switch1);
         mySwitch.setOnClickListener(view -> {
-            Intent myIntent = new Intent(HomePage.this, HomePageMore.class);
+            Intent myIntent = new Intent(HomePage.this, MusicPlayer.class);
             startActivity(myIntent);
         });
 
 
-            // Instantiate the RequestQueue.
-            RequestQueue queue = Volley.newRequestQueue(this);
-            String url = "https://zenquotes.io/api/today";
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://zenquotes.io/api/today";
 
-            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,null, new Response.Listener<JSONArray>() {
-                @Override
-                public void onResponse(JSONArray response) {
-                    quote = "";
-                    try {
-                        JSONObject data = response.getJSONObject(0);
-                        quote = data.getString("q");
-                    } catch(JSONException e){
-                        e.printStackTrace();
-                    }
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.US);
-                    String currentDate = sdf.format(new Date());
-                    if(prefs.getString("LAST_LAUNCH_DATE", "noDate").contains(currentDate))
-                    {
-                        //Does Nothing if the date is the same
-                    }
-                    else
-                    {
-                        showStartDialog(quote);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("LAST_LAUNCH_DATE", currentDate);
-                        editor.apply();
-                    }
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                quote = "";
+                try {
+                    JSONObject data = response.getJSONObject(0);
+                    quote = data.getString("q");
+                } catch(JSONException e){
+                    e.printStackTrace();
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(HomePage.this, "Error has occurred", Toast.LENGTH_SHORT).show();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.US);
+                String currentDate = sdf.format(new Date());
+                if(prefs.getString("LAST_LAUNCH_DATE", "noDate").contains(currentDate))
+                {
+                    //Does Nothing if the date is the same
                 }
-            });
-                      queue.add(request);
-
-
-
-
-
-
-
+                else
+                {
+                    showStartDialog(quote);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("LAST_LAUNCH_DATE", currentDate);
+                    editor.apply();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(HomePage.this, "Error has occurred", Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(request);
     }
 
     private String showStartDialog(String q)

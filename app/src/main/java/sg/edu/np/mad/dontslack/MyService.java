@@ -18,14 +18,12 @@ public class MyService extends Service {
     }
 
     public void onCreate(){
-        Toast.makeText(this, "Service created", Toast.LENGTH_SHORT).show();
-
         mMediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.song1);
         mMediaPlayer.setLooping(false);
     }
 
     public void onStart(Intent intent, int startid){
-        Toast.makeText(this, "song started", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Music started", Toast.LENGTH_SHORT).show();
         mMediaPlayer.start();
     }
 
@@ -34,7 +32,7 @@ public class MyService extends Service {
     }
 
     public void onDestroy(){
-        Toast.makeText(this, "song stopped", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Music stopped", Toast.LENGTH_SHORT).show();
         mMediaPlayer.stop();
     }
 

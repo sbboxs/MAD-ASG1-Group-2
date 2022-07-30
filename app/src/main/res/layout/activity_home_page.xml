@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePage">
-        <!--<LinearLayout
+    <!--<LinearLayout
      android:id="@+id/linearLayout5"
      android:layout_width="0dp"
      android:layout_height="140dp"
@@ -92,7 +92,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F1E2">
+                android:background="#e9e0d4">
 
 
                 <ImageView
@@ -101,8 +101,8 @@
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_todo"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_todo" />
 
                 <Button
                     android:id="@+id/toDoListButton"
@@ -111,10 +111,11 @@
                     android:layout_below="@id/imageView4"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
                     android:fontFamily="@font/roboto"
                     android:text="To-Do List"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -133,7 +134,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F1E2">
+                android:background="#e9e0d4">
 
 
                 <Button
@@ -143,10 +144,11 @@
                     android:layout_below="@id/imageView2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
                     android:fontFamily="@font/roboto"
                     android:text="calendar"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -156,8 +158,8 @@
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_calendar"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_calendar" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -165,72 +167,73 @@
     </LinearLayout>
 
     <LinearLayout
-            android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <androidx.cardview.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="204dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="3dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
 
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+            <RelativeLayout
+
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp">
+                android:background="#e9e0d4">
 
 
-                <RelativeLayout
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_notes" />
 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F4F1E2">
+                <Button
+                    android:id="@+id/notesButton"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/imageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
+                    android:fontFamily="@font/roboto"
+                    android:text="notes"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
+        </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_notes"
-                        android:contentDescription="@null"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#fafafa"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp" />
 
-                    <Button
-                        android:id="@+id/notesButton"
-                        android:layout_width="140dp"
-                        android:layout_height="50dp"
-                        android:layout_below="@id/imageView"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/btn_bg"
-                        android:fontFamily="@font/roboto"
-                        android:text="notes"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#fafafa"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"/>
-
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -378,8 +381,8 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/btn_bg"
                     android:backgroundTint="#73BDA8"
-                    app:srcCompat="@drawable/ic_settings"
-                    android:contentDescription="@string/button"/>
+                    android:contentDescription="@string/button"
+                    app:srcCompat="@drawable/ic_settings" />
 
                 <TextView
                     android:id="@+id/textView15"
@@ -404,20 +407,26 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="75dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dont_slcak8"
-        android:contentDescription="@null"/>
+        app:srcCompat="@drawable/dont_slcak8" />
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginBottom="3dp"
-        android:text="More"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_circle"
+        android:backgroundTint="#e9e0d4"
+        android:drawableStart="@drawable/ic_music"
+        android:fontFamily="@font/roboto"
+        android:padding="10dp"
+        android:text="Music"
+        android:textColor="#6f5642"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
