@@ -187,8 +187,9 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Read all task by date
-    Cursor readTaskByDate(String dateTime){
-        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " +" substr(" +(COLUMN_TASKSTARTTIME) +",0,9) "+ "=\"" + dateTime + "\"";
+    Cursor readTaskByDate(String dateToday){
+        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " +"SUBSTR("+COLUMN_TASKSTARTTIME+",0,11) "+ "=\"" + dateToday + "\"";
+        //SELECT * FROM  Tasks WHERE SUBSTR(TaskStartTime,0,11) = "28/07/2022"
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
