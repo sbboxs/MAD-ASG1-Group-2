@@ -7,62 +7,62 @@
     android:layout_height="match_parent"
     tools:context=".HomePage">
     <!--<LinearLayout
-     android:id="@+id/linearLayout5"
+ android:id="@+id/linearLayout5"
+ android:layout_width="0dp"
+ android:layout_height="140dp"
+ android:layout_marginStart="3dp"
+ android:layout_marginEnd="3dp"
+ android:orientation="horizontal"
+ android:padding="5dp"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.0"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+
+ <androidx.cardview.widget.CardView
      android:layout_width="0dp"
-     android:layout_height="140dp"
-     android:layout_marginStart="3dp"
-     android:layout_marginEnd="3dp"
-     android:orientation="horizontal"
-     android:padding="5dp"
-     app:layout_constraintEnd_toEndOf="parent"
-     app:layout_constraintHorizontal_bias="0.0"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+     android:layout_height="match_parent"
+     android:layout_margin="10dp"
+     android:layout_weight="1"
+     app:cardCornerRadius="20dp"
+     app:cardElevation="3dp">
 
-
-     <androidx.cardview.widget.CardView
-         android:layout_width="0dp"
+      <RelativeLayout
+         android:layout_width="match_parent"
          android:layout_height="match_parent"
-         android:layout_margin="10dp"
-         android:layout_weight="1"
-         app:cardCornerRadius="20dp"
-         app:cardElevation="3dp">
+         android:background="#F4F1E2">
 
-          <RelativeLayout
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="#F4F1E2">
+         <Button
+             android:id="@+id/friendListButton"
+             android:layout_width="165dp"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"
+             android:layout_marginStart="34dp"
+             android:layout_marginTop="31dp"
+             android:layout_toEndOf="@+id/imageView5"
+             android:background="@drawable/btn_bg"
+             android:fontFamily="@font/roboto"
+             android:text="Friend List "
+             android:textColor="#FFFFFF"
+             android:textSize="20sp"
+             android:textStyle="bold" />
 
-             <Button
-                 android:id="@+id/friendListButton"
-                 android:layout_width="165dp"
-                 android:layout_height="wrap_content"
-                 android:layout_alignParentTop="true"
-                 android:layout_marginStart="34dp"
-                 android:layout_marginTop="31dp"
-                 android:layout_toEndOf="@+id/imageView5"
-                 android:background="@drawable/btn_bg"
-                 android:fontFamily="@font/roboto"
-                 android:text="Friend List "
-                 android:textColor="#FFFFFF"
-                 android:textSize="20sp"
-                 android:textStyle="bold" />
+         <ImageView
+             android:id="@+id/imageView5"
+             android:layout_width="75dp"
+             android:layout_height="75dp"
+             android:layout_alignParentStart="true"
+             android:layout_alignParentTop="true"
+             android:layout_marginStart="30dp"
+             android:layout_marginTop="21dp"
+             android:layout_marginEnd="10dp"
+             android:layout_marginRight="20dp"
+             app:srcCompat="@drawable/ic_friendlist" />
+     </RelativeLayout>
+ </androidx.cardview.widget.CardView>
 
-             <ImageView
-                 android:id="@+id/imageView5"
-                 android:layout_width="75dp"
-                 android:layout_height="75dp"
-                 android:layout_alignParentStart="true"
-                 android:layout_alignParentTop="true"
-                 android:layout_marginStart="30dp"
-                 android:layout_marginTop="21dp"
-                 android:layout_marginEnd="10dp"
-                 android:layout_marginRight="20dp"
-                 app:srcCompat="@drawable/ic_friendlist" />
-         </RelativeLayout>
-     </androidx.cardview.widget.CardView>
-
- </LinearLayout> -->
+</LinearLayout> -->
 
 
     <LinearLayout
@@ -165,72 +165,104 @@
     </LinearLayout>
 
     <LinearLayout
-            android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <androidx.cardview.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="204dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="3dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
 
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+            <RelativeLayout
+
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp">
+                android:background="#F4F1E2">
 
 
-                <RelativeLayout
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_notes" />
 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F4F1E2">
+                <Button
+                    android:id="@+id/notesButton"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/imageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_bg"
+                    android:fontFamily="@font/roboto"
+                    android:text="notes"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
+        </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/ic_notes"
-                        android:contentDescription="@null"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#fafafa"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
 
-                    <Button
-                        android:id="@+id/notesButton"
-                        android:layout_width="140dp"
-                        android:layout_height="50dp"
-                        android:layout_below="@id/imageView"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/btn_bg"
-                        android:fontFamily="@font/roboto"
-                        android:text="notes"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
+            <RelativeLayout
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#fafafa"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"/>
+                android:background="#F4F1E2">
 
-        </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageViewTimer"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_timer" />
+
+                <Button
+                    android:id="@+id/timerButton"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/imageViewTimer"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_bg"
+                    android:fontFamily="@font/roboto"
+                    android:text="Timer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"

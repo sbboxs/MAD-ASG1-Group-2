@@ -55,7 +55,7 @@ public class Timer extends AppCompatActivity {
         mLockTask = false;
         mIsFocus = false;
         backHomePage = findViewById(R.id.backHomeTimer);
-        
+
         /* Hiding the top bar */
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;

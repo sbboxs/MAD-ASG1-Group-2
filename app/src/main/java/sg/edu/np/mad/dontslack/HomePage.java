@@ -4,9 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -103,11 +101,11 @@ public class HomePage extends AppCompatActivity {
         });
 
         //Timer button
-        //Button TimerButton = findViewById(R.id.timerButton);
-        //TimerButton.setOnClickListener(v -> {
-        //    Intent myIntent = new Intent(HomePage.this, Timer.class);
-        //    startActivity(myIntent);
-        //});
+        Button TimerButton = findViewById(R.id.timerButton);
+        TimerButton.setOnClickListener(v -> {
+            Intent myIntent = new Intent(HomePage.this, Timer.class);
+            startActivity(myIntent);
+        });
 
         //Contact Me button
         ImageView contactImage = findViewById(R.id.contactButton);
@@ -126,11 +124,12 @@ public class HomePage extends AppCompatActivity {
         //switch to home page more
         Switch mySwitch = findViewById(R.id.switch1);
         mySwitch.setOnClickListener(view -> {
-            Intent myIntent = new Intent(HomePage.this, MusicPlayer.class);
+            Intent myIntent = new Intent(HomePage.this, HomePageMore.class);
             startActivity(myIntent);
         });
 
 
+        //Get Data From API
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://zenquotes.io/api/today";
@@ -139,9 +138,11 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 quote = "";
+                author = "";
                 try {
                     JSONObject data = response.getJSONObject(0);
                     quote = data.getString("q");
+                    author = data.getString("a");
                 } catch(JSONException e){
                     e.printStackTrace();
                 }
@@ -153,7 +154,7 @@ public class HomePage extends AppCompatActivity {
                 }
                 else
                 {
-                    showStartDialog(quote);
+                    showStartDialog(quote,author);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("LAST_LAUNCH_DATE", currentDate);
                     editor.apply();
@@ -166,20 +167,25 @@ public class HomePage extends AppCompatActivity {
             }
         });
         queue.add(request);
+
     }
 
-    private String showStartDialog(String q)
-    {
-        new AlertDialog.Builder(this)
-                .setTitle("Inspirational Quote of the day")
-                .setMessage(q)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .create().show();
+    //Method for show dialog when start up
+    private String showStartDialog(String q , String a) {
+
+        dialog.setContentView(R.layout.quote_dialog_layout);
+        TextView quoteTxt = dialog.findViewById(R.id.quoteText);
+        quoteTxt.setText(q + " ~ " + a);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Button buttonOk = dialog.findViewById(R.id.buttonOk);
+
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
 
         dialog.show();
         return q;
@@ -198,4 +204,4 @@ public class HomePage extends AppCompatActivity {
 //                .create().show();
 //
 //        return q;
-    }
+}
