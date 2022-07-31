@@ -4,11 +4,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -20,7 +22,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -37,6 +38,8 @@ public class HomePage extends AppCompatActivity {
     private static final String SHARED_PREF_NAME = "myPref";
     private static final String KEY_LOGIN = "accountStatus";
     private String quote;
+    private String author;
+    Dialog dialog;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class HomePage extends AppCompatActivity {
 
 
         SharedPreferences prefs  = getSharedPreferences("prefs",MODE_PRIVATE);
-
+        dialog = new Dialog(this);
 
         // Hiding the top bar
         ActionBar actionBar = getSupportActionBar();
@@ -126,6 +129,7 @@ public class HomePage extends AppCompatActivity {
         });
 
 
+        //Get Data From API
             // Instantiate the RequestQueue.
             RequestQueue queue = Volley.newRequestQueue(this);
             String url = "https://zenquotes.io/api/today";
@@ -134,9 +138,11 @@ public class HomePage extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONArray response) {
                     quote = "";
+                    author = "";
                     try {
                         JSONObject data = response.getJSONObject(0);
                         quote = data.getString("q");
+                        author = data.getString("a");
                     } catch(JSONException e){
                         e.printStackTrace();
                     }
@@ -148,7 +154,7 @@ public class HomePage extends AppCompatActivity {
                     }
                     else
                     {
-                        showStartDialog(quote);
+                        showStartDialog(quote,author);
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putString("LAST_LAUNCH_DATE", currentDate);
                         editor.apply();
@@ -162,29 +168,40 @@ public class HomePage extends AppCompatActivity {
             });
                       queue.add(request);
 
-
-
-
-
-
-
     }
 
-    private String showStartDialog(String q)
-    {
-        new AlertDialog.Builder(this)
-                .setTitle("Inspirational Quote of the day")
-                .setMessage(q)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .create().show();
+    //Method for show dialog when start up
+    private String showStartDialog(String q , String a) {
 
+        dialog.setContentView(R.layout.quote_dialog_layout);
+        TextView quoteTxt = dialog.findViewById(R.id.quoteText);
+        quoteTxt.setText(q + " ~ " + a);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Button buttonOk = dialog.findViewById(R.id.buttonOk);
+
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.show();
         return q;
     }
 
-
-}
+    //Previous Dialog Box
+//        new AlertDialog.Builder(this)
+//                .setTitle("Inspirational Quote of the day")
+//                .setMessage(q)
+//                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        dialogInterface.dismiss();
+//                    }
+//                })
+//                .create().show();
+//
+//        return q;
+    }
