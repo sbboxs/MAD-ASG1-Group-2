@@ -180,9 +180,9 @@ public class Notification extends AppCompatActivity {
             //set Inexact as this is a daily notification.
             //Inexact notification might have a few minutes delay
             //alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),myPIntent);
-            alarmManager.set(AlarmManager.RTC_WAKEUP,1000,myPIntent);
+            //alarmManager.set(AlarmManager.RTC_WAKEUP,1000,myPIntent);
             //Due to android OS, as of API 19 now all repeating alarm is not exact
-            //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,myPIntent);
+            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,myPIntent);
             Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
         }
 
