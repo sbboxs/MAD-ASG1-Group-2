@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePage">
-        <!--<LinearLayout
+    <!--<LinearLayout
      android:id="@+id/linearLayout5"
      android:layout_width="0dp"
      android:layout_height="140dp"
@@ -201,8 +201,8 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_notes" />
+                        app:srcCompat="@drawable/ic_notes"
+                        android:contentDescription="@null"/>
 
                     <Button
                         android:id="@+id/notesButton"
@@ -228,39 +228,7 @@
                 android:layout_weight="1"
                 app:cardBackgroundColor="#fafafa"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="0dp">
-
-                <RelativeLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F4F1E2">
-
-
-                    <ImageView
-                        android:id="@+id/imageViewTimer"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_timer" />
-
-                    <Button
-                        android:id="@+id/timerButton"
-                        android:layout_width="140dp"
-                        android:layout_height="50dp"
-                        android:layout_below="@id/imageViewTimer"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/btn_bg"
-                        android:fontFamily="@font/roboto"
-                        android:text="Timer"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
+                app:cardElevation="0dp"/>
 
         </LinearLayout>
 
