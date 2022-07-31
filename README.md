@@ -26,6 +26,11 @@ Some of our main features include:
 - Set start time and deadline
 - Create Notes
 - Set Events on Calendar
+- Daily reminder of tasks and events
+- Motivation quote of the day
+- Focus mode
+- Music player
+- Home Screen Widget to view task left
 
 ## Target Audience
 Our application mainly targets students who seek a study buddy who can help them focus
@@ -72,12 +77,19 @@ seniors and of course, to the procrastinators.
     - Delete a Calendar event 
 - Brainstorm app feature ideas
 - Giving feedback to layout
+
+
 =====Part 2=====
-- Feature implemented with not covered topic : 
+- Not covered topics that used to implement feature: 
     - Manage Device awake state
         - Schedule alarms
+    -   Widget
+        - Time Picker
+    
 - Feature implemented:
-
+    - Daily Notification reminding the user of all the tasks and events of the day. 
+      User are able to enable or disable this feature and are allow to set the time they wish the reminder is delivered to them.
+     
 **Haowen** (The Coder)
 - Notes Feature
   - Add new note
