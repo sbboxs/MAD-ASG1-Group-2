@@ -38,6 +38,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
         assert actionBar != null;
         actionBar.hide();
 
+        //Setting up all the textview and button
         Bundle taskBundle = getIntent().getBundleExtra("Bundle");
         TaskObject currentTask = (TaskObject) taskBundle.getSerializable("TaskObject");
 
@@ -59,8 +60,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
             startActivity(myIntent);
         });
 
-        Log.v(TAG,"TaskStatus"+currentTask.isTaskStatus());
-
+        //This is the edit button allow user to edit the detail of the task
         TextView editTaskButton = findViewById(R.id.editTaskButton);
         editTaskButton.setOnClickListener(v -> {
             Intent myIntent = new Intent (ToDoListTaskDetails.this, ToDOListEditTaskDetails.class);
@@ -87,6 +87,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
             });
             alertDialog.show();
         });
+        //This is the button to trigger to timer
         Button startStopButton = findViewById(R.id.startStopTaskButton);
         startStopButton.setOnClickListener(v -> {
             if(savedInstanceState != null){
@@ -111,14 +112,18 @@ public class ToDoListTaskDetails extends AppCompatActivity {
             }
 
         });
+        //If user can set the task status to complete by pressing this complete button
         Button completeTaskButton = findViewById(R.id.completeTaskButton);
         if(currentTask.isTaskStatus()){
             completeTaskButton.setText("Completed");
             completeTaskButton.setTextColor(Color.rgb(169, 169, 169));
         }
+        //Listener for complete task button
         completeTaskButton.setOnClickListener(v -> {
             AlertDialog alertDialog = new AlertDialog.Builder(ToDoListTaskDetails.this).create();
+            //If the current task is completed
             if(currentTask.isTaskStatus()){
+                //Check is the user want to revert the task status
                 alertDialog.setTitle("Task Completed");
                 alertDialog.setMessage("Are you sure you want to revert the status");
                 alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back", (dialog, which) -> dialog.dismiss());
@@ -133,6 +138,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
                 });
             }
             else{
+                //Else check if the user is sure the task is completed
                 alertDialog.setTitle("Task Completion");
                 alertDialog.setMessage("Are you sure you have completed the task?");
                 alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Back to Work", (dialog, which) -> dialog.dismiss());
@@ -153,6 +159,7 @@ public class ToDoListTaskDetails extends AppCompatActivity {
         });
     }
 
+    //From this onwards are the methods for timer
     public void onStart() {
         super.onStart();
         running = true;

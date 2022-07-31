@@ -9,6 +9,7 @@ public class NotificationViewHolder extends RecyclerView.ViewHolder {
     TextView objectDate;
     TextView dateStatus;
 
+    //Getting the texviews in the viewholder
     public NotificationViewHolder(View itemView){
         super(itemView);
         objectName = itemView.findViewById(R.id.objectName);

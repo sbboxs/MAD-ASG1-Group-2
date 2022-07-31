@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationViewHolder> {
-
+    //GLobal variable
     ArrayList<TaskObject> taskData;
     ArrayList<CalendarEvent> calendarData;
     String currentCategory;
@@ -36,14 +36,19 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationViewHo
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, @SuppressLint("RecyclerView") int position){
         String objectName;
         String objectDueDate;
+        //If user is viewing the task category
         if(currentCategory.equals("task")){
+            //The object will be get from the task instead of calendar
             objectName = taskData.get(position).getTaskName();
             objectDueDate = taskData.get(position).getTaskDeadLine();
         }
         else{
+            //else if user is viewing the event category
+            //The object will be get from the calendar instead of task
             objectName = calendarData.get(position).getName();
             objectDueDate = calendarData.get(position).getDate()+""+calendarData.get(position).getTime();
         }
+        //Setting the text view to the detail of the current event or task
         holder.objectDate.setText(objectDueDate);
         holder.objectName.setText(objectName);
 

@@ -87,6 +87,7 @@ public class ToDoList extends AppCompatActivity{
         });
     }
 
+    //This method allow the activity to start with displaying the default category
     private void setDefaultCategory(){
         taskCategory = "work";
         storeTaskDataToArray();
@@ -107,11 +108,14 @@ public class ToDoList extends AppCompatActivity{
     //Retrieve all data and stored base on category
     private void storeTaskDataToArray() {
         Cursor cursor = dbHandler.readAllTaskData(taskCategory);
+        //If no task is found make a toast message
         if (cursor.getCount() == 0) {
             Toast.makeText(this,"No Task Yet", Toast.LENGTH_SHORT).show();
 
         } else {
+            //Check if the task is work
             if (taskCategory.equals("work")){
+                //Clear the workTasksList to avoid task list is repetitively update
                 workTaskList.clear();
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();
@@ -124,6 +128,7 @@ public class ToDoList extends AppCompatActivity{
                     workTaskList.add(task);
                 }
             }else{
+                //Clear the personalTasksList to avoid task list is repetitively update
                 personalTaskList.clear();
                 while (cursor.moveToNext()) {
                     TaskObject task = new TaskObject();

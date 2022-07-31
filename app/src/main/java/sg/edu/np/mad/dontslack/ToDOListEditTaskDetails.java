@@ -74,6 +74,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         //Save task button
         Button saveTaskButton = findViewById(R.id.saveEditTaskButton);
         saveTaskButton.setOnClickListener(v -> {
+            //Get and Saving all the data of the task
             @SuppressLint("CutPasteId") EditText newTaskTitle = findViewById(R.id.editCurrentTaskTitle);
             etTaskTitle = newTaskTitle.getText().toString();
             @SuppressLint("CutPasteId") EditText newTaskDescription = findViewById(R.id.editCurrentTaskDescription);
@@ -104,6 +105,7 @@ public class ToDOListEditTaskDetails extends AppCompatActivity {
         });
     }
 
+    //This is the method to display date time picker
     public void showDateTimeDialog(EditText date_time){
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) -> {

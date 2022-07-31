@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Notification extends AppCompatActivity {
+    //GLobal varables
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME = "myPref";
     private static final String KEY_IfNotification = "Notification";
@@ -65,7 +66,7 @@ public class Notification extends AppCompatActivity {
                 alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", (dialog, which) -> {
                     alertDialog.dismiss();
                 });
-
+                //User back if choose not to save changes
                 alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes, I'm sure.", (dialog, which) -> {
                     Intent myIntent = new Intent(Notification.this, Settings.class);
                     startActivity(myIntent);
@@ -73,19 +74,21 @@ public class Notification extends AppCompatActivity {
                 alertDialog.show();
             }
             else{
+                //If no changes will just start back intent
                 Intent myIntent = new Intent(Notification.this, Settings.class);
                 startActivity(myIntent);
             }
 
         });
 
-        //Setting switch and alarm
+        //Setting the default of switch and alarm by
         if(sharedPreferences.getBoolean(KEY_IfNotification,false)){
             notificationAllowSwitch.setChecked(true);
-
+            //If switch is checked display the time picker by default
             expandableNotification.setVisibility(View.VISIBLE);
         }
         else{
+            //else hide the time picker by default
             expandableNotification.setVisibility((View.GONE));
         }
 
@@ -93,9 +96,11 @@ public class Notification extends AppCompatActivity {
         notificationAllowSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             ifChanges = true;
             if(isChecked){
+                //If check then display time picker
                 expandableNotification.setVisibility(View.VISIBLE);
             }
             else{
+                //else hide the time picker
                 expandableNotification.setVisibility(View.GONE);
             }
         });
@@ -104,17 +109,21 @@ public class Notification extends AppCompatActivity {
         notificationTiming.setText(sharedPreferences.getString(Key_NotifyTime,"08:00"));
         notificationTiming.setOnClickListener(v -> showDateTimeDialog(notificationTiming));
 
-        //Save notification time if have
+        //Save notification time if changes is mad
         saveButton.setOnClickListener(v -> {
             if(ifChanges){
+                //if changes are found, save the notify time and is notification allowed to the shared preferences.
                 @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(Key_NotifyTime, notificationTiming.getText().toString());
                 editor.putBoolean(KEY_IfNotification, notificationAllowSwitch.isChecked());
                 editor.apply();
+                //Reset the alarm
                 setAlarmNotify(notificationAllowSwitch.isChecked());
+                //Set if changes to false means all changes are saved.
                 ifChanges = false;
             }
             else{
+                //If no changes toast a message
                 Toast.makeText(Notification.this,"No changes is found.",Toast.LENGTH_SHORT).show();
 
             }
@@ -122,7 +131,7 @@ public class Notification extends AppCompatActivity {
 
     }
 
-
+    //Creating the notification channel to send notification
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createNotificationChannel(){
         CharSequence name = "Don'tSlackReminderChannel";
@@ -136,7 +145,7 @@ public class Notification extends AppCompatActivity {
         Toast.makeText(this, "Notification channel created", Toast.LENGTH_SHORT).show();
 
     }
-
+    //This is the time picker for user to choose the daily notify time
     public void showDateTimeDialog(EditText date_time) {
         java.util.Calendar calendar = java.util.Calendar.getInstance();
         TimePickerDialog.OnTimeSetListener timeSetListener = (view1, hourOfDay, minute) -> {
@@ -149,6 +158,7 @@ public class Notification extends AppCompatActivity {
         ifChanges = true;
     }
 
+    //Setting up of alarm
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void setAlarmNotify(boolean ifNotify){
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -158,8 +168,10 @@ public class Notification extends AppCompatActivity {
         PendingIntent myPIntent = PendingIntent.getBroadcast(this,0,myIntent,0);
 
         //Check if notification allow
+        //If allow
         if(ifNotify){
             //If allow notification, set up all data needed
+            //Getting the notify time
             java.util.Calendar calendar = java.util.Calendar.getInstance();
             String time = sharedPreferences.getString(Key_NotifyTime,"08:00");
             int hour = Integer.parseInt(time.substring(0,2));
