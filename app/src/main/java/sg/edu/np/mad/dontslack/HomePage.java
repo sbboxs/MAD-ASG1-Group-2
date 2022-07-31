@@ -4,7 +4,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -22,7 +24,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -39,6 +40,8 @@ public class HomePage extends AppCompatActivity {
     private static final String SHARED_PREF_NAME = "myPref";
     private static final String KEY_LOGIN = "accountStatus";
     private String quote;
+    private String author;
+    Dialog dialog;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +103,11 @@ public class HomePage extends AppCompatActivity {
         });
 
         //Timer button
-        Button TimerButton = findViewById(R.id.timerButton);
-        TimerButton.setOnClickListener(v -> {
-            Intent myIntent = new Intent(HomePage.this, Timer.class);
-            startActivity(myIntent);
-        });
+        //Button TimerButton = findViewById(R.id.timerButton);
+        //TimerButton.setOnClickListener(v -> {
+        //    Intent myIntent = new Intent(HomePage.this, Timer.class);
+        //    startActivity(myIntent);
+        //});
 
         //Contact Me button
         ImageView contactImage = findViewById(R.id.contactButton);
@@ -177,7 +180,6 @@ public class HomePage extends AppCompatActivity {
                     }
                 })
                 .create().show();
-
 
         dialog.show();
         return q;
