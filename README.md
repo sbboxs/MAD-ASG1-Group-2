@@ -26,6 +26,11 @@ Some of our main features include:
 - Set start time and deadline
 - Create Notes
 - Set Events on Calendar
+- Daily reminder of tasks and events
+- Motivation quote of the day
+- Focus mode
+- Music player
+- Home Screen Widget to view task left
 
 ## Target Audience
 Our application mainly targets students who seek a study buddy who can help them focus
