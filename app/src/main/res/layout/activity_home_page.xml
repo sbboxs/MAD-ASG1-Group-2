@@ -92,7 +92,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F1E2">
+                android:background="#e9e0d4">
 
 
                 <ImageView
@@ -101,21 +101,22 @@
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_todo"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_todo" />
 
                 <Button
                     android:id="@+id/toDoListButton"
-                    android:layout_width="140dp"
+                    android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:layout_below="@id/imageView4"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
                     android:fontFamily="@font/roboto"
                     android:text="To-Do List"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
             </RelativeLayout>
@@ -133,21 +134,22 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F1E2">
+                android:background="#e9e0d4">
 
 
                 <Button
                     android:id="@+id/calendarButton"
-                    android:layout_width="140dp"
+                    android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:layout_below="@id/imageView2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
                     android:fontFamily="@font/roboto"
                     android:text="calendar"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -156,8 +158,8 @@
                     android:layout_height="75dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_calendar"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_calendar" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -192,7 +194,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F1E2">
+                android:background="#e9e0d4">
 
 
                 <ImageView
@@ -206,16 +208,17 @@
 
                 <Button
                     android:id="@+id/notesButton"
-                    android:layout_width="140dp"
+                    android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:layout_below="@id/imageView"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
                     android:fontFamily="@font/roboto"
                     android:text="notes"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -234,7 +237,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4F1E2">
+                android:background="#e9e0d4">
 
 
                 <ImageView
@@ -248,16 +251,17 @@
 
                 <Button
                     android:id="@+id/timerButton"
-                    android:layout_width="140dp"
+                    android:layout_width="130dp"
                     android:layout_height="50dp"
                     android:layout_below="@id/imageViewTimer"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_bg"
+                    android:background="@drawable/btn_circle"
+                    android:backgroundTint="#6f5642"
                     android:fontFamily="@font/roboto"
                     android:text="Timer"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -447,9 +451,16 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginBottom="3dp"
-        android:text="More"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/btn_circle"
+        android:backgroundTint="#e9e0d4"
+        android:drawableStart="@drawable/ic_music"
+        android:fontFamily="@font/roboto"
+        android:padding="10dp"
+        android:text="Music"
+        android:textColor="#6f5642"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
