@@ -95,17 +95,23 @@
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_about.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_add_task_page.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_calendar.xml" value="0.22" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_change_password.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_contact.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_faq.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_home_page.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_home_page_more.xml" value="0.1703125" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_music_player.xml" value="0.1" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_note_editor.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notes.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notification.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notification_details.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notification_details_fragment.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_notification_recycler.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_profile.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_settings.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_timer.xml" value="0.22" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_do_list.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_do_list_task_details.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/user/Documents/SCHOOL Y2/MAD/MAD practicals/MADASGGG/app/src/main/res/layout/activity_to_dolist_edit_task_details.xml" value="0.17552083333333332" />

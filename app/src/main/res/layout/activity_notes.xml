@@ -9,10 +9,11 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/notes_cell"
+        android:backgroundTint="#e9e0d4"
         android:elevation="5dp"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,16 +55,15 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="44dp"
-        android:backgroundTint="#cc6b49"
+        android:backgroundTint="#6f5642 "
         android:clickable="true"
+        android:contentDescription="@string/button"
+        android:focusable="true"
         android:tint="#FFFFFF"
-        app:backgroundTint="#cc6b49"
         app:borderWidth="0.75dp"
         app:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_notes"
-        android:contentDescription="@string/button"
-        android:focusable="true" />
+        app:srcCompat="@drawable/ic_notes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

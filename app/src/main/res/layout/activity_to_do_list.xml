@@ -93,7 +93,7 @@
         android:clickable="true"
         android:contentDescription="@string/button"
         android:focusable="true"
-        app:backgroundTint="#cc6b49"
+        app:backgroundTint="#6f5642 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.202"

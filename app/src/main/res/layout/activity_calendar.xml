@@ -155,14 +155,15 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="7dp"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/btn_circle"
+        android:backgroundTint="#e9e0d4"
         android:drawableEnd="@drawable/ic_pencil"
         android:fontFamily="@font/roboto"
         android:onClick="newEventAction"
         android:padding="12dp"
         android:text="New Event"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#6f5642"
         android:textSize="20sp"
         android:textStyle="bold" />
 

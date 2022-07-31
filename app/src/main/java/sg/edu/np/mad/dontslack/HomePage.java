@@ -121,10 +121,10 @@ public class HomePage extends AppCompatActivity {
             startActivity(myIntent);
         });
 
-        //switch to home page more
+        //switch to musicplayer
         Switch mySwitch = findViewById(R.id.switch1);
         mySwitch.setOnClickListener(view -> {
-            Intent myIntent = new Intent(HomePage.this, HomePageMore.class);
+            Intent myIntent = new Intent(HomePage.this, MusicPlayer.class);
             startActivity(myIntent);
         });
 
