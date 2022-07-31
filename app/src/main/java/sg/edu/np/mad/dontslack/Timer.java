@@ -24,14 +24,21 @@ public class Timer extends AppCompatActivity {
     private Button mButtonSet;
     private Button mButtonStartPause;
     private Button mButtonReset;
+    private Button mButtonFocusMode;
 
     private CountDownTimer mCountDownTimer;
 
     private boolean mTimerRunning;
+    private boolean mLockTask;
+    private boolean mIsFocus;
 
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
+
+    private ImageView backHomePage;
+
+    public static String TAG = "Timer Task";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +51,17 @@ public class Timer extends AppCompatActivity {
         mButtonSet = findViewById(R.id.button_set);
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
+        mButtonFocusMode = findViewById(R.id.button_focus_mode);
+        mLockTask = false;
+        mIsFocus = false;
+        backHomePage = findViewById(R.id.backHomeTimer);
+        
         /* Hiding the top bar */
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.hide();
 
         //back button
-        ImageView backHomePage = findViewById(R.id.backHomeTimer);
         backHomePage.setOnClickListener(v -> {
             Intent myIntent = new Intent(Timer.this, HomePage.class);
             startActivity(myIntent);
@@ -81,6 +92,14 @@ public class Timer extends AppCompatActivity {
             }
         });
 
+        mButtonFocusMode.setOnClickListener(v -> {
+            if (mTimerRunning) {
+                pauseTimer();
+            } else {
+                startFocusTimer();
+            }
+        });
+
         mButtonReset.setOnClickListener(v -> resetTimer());
     }
 
@@ -103,11 +122,38 @@ public class Timer extends AppCompatActivity {
             @Override
             public void onFinish() {
                 mTimerRunning = false;
+                mLockTask = false;
                 updateWatchInterface();
             }
         }.start();
 
         mTimerRunning = true;
+        updateWatchInterface();
+    }
+
+    private void startFocusTimer() {
+        mEndTime = System.currentTimeMillis() + mTimeLeftInMillis;
+        mIsFocus = true;
+
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                mLockTask = false;
+                setTaskLock();
+                updateWatchInterface();
+            }
+        }.start();
+
+        mTimerRunning = true;
+        mLockTask = true;
+        setTaskLock();
         updateWatchInterface();
     }
 
@@ -119,8 +165,10 @@ public class Timer extends AppCompatActivity {
 
     private void resetTimer() {
         mTimeLeftInMillis = mStartTimeInMillis;
+        stopLockTask();
         updateCountDownText();
         updateWatchInterface();
+
     }
 
     private void updateCountDownText() {
@@ -142,27 +190,71 @@ public class Timer extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void updateWatchInterface() {
-        if (mTimerRunning) {
-            mEditTextInput.setVisibility(View.INVISIBLE);
-            mButtonSet.setVisibility(View.INVISIBLE);
-            mButtonReset.setVisibility(View.INVISIBLE);
-            mButtonStartPause.setText("Pause");
-        } else {
-            mEditTextInput.setVisibility(View.VISIBLE);
-            mButtonSet.setVisibility(View.VISIBLE);
-            mButtonStartPause.setText("Start");
-
-            if (mTimeLeftInMillis < 1000) {
-                mButtonStartPause.setVisibility(View.INVISIBLE);
-            } else {
-                mButtonStartPause.setVisibility(View.VISIBLE);
-            }
-
-            if (mTimeLeftInMillis < mStartTimeInMillis) {
-                mButtonReset.setVisibility(View.VISIBLE);
-            } else {
+        if (mIsFocus){
+            if (mTimerRunning) {
+                mEditTextInput.setVisibility(View.INVISIBLE);
+                mButtonSet.setVisibility(View.INVISIBLE);
                 mButtonReset.setVisibility(View.INVISIBLE);
+                mButtonFocusMode.setVisibility(View.INVISIBLE);
+                mButtonStartPause.setText("Pause");
+                mButtonStartPause.setVisibility(View.INVISIBLE);
+                backHomePage.setVisibility(View.INVISIBLE);
+
+            } else {
+                mEditTextInput.setVisibility(View.VISIBLE);
+                mButtonSet.setVisibility(View.VISIBLE);
+                mButtonFocusMode.setVisibility(View.VISIBLE);
+                mButtonStartPause.setText("Start");
+                mButtonStartPause.setVisibility(View.INVISIBLE);
+                backHomePage.setVisibility(View.VISIBLE);
+
+                if (mTimeLeftInMillis < 1000) {
+                    mButtonStartPause.setVisibility(View.INVISIBLE);
+                } else {
+                    mButtonStartPause.setVisibility(View.VISIBLE);
+                }
+
+                if (mTimeLeftInMillis < mStartTimeInMillis) {
+                    mButtonReset.setVisibility(View.VISIBLE);
+                } else {
+                    mButtonReset.setVisibility(View.INVISIBLE);
+                }
             }
+        }else {
+            if (mTimerRunning) {
+                mEditTextInput.setVisibility(View.INVISIBLE);
+                mButtonSet.setVisibility(View.INVISIBLE);
+                mButtonReset.setVisibility(View.INVISIBLE);
+                mButtonFocusMode.setVisibility(View.INVISIBLE);
+                mButtonStartPause.setText("Pause");
+            } else {
+                mEditTextInput.setVisibility(View.VISIBLE);
+                mButtonSet.setVisibility(View.VISIBLE);
+                mButtonFocusMode.setVisibility(View.VISIBLE);
+                mButtonStartPause.setText("Start");
+
+                if (mTimeLeftInMillis < 1000) {
+                    mButtonStartPause.setVisibility(View.INVISIBLE);
+                } else {
+                    mButtonStartPause.setVisibility(View.VISIBLE);
+                }
+
+                if (mTimeLeftInMillis < mStartTimeInMillis) {
+                    mButtonReset.setVisibility(View.VISIBLE);
+                } else {
+                    mButtonReset.setVisibility(View.INVISIBLE);
+                }
+            }
+        }
+    }
+
+    private void setTaskLock(){
+        if (mLockTask){
+            Toast.makeText(getApplicationContext(), "Starting lock task mode", Toast.LENGTH_SHORT).show();
+            startLockTask();
+        } else {
+            Toast.makeText(getApplicationContext(), "Stopping lock task mode", Toast.LENGTH_SHORT).show();
+            stopLockTask();
         }
     }
 
@@ -209,14 +301,24 @@ public class Timer extends AppCompatActivity {
         if (mTimerRunning) {
             mEndTime = prefs.getLong("endTime", 0);
             mTimeLeftInMillis = mEndTime - System.currentTimeMillis();
-
-            if (mTimeLeftInMillis < 0) {
-                mTimeLeftInMillis = 0;
-                mTimerRunning = false;
-                updateCountDownText();
-                updateWatchInterface();
-            } else {
-                startTimer();
+            if (mIsFocus) {
+                if (mTimeLeftInMillis < 0) {
+                    mTimeLeftInMillis = 0;
+                    mTimerRunning = false;
+                    updateCountDownText();
+                    updateWatchInterface();
+                } else {
+                    startFocusTimer();
+                }
+            }else{
+                if (mTimeLeftInMillis < 0) {
+                    mTimeLeftInMillis = 0;
+                    mTimerRunning = false;
+                    updateCountDownText();
+                    updateWatchInterface();
+                } else {
+                    startTimer();
+                }
             }
         }
     }

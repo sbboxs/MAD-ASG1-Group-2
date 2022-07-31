@@ -4,11 +4,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -47,7 +49,7 @@ public class HomePage extends AppCompatActivity {
 
 
         SharedPreferences prefs  = getSharedPreferences("prefs",MODE_PRIVATE);
-
+        dialog = new Dialog(this);
 
         // Hiding the top bar
         ActionBar actionBar = getSupportActionBar();
@@ -176,8 +178,22 @@ public class HomePage extends AppCompatActivity {
                 })
                 .create().show();
 
+
+        dialog.show();
         return q;
     }
 
-
-}
+    //Previous Dialog Box
+//        new AlertDialog.Builder(this)
+//                .setTitle("Inspirational Quote of the day")
+//                .setMessage(q)
+//                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        dialogInterface.dismiss();
+//                    }
+//                })
+//                .create().show();
+//
+//        return q;
+    }
