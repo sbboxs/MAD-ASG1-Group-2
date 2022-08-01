@@ -96,6 +96,11 @@ seniors and of course, to the procrastinators.
   - Edit notes with note editor
   - Save notes
   - Delete notes
+- Daily Quote
+  - Daily quote is retrieved from API
+  - Shows Daily Quote when going into the app for the first time of the day
+  - Subsequent launches of the app will not show the daily quote
+  - Daily Quote changes daily
 
 **Gabriel** (The Coder)
 - Calendar Feature
