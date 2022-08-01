@@ -252,6 +252,7 @@ To learn more about the app, it's background, and to read on the Terms & Conditi
 
 === Advnace Feature ===
 **8. Daily Notification**
+
 ![WhatsApp Image 2022-08-01 at 3 51 59 PM](https://user-images.githubusercontent.com/78270716/182101707-195f98c4-04a3-4f2b-8c21-ea3630d99dce.jpeg)
 
 Users can enable or disable the notification.
