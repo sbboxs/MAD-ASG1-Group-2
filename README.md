@@ -250,12 +250,22 @@ To enable notifications on, users can go to the settings page, and toggle the no
 
 To learn more about the app, it's background, and to read on the Terms & Conditions of the app, users can click on the About tab. 
 
+=== Advnace Feature ===
+**8. Daily Notification**
+![WhatsApp Image 2022-08-01 at 3 51 59 PM](https://user-images.githubusercontent.com/78270716/182101707-195f98c4-04a3-4f2b-8c21-ea3630d99dce.jpeg)
 
+Users can enable or disable the notification.
+If the user enables notification will be allowed to set the time they wish to receive the daily notification.
+Upon pressing a saving button, all the changes made will be saved.
 
+![WhatsApp Image 2022-08-01 at 3 52 19 PM](https://user-images.githubusercontent.com/78270716/182102145-36ed270c-4e79-42fe-aa71-c2d7cba60490.jpeg)
 
+The user will be receiving a notification around the time they set, and the notification will have stated the number of tasks and events of the day and a View Details Button.
 
+![WhatsApp Image 2022-08-01 at 3 52 34 PM](https://user-images.githubusercontent.com/78270716/182102379-dc6dd01c-7fdc-44b4-a934-5e0178c3e689.jpeg)
 
-
-
+Upon clicking the View Details Button in the notification, the user will be directed to this new activity. 
+In this new activity, the user will be able to see all the tasks or events upon switching the category button on top.
+By pressing the Don't Slack button, user will be directed to the Don't Slack app home page.
 
 
