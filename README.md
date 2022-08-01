@@ -104,6 +104,16 @@ seniors and of course, to the procrastinators.
 
 **Gabriel** (The Coder)
 - Calendar Feature
+  - Add new event
+  - Select time for event
+- Brainstorm app feature ideas
+=====Part 2=====
+- Timer Feature
+  - Can adjust time set on timer
+  - Can start, pause and reset timer
+- Not covered topics that used to implement feature: 
+    - Focus mode
+      - Disables notification, back button and home button
 
 **Hwee Min** (Layout Designer)
 - Layout & Design
