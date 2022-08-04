@@ -132,6 +132,8 @@ seniors and of course, to the procrastinators.
 - About Us Layout
 - Changing Mainpage launcher & setting portrait mode
 - Linking the pages together
+- Part2 (Information Widget)
+    -Show the number of task left on the widget
 
 **Sumayyah** (Leader and Layout Designer)
 - Layout & Design 
