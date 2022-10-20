@@ -150,6 +150,9 @@ seniors and of course, to the procrastinators.
    - Edit Task 
 - Notes Layout
     - Edit Notes
+ (Part 2)
+ -Music Feature
+ -Button design update
 
 ## All relevant appendices
 
